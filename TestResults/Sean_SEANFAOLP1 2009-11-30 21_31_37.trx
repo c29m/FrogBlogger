@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0c47d00e-6e28-42d0-86e4-c0d24eb55c80" name="Sean@SEANFAOLP1 2009-11-30 21:31:37" runUser="seanfaolp1\Sean" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c523c918-6d7f-4253-bc64-aa12d4934e23">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Sean_SEANFAOLP1 2009-11-30 21_31_37">
+      <DeploymentItem filename="C:\Language\Web\FrogBlogger\FrogBlogger.Dal\bin\Debug\FrogBlogger.Dal.dll" />
+      <DeploymentItem filename="C:\Language\Web\FrogBlogger\FrogBlogger.Web\bin\FrogBlogger.Web.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2009-11-30T21:31:37.1093396-05:00" queuing="2009-11-30T21:31:39.1424559-05:00" start="2009-11-30T21:31:39.3974705-05:00" finish="2009-11-30T21:34:10.5271146-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="28" executed="14" passed="13" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="14" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SEANFAOLP1" outcome="Error" timestamp="2009-11-30T21:34:10.5231144-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="RegisterPostReturnsViewIfEmailNotSpecified" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="f10b962a-d76e-7420-e5b1-e4f36ed1c63c">
+      <Execution id="a697d148-36c6-4a18-8e06-50c75bf7825a" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostReturnsViewIfEmailNotSpecified" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordSuccess" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="3ae650f2-bbc4-86bc-5901-267f16488835">
+      <Execution id="d04260e5-979a-4731-9bad-751ef745b917" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordSuccess" />
+    </UnitTest>
+    <UnitTest name="LoginPostRedirectsToReturnUrlIfLoginSuccessfulAndReturnUrlGiven" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="530774fd-246e-f5a1-7006-11644a65f9da">
+      <Execution id="1a618c5e-5c75-487e-8513-f1d8c2302e22" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginPostRedirectsToReturnUrlIfLoginSuccessfulAndReturnUrlGiven" />
+    </UnitTest>
+    <UnitTest name="CreateTest" storage="c:\language\web\frogblogger\frogblogger.tests\bin\debug\frogblogger.tests.dll" id="6daa841a-f45a-d29e-30d4-032ec089cfda">
+      <Execution id="7ff9ce1a-4f35-4166-b435-251e50642dcb" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Tests/bin/Debug/FrogBlogger.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Tests.RepositoryTest, FrogBlogger.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateTest" />
+    </UnitTest>
+    <UnitTest name="RegisterPostReturnsViewIfPasswordIsNull" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="a327f85f-9010-010b-714e-1c85859c8d10">
+      <Execution id="3fe91756-561b-47c2-bcb9-edcc4c94a709" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostReturnsViewIfPasswordIsNull" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordPostReturnsViewIfNewPasswordIsTooShort" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="07781006-b0a9-3a6f-8504-9525f876084b">
+      <Execution id="c104a06f-b16c-4d06-9375-8f3a54c05c38" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordPostReturnsViewIfNewPasswordIsTooShort" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordPostReturnsViewIfProviderRejectsPassword" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="addf1109-fdcc-a26a-a59f-20d484056000">
+      <Execution id="975ed28b-ba7e-4c9e-b0e1-3625d70377a3" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordPostReturnsViewIfProviderRejectsPassword" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordPostRedirectsOnSuccess" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="3bd3cbb1-af11-f4d7-55c2-f9720d71df29">
+      <Execution id="6bbc615d-12b7-4c52-8ee6-ed7decab252d" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordPostRedirectsOnSuccess" />
+    </UnitTest>
+    <UnitTest name="LoginPostReturnsViewIfUsernameNotSpecified" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="64dc0e59-0a24-fcc8-8a3e-0e3dc0901dc5">
+      <Execution id="e5932622-ac15-4134-932e-de3ac1669cc7" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginPostReturnsViewIfUsernameNotSpecified" />
+    </UnitTest>
+    <UnitTest name="LoginPostReturnsViewIfUsernameOrPasswordIsIncorrect" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="2126fbff-b698-e4e5-da95-000f5a6c3b0a">
+      <Execution id="b9b93a0e-364d-4e46-9ac2-6b71f9f993bb" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginPostReturnsViewIfUsernameOrPasswordIsIncorrect" />
+    </UnitTest>
+    <UnitTest name="LoginPostRedirectsHomeIfLoginSuccessfulButNoReturnUrlGiven" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="66a93b30-13be-a5ce-1b16-a32f34b2e3a0">
+      <Execution id="e2b3e1ff-b4fe-404d-b4d8-e73c9d49f501" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginPostRedirectsHomeIfLoginSuccessfulButNoReturnUrlGiven" />
+    </UnitTest>
+    <UnitTest name="LoginPostReturnsViewIfPasswordNotSpecified" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="64da27e1-c4a9-ac41-325d-3e8e47a9505d">
+      <Execution id="82ac20b2-5b8b-4ab9-9ce6-2d76bda16629" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginPostReturnsViewIfPasswordNotSpecified" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordPostReturnsViewIfNewPasswordDoesNotMatchConfirmPassword" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="f8981536-bb73-b477-5f09-8a468de4b0d6">
+      <Execution id="9ec9d015-a0fa-4ead-8b1c-c393adc652b9" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordPostReturnsViewIfNewPasswordDoesNotMatchConfirmPassword" />
+    </UnitTest>
+    <UnitTest name="About" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="60607752-d99d-49f1-cd7c-f40eaf612519">
+      <Execution id="e4d5fe1f-2374-4cd5-ba0e-10b7fd8f5767" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.HomeControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+    <UnitTest name="RegisterGet" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="8705de75-aa27-3c0b-e7d7-7a031141d2af">
+      <Execution id="38cb4da3-a72c-4e7b-8fb2-3477b965d95c" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterGet" />
+    </UnitTest>
+    <UnitTest name="RegisterPostReturnsViewIfRegistrationFails" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="27b0a65f-9909-5003-537e-59445e3de9ce">
+      <Execution id="5083b9d0-2e1a-4e64-b3b0-29b3a4f817de" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostReturnsViewIfRegistrationFails" />
+    </UnitTest>
+    <UnitTest name="LogOff" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="378cf42e-2a25-8603-4868-3fb087928de3">
+      <Execution id="07c9a213-03ba-4671-a064-c43ecc530651" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LogOff" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordGetReturnsView" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="d157f167-62aa-b633-df12-b2be68680b24">
+      <Execution id="19c5691f-b668-4a5a-8e13-8f8105aceb22" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordGetReturnsView" />
+    </UnitTest>
+    <UnitTest name="RegisterPostReturnsViewIfNewPasswordDoesNotMatchConfirmPassword" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="989bf413-9b64-b295-81a9-c1f4dad6c6af">
+      <Execution id="4e32c9be-bc48-455d-b8dd-4c7b39e312e5" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostReturnsViewIfNewPasswordDoesNotMatchConfirmPassword" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordPostReturnsViewIfCurrentPasswordNotSpecified" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="d0e0adc6-69cf-7f5c-5748-4ae4a0bd7984">
+      <Execution id="5ebe3e0e-27b5-48b5-a441-bc394d4f97ef" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordPostReturnsViewIfCurrentPasswordNotSpecified" />
+    </UnitTest>
+    <UnitTest name="RegisterPostReturnsViewIfPasswordIsTooShort" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="e600770e-0f32-ded8-fd02-cdb7f624cf43">
+      <Execution id="11e40b78-9803-47c7-87e6-2bfdfe5d2e42" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostReturnsViewIfPasswordIsTooShort" />
+    </UnitTest>
+    <UnitTest name="ConstructorSetsPropertiesToDefaultValues" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="40d8ce23-5753-83eb-d60b-e631cdf73f6a">
+      <Execution id="3e4b2420-47bf-4522-bd67-61237e4be7bb" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorSetsPropertiesToDefaultValues" />
+    </UnitTest>
+    <UnitTest name="RegisterPostRedirectsHomeIfRegistrationSuccessful" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="f65198d7-8f9f-a078-7c7d-7eb8d2e14808">
+      <Execution id="b044174d-8d05-4615-bcad-518d86c78690" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostRedirectsHomeIfRegistrationSuccessful" />
+    </UnitTest>
+    <UnitTest name="LoginGet" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="bbed69ad-ff3e-2200-3681-913906eebaa9">
+      <Execution id="81690edd-ee21-4be7-98cb-616c2daf2255" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginGet" />
+    </UnitTest>
+    <UnitTest name="RegisterPostReturnsViewIfUsernameNotSpecified" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="5b123ecc-4811-dfc8-3daf-c0513d33c411">
+      <Execution id="9de674e6-1eac-4848-a416-d0d2407f0199" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RegisterPostReturnsViewIfUsernameNotSpecified" />
+    </UnitTest>
+    <UnitTest name="Index" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="a24a1ed7-7b51-f4a2-5121-06809aa2c911">
+      <Execution id="321b5bec-0fbd-41f5-9018-6401b71360ab" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.HomeControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+    <UnitTest name="ConstructorSetsProperties" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="9af8153b-8063-399e-f0f9-0bf22449261d">
+      <Execution id="04378114-1f52-4419-8652-25f0bace03e2" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConstructorSetsProperties" />
+    </UnitTest>
+    <UnitTest name="ChangePasswordPostReturnsViewIfNewPasswordIsNull" storage="c:\language\web\frogblogger\frogblogger.web.tests\bin\debug\frogblogger.web.tests.dll" id="e69340f8-8ef8-b17b-ba8c-e12d897e1f29">
+      <Execution id="f55b104a-208d-4ba4-905e-41a64047c80c" />
+      <TestMethod codeBase="C:/Language/Web/FrogBlogger/FrogBlogger.Web.Tests/bin/Debug/FrogBlogger.Web.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FrogBlogger.Web.Tests.Controllers.AccountControllerTest, FrogBlogger.Web.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ChangePasswordPostReturnsViewIfNewPasswordIsNull" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="07781006-b0a9-3a6f-8504-9525f876084b" executionId="c104a06f-b16c-4d06-9375-8f3a54c05c38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2126fbff-b698-e4e5-da95-000f5a6c3b0a" executionId="b9b93a0e-364d-4e46-9ac2-6b71f9f993bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27b0a65f-9909-5003-537e-59445e3de9ce" executionId="5083b9d0-2e1a-4e64-b3b0-29b3a4f817de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="378cf42e-2a25-8603-4868-3fb087928de3" executionId="07c9a213-03ba-4671-a064-c43ecc530651" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3ae650f2-bbc4-86bc-5901-267f16488835" executionId="d04260e5-979a-4731-9bad-751ef745b917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3bd3cbb1-af11-f4d7-55c2-f9720d71df29" executionId="6bbc615d-12b7-4c52-8ee6-ed7decab252d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="40d8ce23-5753-83eb-d60b-e631cdf73f6a" executionId="3e4b2420-47bf-4522-bd67-61237e4be7bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="530774fd-246e-f5a1-7006-11644a65f9da" executionId="1a618c5e-5c75-487e-8513-f1d8c2302e22" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5b123ecc-4811-dfc8-3daf-c0513d33c411" executionId="9de674e6-1eac-4848-a416-d0d2407f0199" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60607752-d99d-49f1-cd7c-f40eaf612519" executionId="e4d5fe1f-2374-4cd5-ba0e-10b7fd8f5767" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64da27e1-c4a9-ac41-325d-3e8e47a9505d" executionId="82ac20b2-5b8b-4ab9-9ce6-2d76bda16629" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64dc0e59-0a24-fcc8-8a3e-0e3dc0901dc5" executionId="e5932622-ac15-4134-932e-de3ac1669cc7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66a93b30-13be-a5ce-1b16-a32f34b2e3a0" executionId="e2b3e1ff-b4fe-404d-b4d8-e73c9d49f501" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6daa841a-f45a-d29e-30d4-032ec089cfda" executionId="7ff9ce1a-4f35-4166-b435-251e50642dcb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8705de75-aa27-3c0b-e7d7-7a031141d2af" executionId="38cb4da3-a72c-4e7b-8fb2-3477b965d95c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="989bf413-9b64-b295-81a9-c1f4dad6c6af" executionId="4e32c9be-bc48-455d-b8dd-4c7b39e312e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9af8153b-8063-399e-f0f9-0bf22449261d" executionId="04378114-1f52-4419-8652-25f0bace03e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a24a1ed7-7b51-f4a2-5121-06809aa2c911" executionId="321b5bec-0fbd-41f5-9018-6401b71360ab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a327f85f-9010-010b-714e-1c85859c8d10" executionId="3fe91756-561b-47c2-bcb9-edcc4c94a709" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="addf1109-fdcc-a26a-a59f-20d484056000" executionId="975ed28b-ba7e-4c9e-b0e1-3625d70377a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bbed69ad-ff3e-2200-3681-913906eebaa9" executionId="81690edd-ee21-4be7-98cb-616c2daf2255" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0e0adc6-69cf-7f5c-5748-4ae4a0bd7984" executionId="5ebe3e0e-27b5-48b5-a441-bc394d4f97ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d157f167-62aa-b633-df12-b2be68680b24" executionId="19c5691f-b668-4a5a-8e13-8f8105aceb22" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e600770e-0f32-ded8-fd02-cdb7f624cf43" executionId="11e40b78-9803-47c7-87e6-2bfdfe5d2e42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e69340f8-8ef8-b17b-ba8c-e12d897e1f29" executionId="f55b104a-208d-4ba4-905e-41a64047c80c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f10b962a-d76e-7420-e5b1-e4f36ed1c63c" executionId="a697d148-36c6-4a18-8e06-50c75bf7825a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f65198d7-8f9f-a078-7c7d-7eb8d2e14808" executionId="b044174d-8d05-4615-bcad-518d86c78690" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8981536-bb73-b477-5f09-8a468de4b0d6" executionId="9ec9d015-a0fa-4ead-8b1c-c393adc652b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="c104a06f-b16c-4d06-9375-8f3a54c05c38" testId="07781006-b0a9-3a6f-8504-9525f876084b" testName="ChangePasswordPostReturnsViewIfNewPasswordIsTooShort" computerName="SEANFAOLP1" duration="00:00:00.0988464" startTime="2009-11-30T21:31:39.5364785-05:00" endTime="2009-11-30T21:31:42.8916704-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c104a06f-b16c-4d06-9375-8f3a54c05c38">
+    </UnitTestResult>
+    <UnitTestResult executionId="b9b93a0e-364d-4e46-9ac2-6b71f9f993bb" testId="2126fbff-b698-e4e5-da95-000f5a6c3b0a" testName="LoginPostReturnsViewIfUsernameOrPasswordIsIncorrect" computerName="SEANFAOLP1" duration="00:00:00.0019318" startTime="2009-11-30T21:31:42.9176719-05:00" endTime="2009-11-30T21:31:42.9286725-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9b93a0e-364d-4e46-9ac2-6b71f9f993bb">
+    </UnitTestResult>
+    <UnitTestResult executionId="5083b9d0-2e1a-4e64-b3b0-29b3a4f817de" testId="27b0a65f-9909-5003-537e-59445e3de9ce" testName="RegisterPostReturnsViewIfRegistrationFails" computerName="SEANFAOLP1" duration="00:00:00.0028939" startTime="2009-11-30T21:31:42.9466735-05:00" endTime="2009-11-30T21:31:42.9586742-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5083b9d0-2e1a-4e64-b3b0-29b3a4f817de">
+    </UnitTestResult>
+    <UnitTestResult executionId="07c9a213-03ba-4671-a064-c43ecc530651" testId="378cf42e-2a25-8603-4868-3fb087928de3" testName="LogOff" computerName="SEANFAOLP1" duration="00:00:00.0041988" startTime="2009-11-30T21:31:42.9766752-05:00" endTime="2009-11-30T21:31:43.0026767-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="07c9a213-03ba-4671-a064-c43ecc530651">
+    </UnitTestResult>
+    <UnitTestResult executionId="d04260e5-979a-4731-9bad-751ef745b917" testId="3ae650f2-bbc4-86bc-5901-267f16488835" testName="ChangePasswordSuccess" computerName="SEANFAOLP1" duration="00:00:00.0005547" startTime="2009-11-30T21:31:43.0176776-05:00" endTime="2009-11-30T21:31:43.0296783-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d04260e5-979a-4731-9bad-751ef745b917">
+    </UnitTestResult>
+    <UnitTestResult executionId="6bbc615d-12b7-4c52-8ee6-ed7decab252d" testId="3bd3cbb1-af11-f4d7-55c2-f9720d71df29" testName="ChangePasswordPostRedirectsOnSuccess" computerName="SEANFAOLP1" duration="00:00:00.0031266" startTime="2009-11-30T21:31:43.0516795-05:00" endTime="2009-11-30T21:31:43.0636802-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6bbc615d-12b7-4c52-8ee6-ed7decab252d">
+    </UnitTestResult>
+    <UnitTestResult executionId="3e4b2420-47bf-4522-bd67-61237e4be7bb" testId="40d8ce23-5753-83eb-d60b-e631cdf73f6a" testName="ConstructorSetsPropertiesToDefaultValues" computerName="SEANFAOLP1" duration="00:00:00.0460097" startTime="2009-11-30T21:31:43.0796811-05:00" endTime="2009-11-30T21:31:43.1336842-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e4b2420-47bf-4522-bd67-61237e4be7bb">
+    </UnitTestResult>
+    <UnitTestResult executionId="1a618c5e-5c75-487e-8513-f1d8c2302e22" testId="530774fd-246e-f5a1-7006-11644a65f9da" testName="LoginPostRedirectsToReturnUrlIfLoginSuccessfulAndReturnUrlGiven" computerName="SEANFAOLP1" duration="00:00:00.0022042" startTime="2009-11-30T21:31:43.1496851-05:00" endTime="2009-11-30T21:31:43.1606858-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1a618c5e-5c75-487e-8513-f1d8c2302e22">
+    </UnitTestResult>
+    <UnitTestResult executionId="9de674e6-1eac-4848-a416-d0d2407f0199" testId="5b123ecc-4811-dfc8-3daf-c0513d33c411" testName="RegisterPostReturnsViewIfUsernameNotSpecified" computerName="SEANFAOLP1" duration="00:00:00.0006358" startTime="2009-11-30T21:31:43.1766867-05:00" endTime="2009-11-30T21:31:43.1866872-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9de674e6-1eac-4848-a416-d0d2407f0199">
+    </UnitTestResult>
+    <UnitTestResult executionId="e4d5fe1f-2374-4cd5-ba0e-10b7fd8f5767" testId="60607752-d99d-49f1-cd7c-f40eaf612519" testName="About" computerName="SEANFAOLP1" duration="00:00:00.0013558" startTime="2009-11-30T21:31:43.2006881-05:00" endTime="2009-11-30T21:31:43.2106886-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e4d5fe1f-2374-4cd5-ba0e-10b7fd8f5767">
+    </UnitTestResult>
+    <UnitTestResult executionId="82ac20b2-5b8b-4ab9-9ce6-2d76bda16629" testId="64da27e1-c4a9-ac41-325d-3e8e47a9505d" testName="LoginPostReturnsViewIfPasswordNotSpecified" computerName="SEANFAOLP1" duration="00:00:00.0006033" startTime="2009-11-30T21:31:43.2276896-05:00" endTime="2009-11-30T21:31:43.2396903-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="82ac20b2-5b8b-4ab9-9ce6-2d76bda16629">
+    </UnitTestResult>
+    <UnitTestResult executionId="e5932622-ac15-4134-932e-de3ac1669cc7" testId="64dc0e59-0a24-fcc8-8a3e-0e3dc0901dc5" testName="LoginPostReturnsViewIfUsernameNotSpecified" computerName="SEANFAOLP1" duration="00:00:00.0005429" startTime="2009-11-30T21:31:43.2726922-05:00" endTime="2009-11-30T21:31:43.2816927-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e5932622-ac15-4134-932e-de3ac1669cc7">
+    </UnitTestResult>
+    <UnitTestResult executionId="e2b3e1ff-b4fe-404d-b4d8-e73c9d49f501" testId="66a93b30-13be-a5ce-1b16-a32f34b2e3a0" testName="LoginPostRedirectsHomeIfLoginSuccessfulButNoReturnUrlGiven" computerName="SEANFAOLP1" duration="00:00:00.0004991" startTime="2009-11-30T21:31:43.2976936-05:00" endTime="2009-11-30T21:31:43.3066941-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e2b3e1ff-b4fe-404d-b4d8-e73c9d49f501">
+    </UnitTestResult>
+    <UnitTestResult executionId="7ff9ce1a-4f35-4166-b435-251e50642dcb" testId="6daa841a-f45a-d29e-30d4-032ec089cfda" testName="CreateTest" computerName="SEANFAOLP1" duration="00:02:27.2044196" startTime="2009-11-30T21:31:43.3206949-05:00" endTime="2009-11-30T21:34:10.5251145-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7ff9ce1a-4f35-4166-b435-251e50642dcb">
+    </UnitTestResult>
+    <UnitTestResult executionId="38cb4da3-a72c-4e7b-8fb2-3477b965d95c" testId="8705de75-aa27-3c0b-e7d7-7a031141d2af" testName="RegisterGet" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38cb4da3-a72c-4e7b-8fb2-3477b965d95c">
+    </UnitTestResult>
+    <UnitTestResult executionId="4e32c9be-bc48-455d-b8dd-4c7b39e312e5" testId="989bf413-9b64-b295-81a9-c1f4dad6c6af" testName="RegisterPostReturnsViewIfNewPasswordDoesNotMatchConfirmPassword" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e32c9be-bc48-455d-b8dd-4c7b39e312e5">
+    </UnitTestResult>
+    <UnitTestResult executionId="04378114-1f52-4419-8652-25f0bace03e2" testId="9af8153b-8063-399e-f0f9-0bf22449261d" testName="ConstructorSetsProperties" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="04378114-1f52-4419-8652-25f0bace03e2">
+    </UnitTestResult>
+    <UnitTestResult executionId="321b5bec-0fbd-41f5-9018-6401b71360ab" testId="a24a1ed7-7b51-f4a2-5121-06809aa2c911" testName="Index" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="321b5bec-0fbd-41f5-9018-6401b71360ab">
+    </UnitTestResult>
+    <UnitTestResult executionId="3fe91756-561b-47c2-bcb9-edcc4c94a709" testId="a327f85f-9010-010b-714e-1c85859c8d10" testName="RegisterPostReturnsViewIfPasswordIsNull" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fe91756-561b-47c2-bcb9-edcc4c94a709">
+    </UnitTestResult>
+    <UnitTestResult executionId="975ed28b-ba7e-4c9e-b0e1-3625d70377a3" testId="addf1109-fdcc-a26a-a59f-20d484056000" testName="ChangePasswordPostReturnsViewIfProviderRejectsPassword" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="975ed28b-ba7e-4c9e-b0e1-3625d70377a3">
+    </UnitTestResult>
+    <UnitTestResult executionId="81690edd-ee21-4be7-98cb-616c2daf2255" testId="bbed69ad-ff3e-2200-3681-913906eebaa9" testName="LoginGet" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="81690edd-ee21-4be7-98cb-616c2daf2255">
+    </UnitTestResult>
+    <UnitTestResult executionId="5ebe3e0e-27b5-48b5-a441-bc394d4f97ef" testId="d0e0adc6-69cf-7f5c-5748-4ae4a0bd7984" testName="ChangePasswordPostReturnsViewIfCurrentPasswordNotSpecified" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ebe3e0e-27b5-48b5-a441-bc394d4f97ef">
+    </UnitTestResult>
+    <UnitTestResult executionId="19c5691f-b668-4a5a-8e13-8f8105aceb22" testId="d157f167-62aa-b633-df12-b2be68680b24" testName="ChangePasswordGetReturnsView" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="19c5691f-b668-4a5a-8e13-8f8105aceb22">
+    </UnitTestResult>
+    <UnitTestResult executionId="11e40b78-9803-47c7-87e6-2bfdfe5d2e42" testId="e600770e-0f32-ded8-fd02-cdb7f624cf43" testName="RegisterPostReturnsViewIfPasswordIsTooShort" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11e40b78-9803-47c7-87e6-2bfdfe5d2e42">
+    </UnitTestResult>
+    <UnitTestResult executionId="f55b104a-208d-4ba4-905e-41a64047c80c" testId="e69340f8-8ef8-b17b-ba8c-e12d897e1f29" testName="ChangePasswordPostReturnsViewIfNewPasswordIsNull" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f55b104a-208d-4ba4-905e-41a64047c80c">
+    </UnitTestResult>
+    <UnitTestResult executionId="a697d148-36c6-4a18-8e06-50c75bf7825a" testId="f10b962a-d76e-7420-e5b1-e4f36ed1c63c" testName="RegisterPostReturnsViewIfEmailNotSpecified" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a697d148-36c6-4a18-8e06-50c75bf7825a">
+    </UnitTestResult>
+    <UnitTestResult executionId="b044174d-8d05-4615-bcad-518d86c78690" testId="f65198d7-8f9f-a078-7c7d-7eb8d2e14808" testName="RegisterPostRedirectsHomeIfRegistrationSuccessful" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b044174d-8d05-4615-bcad-518d86c78690">
+    </UnitTestResult>
+    <UnitTestResult executionId="9ec9d015-a0fa-4ead-8b1c-c393adc652b9" testId="f8981536-bb73-b477-5f09-8a468de4b0d6" testName="ChangePasswordPostReturnsViewIfNewPasswordDoesNotMatchConfirmPassword" computerName="SEANFAOLP1" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9ec9d015-a0fa-4ead-8b1c-c393adc652b9">
+    </UnitTestResult>
+  </Results>
+</TestRun>
