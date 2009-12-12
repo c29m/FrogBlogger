@@ -8,3 +8,4 @@ build/
 _ReSharper.*/
 *.user
 [Tt]est[Rr]esults/
+*.testsettings
