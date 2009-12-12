@@ -5,8 +5,9 @@
 </asp:Content>
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>About</h2>
+    <h2>FrogBlogger</h2>
+    <img src="/Content/Images/LogoLarge.png" alt="Logo" />
     <p>
-        Put content here.
+        FrogBlogger is a blogging engine built on top of ASP.NET MVC 2 in Visual Studio 2010.
     </p>
 </asp:Content>
