@@ -155,7 +155,9 @@ a img {
 	font-weight: bold;
 }
 
-.post .byline {
+.post .author 
+{
+    font-size: .75em;
 	margin: 0px;
 }
 

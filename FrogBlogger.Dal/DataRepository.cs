@@ -17,7 +17,7 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// Stores the default object context
         /// </summary>
-        private FrogBloggerContainer _context;
+        private ObjectContext _context;
 
         /// <summary>
         /// Stores the default object set
@@ -32,12 +32,23 @@ namespace FrogBlogger.Dal
         /// Initializes a new instance of the DataRepository class
         /// </summary>
         public DataRepository()
+            : this(DatabaseUtility.GetContext())
         {
-            _context = DatabaseUtility.GetContext();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the DataRepository class
+        /// </summary>
+        /// <param name="context">The Entity Framework ObjectContext</param>
+        public DataRepository(ObjectContext context)
+        {
+            _context = context;
             _objectSet = _context.CreateObjectSet<T>();
         }
 
         #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Attaches the entity to a context
@@ -135,5 +146,7 @@ namespace FrogBlogger.Dal
         {
             _context.SaveChanges(options);
         }
+
+        #endregion
     }
 }

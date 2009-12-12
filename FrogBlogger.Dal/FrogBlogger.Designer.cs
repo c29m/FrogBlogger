@@ -27,10 +27,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_PersonalizationPerUser), true)]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pe__UserI__693CA210", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_PersonalizationPerUser), true)]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Profile), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users))]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "FK_BlogPost_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Users), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "FK_BlogPost_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.Blog), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
+[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_Referral_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.Blog), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
+[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_Referral_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "FK_UserComment_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.BlogPost), "UserComment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.UserComment), true)]
+[assembly: EdmRelationshipAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users))]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "BlogPostKeyword", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Keyword))]
 [assembly: EdmRelationshipAttribute("FrogBlogger", "BlogUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Blog))]
 
@@ -295,6 +297,22 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Referral> Referrals
+        {
+            get
+            {
+                if ((_Referrals == null))
+                {
+                    _Referrals = base.CreateObjectSet<Referral>("Referrals");
+                }
+                return _Referrals;
+            }
+        }
+        private ObjectSet<Referral> _Referrals;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<sysdiagram> sysdiagrams
         {
             get
@@ -429,6 +447,14 @@ namespace FrogBlogger.Dal
         public void AddToKeywords(Keyword keyword)
         {
             base.AddObject("Keywords", keyword);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Referrals EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToReferrals(Referral referral)
+        {
+            base.AddObject("Referrals", referral);
         }
     
         /// <summary>
@@ -2816,28 +2842,6 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Roles")]
-        public EntityCollection<aspnet_Roles> aspnet_Roles
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Roles");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Roles", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_BlogPost_aspnet_Users", "BlogPost")]
         public EntityCollection<BlogPost> BlogPosts
         {
@@ -2850,6 +2854,28 @@ namespace FrogBlogger.Dal
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBlogger.FK_BlogPost_aspnet_Users", "BlogPost", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Roles")]
+        public EntityCollection<aspnet_Roles> aspnet_Roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Roles", value);
                 }
             }
         }
@@ -3393,6 +3419,28 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_Blog", "Referral")]
+        public EntityCollection<Referral> Referrals
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("FrogBlogger.FK_Referral_Blog", "Referral");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("FrogBlogger.FK_Referral_Blog", "Referral", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "BlogUser", "aspnet_Users")]
         public EntityCollection<aspnet_Users> aspnet_Users
         {
@@ -3470,24 +3518,24 @@ namespace FrogBlogger.Dal
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Subject
+        public global::System.String Title
         {
             get
             {
-                return _Subject;
+                return _Title;
             }
             set
             {
-                OnSubjectChanging(value);
-                ReportPropertyChanging("Subject");
-                _Subject = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Subject");
-                OnSubjectChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Subject;
-        partial void OnSubjectChanging(global::System.String value);
-        partial void OnSubjectChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3518,24 +3566,24 @@ namespace FrogBlogger.Dal
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Posted
+        public Nullable<global::System.DateTime> PostedDate
         {
             get
             {
-                return _Posted;
+                return _PostedDate;
             }
             set
             {
-                OnPostedChanging(value);
-                ReportPropertyChanging("Posted");
-                _Posted = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Posted");
-                OnPostedChanged();
+                OnPostedDateChanging(value);
+                ReportPropertyChanging("PostedDate");
+                _PostedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostedDate");
+                OnPostedDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Posted;
-        partial void OnPostedChanging(Nullable<global::System.DateTime> value);
-        partial void OnPostedChanged();
+        private Nullable<global::System.DateTime> _PostedDate;
+        partial void OnPostedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnPostedDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3695,6 +3743,28 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_BlogPost", "Referral")]
+        public EntityCollection<Referral> Referrals
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("FrogBlogger.FK_Referral_BlogPost", "Referral");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("FrogBlogger.FK_Referral_BlogPost", "Referral", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_UserComment_BlogPost", "UserComment")]
         public EntityCollection<UserComment> UserComments
         {
@@ -3833,6 +3903,219 @@ namespace FrogBlogger.Dal
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBlogger.BlogPostKeyword", "BlogPost", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="Referral")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Referral : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Referral object.
+        /// </summary>
+        /// <param name="blogId">Initial value of the BlogId property.</param>
+        /// <param name="blogPostId">Initial value of the BlogPostId property.</param>
+        /// <param name="lastReferralDate">Initial value of the LastReferralDate property.</param>
+        public static Referral CreateReferral(global::System.Guid blogId, global::System.Guid blogPostId, global::System.DateTime lastReferralDate)
+        {
+            Referral referral = new Referral();
+            referral.BlogId = blogId;
+            referral.BlogPostId = blogPostId;
+            referral.LastReferralDate = lastReferralDate;
+            return referral;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid BlogId
+        {
+            get
+            {
+                return _BlogId;
+            }
+            set
+            {
+                if (_BlogId != value)
+                {
+                    OnBlogIdChanging(value);
+                    ReportPropertyChanging("BlogId");
+                    _BlogId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("BlogId");
+                    OnBlogIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _BlogId;
+        partial void OnBlogIdChanging(global::System.Guid value);
+        partial void OnBlogIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid BlogPostId
+        {
+            get
+            {
+                return _BlogPostId;
+            }
+            set
+            {
+                if (_BlogPostId != value)
+                {
+                    OnBlogPostIdChanging(value);
+                    ReportPropertyChanging("BlogPostId");
+                    _BlogPostId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("BlogPostId");
+                    OnBlogPostIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _BlogPostId;
+        partial void OnBlogPostIdChanging(global::System.Guid value);
+        partial void OnBlogPostIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Url
+        {
+            get
+            {
+                return _Url;
+            }
+            set
+            {
+                OnUrlChanging(value);
+                ReportPropertyChanging("Url");
+                _Url = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Url");
+                OnUrlChanged();
+            }
+        }
+        private global::System.String _Url;
+        partial void OnUrlChanging(global::System.String value);
+        partial void OnUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastReferralDate
+        {
+            get
+            {
+                return _LastReferralDate;
+            }
+            set
+            {
+                OnLastReferralDateChanging(value);
+                ReportPropertyChanging("LastReferralDate");
+                _LastReferralDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastReferralDate");
+                OnLastReferralDateChanged();
+            }
+        }
+        private global::System.DateTime _LastReferralDate;
+        partial void OnLastReferralDateChanging(global::System.DateTime value);
+        partial void OnLastReferralDateChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_Blog", "Blog")]
+        public Blog Blog
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Blog> BlogReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_BlogPost", "BlogPost")]
+        public BlogPost BlogPost
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BlogPost> BlogPostReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost", value);
                 }
             }
         }
