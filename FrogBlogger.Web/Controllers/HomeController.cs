@@ -21,6 +21,7 @@ namespace FrogBlogger.Web.Controllers
             {
                 model = new HomeViewModel(
                     (from m in repository.Fetch()
+                     orderby m.PostedDate descending
                      select m).Take(maxRecords).ToList());
             }
 
