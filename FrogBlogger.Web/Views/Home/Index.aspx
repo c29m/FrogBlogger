@@ -7,7 +7,7 @@
 <asp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="post">
         <h1 class="title"><%= Html.Encode(ViewData["Message"]) %></h1>
-        <p class="byline"><small>Posted by Sean Fao</small></p>
+        <p class="byline"><small>Posted by Sean Fao - 12/12/2009</small></p>
         <div class="entry">
             <p>
                 To learn more about FrogBlogger visit <a href="http://geekswithblogs.net/seanfao" title="Sean Fao blog">http://geekswithblogs.net/seanfao</a>.
@@ -19,7 +19,7 @@
     </div><!-- end post -->
     <div class="post">
         <h1 class="title">Test Post</h1>
-        <p class="byline"><small>Posted by Sean Fao</small></p>
+        <p class="byline"><small>Posted by Sean Fao - 12/12/2009</small></p>
         <div class="entry">
             <p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel,
             tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin
