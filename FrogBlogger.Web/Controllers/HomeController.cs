@@ -11,7 +11,7 @@ namespace FrogBlogger.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            ViewData["Message"] = "Welcome to FrogBlogger!";
 
             return View();
         }
