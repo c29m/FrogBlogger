@@ -24,6 +24,12 @@ namespace FrogBlogger.Web
             );
 
             routes.MapRoute(
+              "multipleblog_post",                                      // Route name
+              "{blog}/{year}/{month}/{day}/{id}",                       // URL with parameters
+              new { controller = "Posts", action = "Details" }          // Parameter defaults
+            );
+
+            routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
