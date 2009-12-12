@@ -40,28 +40,18 @@
     						</fieldset>
     					</form>
     				</li>
-    				<li>
-    					<h2>Lorem Ipsum</h2>
+                    <li>
+    					<h2>Latest Tags</h2>
     					<ul>
-    						<li><a href="#">Fusce dui neque fringilla</a></li>
-    						<li><a href="#">Eget tempor eget nonummy</a></li>
-    						<li><a href="#">Magna lacus bibendum mauris</a></li>
-    						<li><a href="#">Nec metus sed donec</a></li>
-    						<li><a href="#">Magna lacus bibendum mauris</a></li>
-    						<li><a href="#">Velit semper nisi molestie</a></li>
-    						<li><a href="#">Eget tempor eget nonummy</a></li>
+    						<li><a href="#">FrogBlogger</a></li>
+    						<li><a href="#">Test</a></li>
     					</ul>
     				</li>
     				<li>
-    					<h2>Volutpat Dolore</h2>
+    					<h2>Archive</h2>
     					<ul>
-    						<li><a href="#">Nec metus sed donec</a></li>
-    						<li><a href="#">Magna lacus bibendum mauris</a></li>
-    						<li><a href="#">Velit semper nisi molestie</a></li>
-    						<li><a href="#">Eget tempor eget nonummy</a></li>
-    						<li><a href="#">Nec metus sed donec</a></li>
-    						<li><a href="#">Magna lacus bibendum mauris</a></li>
-    						<li><a href="#">Velit semper nisi molestie</a></li>
+    						<li><a href="#">Welcome to FrogBlogger!</a></li>
+    						<li><a href="#">Test Post</a></li>
     					</ul>
     				</li>
     			</ul>
