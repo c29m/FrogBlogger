@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%= Html.Encode(Model.Post.Title) %></h2>
         <div class="post">
-            <%= Model.Post %>
+            <%= Model.Post.Post %>
         </div>
         <p>
             PostedDate:
