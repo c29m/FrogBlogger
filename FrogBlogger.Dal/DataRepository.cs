@@ -88,6 +88,36 @@ namespace FrogBlogger.Dal
         }
 
         /// <summary>
+        /// Finds a record with the specified criteria
+        /// </summary>
+        /// <param name="predicate">Criteria to match on</param>
+        /// <returns>A collection containing the results of the query</returns>
+        public IEnumerable<T> Find(Func<T, bool> predicate)
+        {
+            return _objectSet.Where<T>(predicate);
+        }
+
+        /// <summary>
+        /// Gets a single record by the specified criteria (usually the unique identifier)
+        /// </summary>
+        /// <param name="predicate">Criteria to match on</param>
+        /// <returns>A single record that matches the specified criteria</returns>
+        public T Single(Func<T, bool> predicate)
+        {
+            return _objectSet.Single<T>(predicate);
+        }
+
+        /// <summary>
+        /// The first record matching the specified criteria
+        /// </summary>
+        /// <param name="predicate">Criteria to match on</param>
+        /// <returns>A single record containing the first record matching the specified criteria</returns>
+        public T First(Func<T, bool> predicate)
+        {
+            return _objectSet.First<T>(predicate);
+        }
+
+        /// <summary>
         /// Deletes the supplied entity
         /// </summary>
         /// <param name="entity">Entitiy object to delete</param>

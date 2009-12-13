@@ -21,7 +21,7 @@
             <td>10</td>
             <td>10</td>
             <td><a href="#">Referrals</a></td>
-            <td><%= Html.ActionLink("View", "View", new { /* id=item.PrimaryKey */ })%></td>
+            <td><%= Html.ActionLink("View", "View", "Post", new { id = item.BlogPostId  }, null)%></td>
         </tr>
     <% } %>
     </table>
