@@ -12,6 +12,7 @@
             <th>&nbsp;</th>
             <th>&nbsp;</th>
             <th>&nbsp;</th>
+            <th>&nbsp;</th>
         </tr>
     <% foreach (var item in Model.BlogPosts) { %>
         <tr>
@@ -22,6 +23,7 @@
             <td>10</td>
             <td><a href="#">Referrals</a></td>
             <td><%= Html.ActionLink("View", "View", "Post", new { id = item.BlogPostId  }, null)%></td>
+            <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId  })%></td>
         </tr>
     <% } %>
     </table>
