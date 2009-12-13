@@ -61,5 +61,21 @@ namespace FrogBlogger.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        /// <summary>
+        /// Deletes the specified blog post
+        /// </summary>
+        /// <param name="id">Blog post to delete</param>
+        /// <returns>Redirects to the listing page</returns>
+        public ActionResult Delete(Guid id)
+        {
+            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            {
+                repository.Delete(x => x.BlogPostId == id);
+                repository.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
