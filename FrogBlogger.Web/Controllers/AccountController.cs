@@ -91,7 +91,6 @@ namespace FrogBlogger.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Register(string userName, string email, string password, string confirmPassword)
         {
-
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
 
             if (ValidateRegistration(userName, email, password, confirmPassword))
