@@ -17,7 +17,7 @@ namespace FrogBlogger.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            /*routes.MapRoute(
               "blog_post",                                              // Route name
               "{year}/{month}/{day}/{id}",                              // URL with parameters
               new { controller = "Posts", action = "Details"}           // Parameter defaults
@@ -27,7 +27,7 @@ namespace FrogBlogger.Web
               "multipleblog_post",                                      // Route name
               "{blog}/{year}/{month}/{day}/{id}",                       // URL with parameters
               new { controller = "Posts", action = "Details" }          // Parameter defaults
-            );
+            );*/
 
             routes.MapRoute(
                 "Default",                                              // Route name
