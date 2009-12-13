@@ -40,6 +40,11 @@ a img {
 	border: none;
 }
 
+th
+{
+    text-align: left;
+}
+
 /* Header */
 #header {
 	width: 900px;
