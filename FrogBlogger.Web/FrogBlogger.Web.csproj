@@ -86,6 +86,7 @@
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\BlogListBase.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\ViewPostViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
