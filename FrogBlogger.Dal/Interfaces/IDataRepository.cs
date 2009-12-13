@@ -38,6 +38,20 @@ namespace FrogBlogger.Dal.Interfaces
         IEnumerable<T> Fetch(Func<T, bool> predicate);
 
         /// <summary>
+        /// Gets a single record by the specified criteria (usually the unique identifier)
+        /// </summary>
+        /// <param name="predicate">Criteria to match on</param>
+        /// <returns>A single record that matches the specified criteria</returns>
+        T Single(Func<T, bool> predicate);
+
+        /// <summary>
+        /// The first record matching the specified criteria
+        /// </summary>
+        /// <param name="predicate">Criteria to match on</param>
+        /// <returns>A single record containing the first record matching the specified criteria</returns>
+        T First(Func<T, bool> predicate);
+
+        /// <summary>
         /// Deletes the supplied entity
         /// </summary>
         /// <param name="entity">Entitiy object to delete</param>

@@ -13,7 +13,7 @@
                 <%= post.Post %>
             </div><!-- end entry -->
             <div class="meta">
-				<p class="links"><a href="#" class="comments">Comments (10)</a> - <a href="#" class="more">Read full post &raquo;</a></p>
+				<p class="links"><a href="#" class="comments">Comments (10)</a> - <%= Html.ActionLink("Read full post", "View", "Post", new { id = post.BlogPostId }, null)%></p>
 		    </div><!-- end meta -->
         </div><!-- end post -->
     <% } %>
