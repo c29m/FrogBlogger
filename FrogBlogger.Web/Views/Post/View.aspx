@@ -28,4 +28,36 @@
                }
            } %>
     </div>
+    <div id="leaveComment">
+        <h2>Leave Comment</h2>
+        <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
+        <form action="/Post/Comment" method="post">
+            <p>
+                <label for="Subject">Subject:</label>
+                <%= Html.TextBox("Subject")%>
+                <%= Html.ValidationMessage("Subject", "*")%>
+            </p>
+            <p>
+                <label for="Author">Name:</label>
+                <%= Html.TextBox("Author")%>
+                <%= Html.ValidationMessage("Author", "*")%>
+            </p>
+            <p>
+                <label for="Url">Your URL:</label>
+                <%= Html.TextBox("Url")%>
+            </p>
+            <p>
+                <label for="EmailAddress">Email:</label>
+                <%= Html.TextBox("EmailAddress")%>
+                <%= Html.ValidationMessage("EmailAddress", "*")%>
+            </p>
+            <p>
+                <label for="Comment">Comment:</label>
+                <%= Html.TextArea("Comment") %>
+                <%= Html.ValidationMessage("Comment", "*")%>
+            </p>
+            <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId) %>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
 </asp:Content>
