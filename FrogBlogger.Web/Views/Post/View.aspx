@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/OneColumn.Master" Inherits="System.Web.Mvc.ViewPage<FrogBlogger.Web.Models.ViewPostViewModel>" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	View
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server"><%= Model.Post.Title %></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%= Html.Encode(Model.Post.Title) %></h2>
     <div class="post">
@@ -22,7 +20,8 @@
                foreach (FrogBlogger.Dal.UserComment comment in Model.Comments)
                { %>
                     <div class="comment">
-                        <p><strong><%= comment.Subject %></strong> - <%= comment.PostedDate %> by <%= comment.Author %></p>
+                        <p><strong><%= comment.Subject %></strong> - <%= comment.PostedDate %> by <%= comment.Author %>
+                        <%= Html.Gravatar(comment.EmailAddress, 25) %></p>
                         <p><%= comment.Comment %></p>
                     </div> <%
                }
