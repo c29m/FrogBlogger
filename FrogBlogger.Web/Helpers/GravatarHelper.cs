@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 
 // Thanks to Rick Strahl and Rob Conery for this
-namespace FrogBlogger.Web.Helpers
+namespace System.Web.Mvc
 {
     /// <summary>
     /// Contains helper methods for working with gravatar images
