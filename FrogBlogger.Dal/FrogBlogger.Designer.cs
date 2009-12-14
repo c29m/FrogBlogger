@@ -4334,6 +4334,30 @@ namespace FrogBlogger.Dal
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public global::System.String Author
+        {
+            get
+            {
+                return _Author;
+            }
+            set
+            {
+                OnAuthorChanging(value);
+                ReportPropertyChanging("Author");
+                _Author = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Author");
+                OnAuthorChanged();
+            }
+        }
+        private global::System.String _Author;
+        partial void OnAuthorChanging(global::System.String value);
+        partial void OnAuthorChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public global::System.String Subject
         {
             get
@@ -4406,24 +4430,24 @@ namespace FrogBlogger.Dal
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Posted
+        public Nullable<global::System.DateTime> PostedDate
         {
             get
             {
-                return _Posted;
+                return _PostedDate;
             }
             set
             {
-                OnPostedChanging(value);
-                ReportPropertyChanging("Posted");
-                _Posted = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Posted");
-                OnPostedChanged();
+                OnPostedDateChanging(value);
+                ReportPropertyChanging("PostedDate");
+                _PostedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostedDate");
+                OnPostedDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Posted;
-        partial void OnPostedChanging(Nullable<global::System.DateTime> value);
-        partial void OnPostedChanged();
+        private Nullable<global::System.DateTime> _PostedDate;
+        partial void OnPostedDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnPostedDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
