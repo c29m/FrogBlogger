@@ -32,5 +32,23 @@ namespace FrogBlogger.Web.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Leaves a comment on a blog post
+        /// </summary>
+        /// <param name="userComment">The user comment</param>
+        /// <returns>Redirects back to the blog post</returns>
+        public ActionResult Comment(UserComment userComment)
+        {
+            userComment.UserCommentId = Guid.NewGuid();
+            userComment.PostedDate = DateTime.Now;
+
+            using (IDataRepository<UserComment> repository = new DataRepository<UserComment>())
+            {
+                repository.Create(userComment);
+                repository.SaveChanges();
+            }
+
+            return RedirectToAction("View", new { id = userComment.BlogPostId });
+        }
     }
 }
