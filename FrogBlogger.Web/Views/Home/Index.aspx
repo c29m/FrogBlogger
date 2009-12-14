@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<FrogBlogger.Web.Models.HomeViewModel>" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">FrogBlogger</asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <% foreach (FrogBlogger.Dal.BlogPost post in Model.BlogPosts) { %>
         <div class="post">
