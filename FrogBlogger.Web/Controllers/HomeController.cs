@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using FrogBlogger.Web.Models;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
+using FrogBlogger.Web.Models;
 
 namespace FrogBlogger.Web.Controllers
 {
     [HandleError]
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Stores the unique identifer for the current blog
+        /// </summary>
+        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Justification = "I am using it. FxCop is acting crazy.")]
         private static Guid _blogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"); // TODO: Place this with the current BlogId
 
         public ActionResult Index()
@@ -20,7 +24,7 @@ namespace FrogBlogger.Web.Controllers
             int maxRecords = 10; // TODO: Replace the magic number 10 on this line with a user determined value
             HomeViewModel model;
             List<BlogPost> posts;
-            Dictionary<Guid, uint> blogPostCommentCount = new Dictionary<Guid,uint>();
+            Dictionary<Guid, int> blogPostCommentCount = new Dictionary<Guid, int>();
 
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
             {
@@ -37,10 +41,10 @@ namespace FrogBlogger.Web.Controllers
                 // Determine the comment count for each blog post
                 foreach (BlogPost post in posts)
                 {
-                    blogPostCommentCount.Add(post.BlogPostId, (uint)post.UserComments.Count);
+                    blogPostCommentCount.Add(post.BlogPostId, post.UserComments.Count);
                 }
 
-                model = new HomeViewModel(posts, blogPostCommentCount, (uint)count);
+                model = new HomeViewModel(posts, blogPostCommentCount, count);
             }
 
             return View(model);

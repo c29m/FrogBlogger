@@ -12,7 +12,7 @@ namespace FrogBlogger.Web.Models
         /// <summary>
         /// Gets a reference to a dictionary containing the number of comments for each blog post
         /// </summary>
-        public Dictionary<Guid, uint> BlogPostCommentCount
+        public Dictionary<Guid, int> BlogPostCommentCount
         {
             get;
             private set;
@@ -21,7 +21,7 @@ namespace FrogBlogger.Web.Models
         /// <summary>
         /// Gets the total blog post count for the current blog
         /// </summary>
-        public uint BlogPostCount
+        public int BlogPostCount
         {
             get;
             private set;
@@ -35,7 +35,7 @@ namespace FrogBlogger.Web.Models
         /// <param name="blogPosts">The blog posts to display on the home page</param>
         /// <param name="blogPostCommentCount">A dictionary containing the comment count for each blog post</param>
         /// <param name="blogPostCount">The total number of blog posts for the current blog</param>
-        public HomeViewModel(IList<BlogPost> blogPosts, Dictionary<Guid, uint> blogPostCommentCount, uint blogPostCount)
+        public HomeViewModel(IList<BlogPost> blogPosts, Dictionary<Guid, int> blogPostCommentCount, int blogPostCount)
             : base(blogPosts)
         {
             BlogPostCommentCount = blogPostCommentCount;

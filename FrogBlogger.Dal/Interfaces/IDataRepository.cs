@@ -42,7 +42,7 @@ namespace FrogBlogger.Dal.Interfaces
         /// </summary>
         /// <param name="predicate">Criteria to match on</param>
         /// <returns>A single record that matches the specified criteria</returns>
-        T Single(Func<T, bool> predicate);
+        T GetSingle(Func<T, bool> predicate);
 
         /// <summary>
         /// The first record matching the specified criteria

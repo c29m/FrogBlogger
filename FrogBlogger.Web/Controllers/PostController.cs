@@ -22,7 +22,7 @@ namespace FrogBlogger.Web.Controllers
 
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
             {
-                post = repository.Single(x => x.BlogPostId == id);
+                post = repository.GetSingle(x => x.BlogPostId == id);
                 comments = post.UserComments.ToList();
                 model = new ViewPostViewModel(post, comments);
             }
