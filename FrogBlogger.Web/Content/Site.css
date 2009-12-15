@@ -47,6 +47,11 @@ th
     text-align: left;
 }
 
+#leaveComment textarea
+{
+    width: 500px;
+}
+
 /* Header */
 #header {
 	width: 900px;
