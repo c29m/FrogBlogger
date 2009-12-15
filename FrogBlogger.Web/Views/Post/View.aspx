@@ -28,7 +28,7 @@
            } %>
     </div>
     <div id="leaveComment">
-        <h3>Leave Comment</h3>
+        <h3>Leave Comment</h2>
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
         <form action="/Post/Comment" method="post">
             <p>
