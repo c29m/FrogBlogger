@@ -6,7 +6,9 @@
 	color: #212121;
 }
 
-h1, h2, h3 {
+h1, h2, h3 
+{
+    color: #175500;
 	margin-top: 0px;
 }
 
@@ -172,6 +174,16 @@ th
 {
     font-size: .75em;
 	margin: 0px;
+}
+
+/* Comments */
+#comments
+{
+}
+
+.comment
+{
+    background-color: #eee;
 }
 
 /* Sidebar */
