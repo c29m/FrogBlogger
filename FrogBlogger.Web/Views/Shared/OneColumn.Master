@@ -22,8 +22,6 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div><!-- end #content -->
     </div><!-- end #page -->
-    <div id="footer">
-        <p>FrogBlogger Copyright &copy; Sean Fao 2009</p>
-    </div>
+    <% Html.RenderPartial("FooterUserControl"); %>
 </body>
 </html>

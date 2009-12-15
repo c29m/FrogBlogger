@@ -52,8 +52,6 @@
     		<div id="sidebar-bgbtm"></div>
     	</div><!-- end #sidebar -->
     </div><!-- end #page -->
-    <div id="footer">
-        <p>FrogBlogger Copyright &copy; Sean Fao 2009</p>
-    </div>
+    <% Html.RenderPartial("FooterUserControl"); %>
 </body>
 </html>
