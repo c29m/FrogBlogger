@@ -137,6 +137,12 @@ th
 	width: 570px;
 }
 
+#contentWide
+{
+    float: left;
+    width: 870px;
+}
+
 .post 
 {
 	margin: 0px 0px 30px 0px;

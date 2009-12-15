@@ -9,9 +9,8 @@
                 <%= post.Post %>
             </div><!-- end entry -->
             <div class="meta">
-				<p class="links"><a href="#" class="comments">Comments (<%= Model.BlogPostCommentCount[post.BlogPostId] %>)</a> - <%= Html.ActionLink("Read full post", "View", "Post", new { id = post.BlogPostId }, null)%></p>
+				<p class="links"><a href="#" class="comments"><%= Html.ActionLink("Comments", "View", "Post", new { id = post.BlogPostId }, null) %> (<%= Model.BlogPostCommentCount[post.BlogPostId] %>)</a> - <%= Html.ActionLink("Read full post", "View", "Post", new { id = post.BlogPostId }, null)%></p>
 		    </div><!-- end meta -->
         </div><!-- end post -->
     <% } %>
 </asp:Content>
-
