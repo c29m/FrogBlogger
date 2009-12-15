@@ -18,7 +18,7 @@
         <% Html.RenderPartial("MenuUserControl"); %>
     </div><!-- end #header -->
     <div id="page">
-        <div id="content">
+        <div id="contentWide">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div><!-- end #content -->
     </div><!-- end #page -->

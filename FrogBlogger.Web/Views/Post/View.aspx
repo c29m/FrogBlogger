@@ -12,11 +12,11 @@
     <div id="comments">
         <% if (Model.Comments.Count < 1)
            { %>
-            No comments
+            <a href="#comments">No comments</a>
         <% }
            else
            {
-               %> <h1>Comments</h1> <%
+               %> <a href="#comments"><h1>Comments</h1></a> <%
                foreach (FrogBlogger.Dal.UserComment comment in Model.Comments)
                { %>
                     <div class="comment">
