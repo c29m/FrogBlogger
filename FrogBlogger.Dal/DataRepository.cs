@@ -102,7 +102,7 @@ namespace FrogBlogger.Dal
         /// </summary>
         /// <param name="predicate">Criteria to match on</param>
         /// <returns>A single record that matches the specified criteria</returns>
-        public T Single(Func<T, bool> predicate)
+        public T GetSingle(Func<T, bool> predicate)
         {
             return _objectSet.Single<T>(predicate);
         }
@@ -146,6 +146,7 @@ namespace FrogBlogger.Dal
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>

@@ -1,5 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Web.Mvc;
+using System.Globalization;
+using System.Diagnostics.CodeAnalysis;
 
 // Thanks to Rick Strahl and Rob Conery for this
 namespace System.Web.Mvc
@@ -16,6 +18,7 @@ namespace System.Web.Mvc
         /// <param name="email">Email address for which to revrieve gravatar for</param>
         /// <param name="size">Image size</param>
         /// <returns>An img tag with a gravatar image as its source</returns>
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "helper", Justification = "This is an extension method.")]
         public static string Gravatar(this HtmlHelper helper, string email, int size)
         {
             var result = "<img src=\"{0}\" alt=\"Gravatar\" class=\"gravatar\" />";
@@ -36,32 +39,20 @@ namespace System.Web.Mvc
         }
 
         /// <summary>
-        /// Gets the URL to the requested gravatar, plus the URL to the default image path
-        /// </summary>
-        /// <param name="email">Email address for which to retrieve the gravatar image for</param>
-        /// <param name="size">Image size</param>
-        /// <param name="defaultImagePath">The default image</param>
-        /// <returns>the URL to the requested gravatar, plus the URL to the default image path</returns>
-        private static string GetGravatarUrl(string email, int size, string defaultImagePath)
-        {
-            return GetGravatarUrl(email, size) + string.Format("&default={0}", defaultImagePath);
-        }
-
-        /// <summary>
         /// MD5 encrypts the supplied value
         /// </summary>
         /// <param name="value">Value for which to encrypt</param>
         /// <returns>An MD5 encrypted string</returns>
         private static string EncryptMD5(string value)
         {
-            var md5 = new MD5CryptoServiceProvider();
-            var valueArray = System.Text.Encoding.ASCII.GetBytes(value);
-            var encrypted = "";
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            byte[] valueArray = System.Text.Encoding.ASCII.GetBytes(value);
+            string encrypted = "";
 
             valueArray = md5.ComputeHash(valueArray);
 
-            for (var i = 0; i < valueArray.Length; i++)
-                encrypted += valueArray[i].ToString("x2").ToLower();
+            for (int i = 0; i < valueArray.Length; i++)
+                encrypted += valueArray[i].ToString("x2", CultureInfo.InvariantCulture).ToLower(CultureInfo.CurrentCulture);
 
             return encrypted;
         }
