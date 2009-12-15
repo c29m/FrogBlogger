@@ -47,11 +47,6 @@ th
     text-align: left;
 }
 
-#leaveComment textarea
-{
-    width: 500px;
-}
-
 /* Header */
 #header {
 	width: 900px;
@@ -181,16 +176,6 @@ th
 	margin: 0px;
 }
 
-/* Comments */
-#comments
-{
-}
-
-.comment
-{
-    background-color: #eee;
-}
-
 /* Sidebar */
 #sidebar {
 	float: right;
@@ -238,7 +223,6 @@ th
 }
 
 /* Search */
-
 #search {
 }
 
@@ -257,8 +241,29 @@ th
 	width: 160px;
 }
 
-/* Footer */
+/* Comments */
+#comments
+{
+}
 
+.comment
+{
+    background-color: #eee;
+}
+
+#leaveComment textarea
+{
+    width: 500px;
+}
+
+/* Blog Stats */
+#blogStats
+{
+    float: right;
+    margin-bottom: 10px;
+}
+
+/* Footer */
 #footer {
 	clear: both;
 	width: 900px;
