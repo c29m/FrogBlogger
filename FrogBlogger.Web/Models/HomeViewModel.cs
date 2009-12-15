@@ -18,6 +18,15 @@ namespace FrogBlogger.Web.Models
             private set;
         }
 
+        /// <summary>
+        /// Gets the total blog post count for the current blog
+        /// </summary>
+        public uint BlogPostCount
+        {
+            get;
+            private set;
+        }
+
         #region Constructors
 
         /// <summary>
@@ -25,10 +34,12 @@ namespace FrogBlogger.Web.Models
         /// </summary>
         /// <param name="blogPosts">The blog posts to display on the home page</param>
         /// <param name="blogPostCommentCount">A dictionary containing the comment count for each blog post</param>
-        public HomeViewModel(IList<BlogPost> blogPosts, Dictionary<Guid, uint> blogPostCommentCount)
+        /// <param name="blogPostCount">The total number of blog posts for the current blog</param>
+        public HomeViewModel(IList<BlogPost> blogPosts, Dictionary<Guid, uint> blogPostCommentCount, uint blogPostCount)
             : base(blogPosts)
         {
             BlogPostCommentCount = blogPostCommentCount;
+            BlogPostCount = blogPostCount;
         }
 
         #endregion
