@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/OneColumn.Master" Inherits="System.Web.Mvc.ViewPage<FrogBlogger.Web.Models.AdminViewModel>" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Administer Blog Posts</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ScriptContent" runat="server"></asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ScriptContent" runat="server">
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete?");  
+        }
+    </script>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Index</h2>
     <table>
@@ -24,7 +30,7 @@
             <td>10</td>
             <td><a href="#">Referrals</a></td>
             <td><%= Html.ActionLink("View", "View", "Post", new { id = item.BlogPostId  }, null)%></td>
-            <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId  })%></td>
+            <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId }, new { onclick = "return confirmDelete()" })%></td>
         </tr>
     <% } %>
     </table>

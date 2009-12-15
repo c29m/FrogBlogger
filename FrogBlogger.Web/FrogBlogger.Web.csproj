@@ -346,6 +346,7 @@
     <Content Include="Views\Blog\Index.aspx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Post\View.aspx" />
+    <Content Include="Views\Shared\FooterUserControl.ascx" />
     <Content Include="Views\Shared\MenuUserControl.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
