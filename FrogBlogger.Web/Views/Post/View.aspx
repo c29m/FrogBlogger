@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/OneColumn.Master" Inherits="System.Web.Mvc.ViewPage<FrogBlogger.Web.Models.ViewPostViewModel>" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server"><%= Model.Post.Title %></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%= Html.Encode(Model.Post.Title) %></h2>
+    <div class="title"><%= Html.Encode(Model.Post.Title) %></div>
     <div class="post">
         <%= Model.Post.Post %>
     </div>
@@ -16,7 +16,7 @@
         <% }
            else
            {
-               %> <a href="#comments"><h1>Comments</h1></a> <%
+               %> <a href="#comments"><h3>Comments</h3></a> <%
                foreach (FrogBlogger.Dal.UserComment comment in Model.Comments)
                { %>
                     <div class="comment">
@@ -28,7 +28,7 @@
            } %>
     </div>
     <div id="leaveComment">
-        <h2>Leave Comment</h2>
+        <h3>Leave Comment</h3>
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
         <form action="/Post/Comment" method="post">
             <p>

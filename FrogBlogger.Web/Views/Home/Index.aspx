@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <% foreach (FrogBlogger.Dal.BlogPost post in Model.BlogPosts) { %>
         <div class="post">
-            <h1 class="title"><%= post.Title %></h1>
+            <div class="title"><%= post.Title %></div>
             <p class="author"><%= String.Format("{0} - {1}", "Sean Fao", post.PostedDate) %></p>
             <div class="entry">
                 <%= post.Post %>
