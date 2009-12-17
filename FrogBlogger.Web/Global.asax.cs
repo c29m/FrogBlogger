@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Web.Mvc;
 using System.Web.Routing;
-using StructureMap;
 
 namespace FrogBlogger.Web
 {
@@ -36,6 +32,10 @@ namespace FrogBlogger.Web
             );
         }
 
+        /// <summary>
+        /// The application start event
+        /// </summary>
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Required to be static because of the way ASP.NET works")]
         protected void Application_Start()
         {
             RegisterRoutes(RouteTable.Routes);
