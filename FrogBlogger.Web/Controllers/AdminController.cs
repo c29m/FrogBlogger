@@ -10,11 +10,16 @@ using FrogBlogger.Dal;
 
 namespace FrogBlogger.Web.Controllers
 {
+    /// <summary>
+    /// Contains actions methods for administering the site
+    /// </summary>
+    [Authorize(Roles = Roles.Admin)]
     public class AdminController : Controller
     {
-        //
-        // GET: /Admin/
-
+        /// <summary>
+        /// GET: /Admin/
+        /// </summary>
+        /// <returns>Returns a list of blog posts</returns>
         public ActionResult Index()
         {
             AdminViewModel model;

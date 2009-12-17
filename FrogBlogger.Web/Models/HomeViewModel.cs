@@ -9,6 +9,8 @@ namespace FrogBlogger.Web.Models
     /// </summary>
     public class HomeViewModel : BlogListBase
     {
+        #region Properties
+
         /// <summary>
         /// Gets a reference to a dictionary containing the number of comments for each blog post
         /// </summary>
@@ -26,6 +28,8 @@ namespace FrogBlogger.Web.Models
             get;
             private set;
         }
+
+        #endregion
 
         #region Constructors
 
