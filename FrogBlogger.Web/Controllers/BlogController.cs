@@ -11,9 +11,10 @@ namespace FrogBlogger.Web.Controllers
 {
     public class BlogController : Controller
     {
-        //
-        // GET: /Blog/
-
+        /// <summary>
+        /// GET: /Blog/
+        /// </summary>
+        /// <returns>Returns a listing of all blogs hosted on the site</returns>
         public ActionResult Index()
         {
             List<Blog> blogs;
@@ -28,25 +29,30 @@ namespace FrogBlogger.Web.Controllers
             return View(blogs);
         }
 
-        //
-        // GET: /Blog/Details/5
-
+        /// <summary>
+        /// GET: /Blog/Details/5
+        /// </summary>
+        /// <param name="id">ID for which to get the details on</param>
+        /// <returns>The details page for a blog</returns>
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        //
-        // GET: /Blog/Create
-
+        /// <summary>
+        /// GET: /Blog/Create
+        /// </summary>
+        /// <returns>A page from which a user can create a blog</returns>
         public ActionResult Create()
         {
             return View();
         } 
 
-        //
-        // POST: /Blog/Create
-
+        /// <summary>
+        /// POST: /Blog/Create
+        /// </summary>
+        /// <param name="blog">Blog to create</param>
+        /// <returns>Returns to the blog listing page</returns>
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create(Blog blog)
         {
@@ -59,32 +65,6 @@ namespace FrogBlogger.Web.Controllers
             }
 
             return RedirectToAction("Index");
-        }
-
-        //
-        // GET: /Blog/Edit/5
- 
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Blog/Edit/5
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }
