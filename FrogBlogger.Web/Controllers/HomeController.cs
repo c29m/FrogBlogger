@@ -9,6 +9,9 @@ using FrogBlogger.Web.Models;
 
 namespace FrogBlogger.Web.Controllers
 {
+    /// <summary>
+    /// Contains action methods for working with the home view
+    /// </summary>
     [HandleError]
     public class HomeController : Controller
     {
@@ -18,6 +21,10 @@ namespace FrogBlogger.Web.Controllers
         [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Justification = "I am using it. FxCop is acting crazy.")]
         private static Guid _blogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"); // TODO: Place this with the current BlogId
 
+        /// <summary>
+        /// Gets the home page
+        /// </summary>
+        /// <returns>The home page</returns>
         public ActionResult Index()
         {
             int count;
@@ -50,6 +57,10 @@ namespace FrogBlogger.Web.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Gets the About page
+        /// </summary>
+        /// <returns>The About page</returns>
         public ActionResult About()
         {
             return View();
