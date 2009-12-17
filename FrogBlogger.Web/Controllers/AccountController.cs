@@ -10,7 +10,6 @@ using System.Web.UI;
 
 namespace FrogBlogger.Web.Controllers
 {
-
     [HandleError]
     public class AccountController : Controller
     {
