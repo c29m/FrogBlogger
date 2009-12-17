@@ -7,6 +7,7 @@ using System.Web.Mvc.Ajax;
 using FrogBlogger.Web.Models;
 using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Dal;
+using System.Web.Security;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -81,6 +82,18 @@ namespace FrogBlogger.Web.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// GET: /Admin/ListUsers
+        /// </summary>
+        /// <returns>A list of users that are admins for the current blog</returns>
+        public ActionResult ListUsers()
+        {
+            int totalRecords;
+            MembershipUserCollection users = Membership.Provider.GetAllUsers(0, Int32.MaxValue, out totalRecords);
+
+            return View(users);
         }
     }
 }
