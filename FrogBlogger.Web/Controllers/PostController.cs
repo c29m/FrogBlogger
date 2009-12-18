@@ -11,10 +11,10 @@ namespace FrogBlogger.Web.Controllers
     public class PostController : Controller
     {
         /// <summary>
-        /// GET: /Post/View/{id}
+        /// GET: /Post/Details/{id}
         /// </summary>
         /// <returns>The requested blog post</returns>
-        public ActionResult View(Guid id)
+        public ActionResult Details(Guid id)
         {
             ViewPostViewModel model;
             BlogPost post;
