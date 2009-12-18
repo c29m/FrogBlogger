@@ -14,15 +14,15 @@ namespace FrogBlogger.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-              "blog_post",                                              // Route name
+              "BlogPost",                                               // Route name
               "{year}/{month}/{day}/{id}",                              // URL with parameters
-              new { controller = "Posts", action = "Details"}           // Parameter defaults
+              new { controller = "Post", action = "Details"}            // Parameter defaults
             );
 
             routes.MapRoute(
-              "multipleblog_post",                                      // Route name
+              "MultipleBlogPost",                                       // Route name
               "{blog}/{year}/{month}/{day}/{id}",                       // URL with parameters
-              new { controller = "Posts", action = "Details" }          // Parameter defaults
+              new { controller = "Post", action = "Details" }           // Parameter defaults
             );
 
             routes.MapRoute(
