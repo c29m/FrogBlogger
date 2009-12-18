@@ -8,6 +8,9 @@ using FrogBlogger.Web.Models;
 
 namespace FrogBlogger.Web.Controllers
 {
+    /// <summary>
+    /// Contains methods for working with blog posts
+    /// </summary>
     public class PostController : Controller
     {
         /// <summary>
