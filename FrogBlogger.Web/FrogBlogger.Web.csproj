@@ -98,6 +98,7 @@
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Images\LogoLarge.png" />
     <Content Include="Content\Images\xml.gif" />
+    <Content Include="Content\jquery.tabs.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\langs\en.js" />
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\license.txt" />
@@ -341,6 +342,7 @@
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\utils\form_utils.js" />
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\utils\validate.js" />
+    <Content Include="Scripts\ui\ui.tabs.js" />
     <Content Include="Views\Admin\Create.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Admin\ListUsers.aspx" />

@@ -14,7 +14,7 @@ namespace FrogBlogger.Web.Controllers
     /// <summary>
     /// Contains actions methods for administering the site
     /// </summary>
-    [Authorize(Roles = Roles.Admin)]
+    //[Authorize(Roles = Roles.Admin)]
     public class AdminController : Controller
     {
         /// <summary>
