@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FrogBlogger.Web.Controllers;
 using System.Web.Mvc;
-using FrogBlogger.Web.Models;
 using FrogBlogger.Dal;
+using FrogBlogger.Web.Controllers;
+using FrogBlogger.Web.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FrogBlogger.Test.Controllers
 {

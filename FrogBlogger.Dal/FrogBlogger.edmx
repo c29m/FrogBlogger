@@ -4,104 +4,113 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FrogBlogger.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="FrogBloggerStoreContainer">
-          <EntitySet Name="aspnet_Applications" EntityType="FrogBlogger.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Membership" EntityType="FrogBlogger.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Paths" EntityType="FrogBlogger.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="FrogBlogger.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="FrogBlogger.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Profile" EntityType="FrogBlogger.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Roles" EntityType="FrogBlogger.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_SchemaVersions" EntityType="FrogBlogger.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Users" EntityType="FrogBlogger.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_UsersInRoles" EntityType="FrogBlogger.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_WebEvent_Events" EntityType="FrogBlogger.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Blog" EntityType="FrogBlogger.Store.Blog" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="BlogPost" EntityType="FrogBlogger.Store.BlogPost" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="BlogPostKeyword" EntityType="FrogBlogger.Store.BlogPostKeyword" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="BlogUser" EntityType="FrogBlogger.Store.BlogUser" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Keyword" EntityType="FrogBlogger.Store.Keyword" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Referral" EntityType="FrogBlogger.Store.Referral" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="FrogBlogger.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="UserComment" EntityType="FrogBlogger.Store.UserComment" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="FrogBlogger.Store.FK__aspnet_Me__Appli__21B6055D">
+    <Schema Namespace="FrogBloggerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FrogBloggerModelStoreContainer">
+          <EntitySet Name="aspnet_Applications" EntityType="FrogBloggerModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Membership" EntityType="FrogBloggerModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Paths" EntityType="FrogBloggerModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="FrogBloggerModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="FrogBloggerModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Profile" EntityType="FrogBloggerModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Roles" EntityType="FrogBloggerModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="FrogBloggerModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="FrogBloggerModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="FrogBloggerModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="FrogBloggerModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Author" EntityType="FrogBloggerModel.Store.Author" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Blog" EntityType="FrogBloggerModel.Store.Blog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPost" EntityType="FrogBloggerModel.Store.BlogPost" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPostKeyword" EntityType="FrogBloggerModel.Store.BlogPostKeyword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogUser" EntityType="FrogBloggerModel.Store.BlogUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Keyword" EntityType="FrogBloggerModel.Store.Keyword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Referral" EntityType="FrogBloggerModel.Store.Referral" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="FrogBloggerModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserComment" EntityType="FrogBloggerModel.Store.UserComment" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="FrogBloggerModel.Store.FK__aspnet_Me__Appli__21B6055D">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="FrogBlogger.Store.FK__aspnet_Me__UserI__22AA2996">
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="FrogBloggerModel.Store.FK__aspnet_Me__UserI__22AA2996">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="FrogBlogger.Store.FK__aspnet_Pa__Appli__5AEE82B9">
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="FrogBloggerModel.Store.FK__aspnet_Pa__Appli__5AEE82B9">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="FrogBlogger.Store.FK__aspnet_Pe__PathI__628FA481">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="FrogBloggerModel.Store.FK__aspnet_Pe__PathI__628FA481">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="FrogBlogger.Store.FK__aspnet_Pe__PathI__68487DD7">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="FrogBloggerModel.Store.FK__aspnet_Pe__PathI__68487DD7">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="FrogBlogger.Store.FK__aspnet_Pe__UserI__693CA210">
+          <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="FrogBloggerModel.Store.FK__aspnet_Pe__UserI__693CA210">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="FrogBlogger.Store.FK__aspnet_Pr__UserI__38996AB5">
+          <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="FrogBloggerModel.Store.FK__aspnet_Pr__UserI__38996AB5">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="FrogBlogger.Store.FK__aspnet_Ro__Appli__440B1D61">
+          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="FrogBloggerModel.Store.FK__aspnet_Ro__Appli__440B1D61">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="FrogBlogger.Store.FK__aspnet_Us__Appli__0DAF0CB0">
+          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="FrogBloggerModel.Store.FK__aspnet_Us__Appli__0DAF0CB0">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="FrogBlogger.Store.FK__aspnet_Us__RoleI__4AB81AF0">
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="FrogBloggerModel.Store.FK__aspnet_Us__RoleI__4AB81AF0">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="FrogBlogger.Store.FK__aspnet_Us__UserI__49C3F6B7">
+          <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="FrogBloggerModel.Store.FK__aspnet_Us__UserI__49C3F6B7">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_BlogPost_aspnet_Users" Association="FrogBlogger.Store.FK_BlogPost_aspnet_Users">
+          <AssociationSet Name="FK_Author_aspnet_Users" Association="FrogBloggerModel.Store.FK_Author_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author_Blog" Association="FrogBloggerModel.Store.FK_Author_Blog">
+            <End Role="Blog" EntitySet="Blog" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_aspnet_Users" Association="FrogBloggerModel.Store.FK_BlogPost_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="BlogPost" EntitySet="BlogPost" />
           </AssociationSet>
-          <AssociationSet Name="FK_BlogPost_Blog" Association="FrogBlogger.Store.FK_BlogPost_Blog">
+          <AssociationSet Name="FK_BlogPost_Blog" Association="FrogBloggerModel.Store.FK_BlogPost_Blog">
             <End Role="Blog" EntitySet="Blog" />
             <End Role="BlogPost" EntitySet="BlogPost" />
           </AssociationSet>
-          <AssociationSet Name="FK_BlogPostKeyword_BlogPost" Association="FrogBlogger.Store.FK_BlogPostKeyword_BlogPost">
+          <AssociationSet Name="FK_BlogPostKeyword_BlogPost" Association="FrogBloggerModel.Store.FK_BlogPostKeyword_BlogPost">
             <End Role="BlogPost" EntitySet="BlogPost" />
             <End Role="BlogPostKeyword" EntitySet="BlogPostKeyword" />
           </AssociationSet>
-          <AssociationSet Name="FK_BlogPostKeyword_Keyword" Association="FrogBlogger.Store.FK_BlogPostKeyword_Keyword">
+          <AssociationSet Name="FK_BlogPostKeyword_Keyword" Association="FrogBloggerModel.Store.FK_BlogPostKeyword_Keyword">
             <End Role="Keyword" EntitySet="Keyword" />
             <End Role="BlogPostKeyword" EntitySet="BlogPostKeyword" />
           </AssociationSet>
-          <AssociationSet Name="FK_BlogUser_aspnet_Users" Association="FrogBlogger.Store.FK_BlogUser_aspnet_Users">
+          <AssociationSet Name="FK_BlogUser_aspnet_Users" Association="FrogBloggerModel.Store.FK_BlogUser_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="BlogUser" EntitySet="BlogUser" />
           </AssociationSet>
-          <AssociationSet Name="FK_BlogUser_Blog" Association="FrogBlogger.Store.FK_BlogUser_Blog">
+          <AssociationSet Name="FK_BlogUser_Blog" Association="FrogBloggerModel.Store.FK_BlogUser_Blog">
             <End Role="Blog" EntitySet="Blog" />
             <End Role="BlogUser" EntitySet="BlogUser" />
           </AssociationSet>
-          <AssociationSet Name="FK_Referral_Blog" Association="FrogBlogger.Store.FK_Referral_Blog">
+          <AssociationSet Name="FK_Referral_Blog" Association="FrogBloggerModel.Store.FK_Referral_Blog">
             <End Role="Blog" EntitySet="Blog" />
             <End Role="Referral" EntitySet="Referral" />
           </AssociationSet>
-          <AssociationSet Name="FK_Referral_BlogPost" Association="FrogBlogger.Store.FK_Referral_BlogPost">
+          <AssociationSet Name="FK_Referral_BlogPost" Association="FrogBloggerModel.Store.FK_Referral_BlogPost">
             <End Role="BlogPost" EntitySet="BlogPost" />
             <End Role="Referral" EntitySet="Referral" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserComment_BlogPost" Association="FrogBlogger.Store.FK_UserComment_BlogPost">
+          <AssociationSet Name="FK_UserComment_BlogPost" Association="FrogBloggerModel.Store.FK_UserComment_BlogPost">
             <End Role="BlogPost" EntitySet="BlogPost" />
             <End Role="UserComment" EntitySet="UserComment" />
           </AssociationSet>
@@ -237,6 +246,15 @@
           <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
           <Property Name="Details" Type="ntext" />
         </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BlogId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Blog">
           <Key>
             <PropertyRef Name="BlogId" />
@@ -249,7 +267,7 @@
             <PropertyRef Name="BlogPostId" />
           </Key>
           <Property Name="BlogPostId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="75" />
           <Property Name="Post" Type="varchar(max)" />
           <Property Name="PostedDate" Type="datetime" />
           <Property Name="Visible" Type="bit" Nullable="false" />
@@ -313,8 +331,8 @@
           <Property Name="BlogPostId" Type="uniqueidentifier" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__21B6055D">
-          <End Role="aspnet_Applications" Type="FrogBlogger.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="FrogBlogger.Store.aspnet_Membership" Multiplicity="*" />
+          <End Role="aspnet_Applications" Type="FrogBloggerModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="FrogBloggerModel.Store.aspnet_Membership" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" />
@@ -325,8 +343,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Me__UserI__22AA2996">
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="FrogBlogger.Store.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="FrogBloggerModel.Store.aspnet_Membership" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -337,8 +355,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
-          <End Role="aspnet_Applications" Type="FrogBlogger.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Paths" Type="FrogBlogger.Store.aspnet_Paths" Multiplicity="*" />
+          <End Role="aspnet_Applications" Type="FrogBloggerModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="FrogBloggerModel.Store.aspnet_Paths" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" />
@@ -349,8 +367,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Pe__PathI__628FA481">
-          <End Role="aspnet_Paths" Type="FrogBlogger.Store.aspnet_Paths" Multiplicity="1" />
-          <End Role="aspnet_PersonalizationAllUsers" Type="FrogBlogger.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <End Role="aspnet_Paths" Type="FrogBloggerModel.Store.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="FrogBloggerModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Paths">
               <PropertyRef Name="PathId" />
@@ -361,8 +379,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Pe__PathI__68487DD7">
-          <End Role="aspnet_Paths" Type="FrogBlogger.Store.aspnet_Paths" Multiplicity="0..1" />
-          <End Role="aspnet_PersonalizationPerUser" Type="FrogBlogger.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <End Role="aspnet_Paths" Type="FrogBloggerModel.Store.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="FrogBloggerModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Paths">
               <PropertyRef Name="PathId" />
@@ -373,8 +391,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Pe__UserI__693CA210">
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="0..1" />
-          <End Role="aspnet_PersonalizationPerUser" Type="FrogBlogger.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="FrogBloggerModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -385,8 +403,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Pr__UserI__38996AB5">
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Profile" Type="FrogBlogger.Store.aspnet_Profile" Multiplicity="0..1" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="FrogBloggerModel.Store.aspnet_Profile" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -397,8 +415,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Ro__Appli__440B1D61">
-          <End Role="aspnet_Applications" Type="FrogBlogger.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Roles" Type="FrogBlogger.Store.aspnet_Roles" Multiplicity="*" />
+          <End Role="aspnet_Applications" Type="FrogBloggerModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="FrogBloggerModel.Store.aspnet_Roles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" />
@@ -409,8 +427,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
-          <End Role="aspnet_Applications" Type="FrogBlogger.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="*" />
+          <End Role="aspnet_Applications" Type="FrogBloggerModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" />
@@ -421,8 +439,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
-          <End Role="aspnet_Roles" Type="FrogBlogger.Store.aspnet_Roles" Multiplicity="1" />
-          <End Role="aspnet_UsersInRoles" Type="FrogBlogger.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <End Role="aspnet_Roles" Type="FrogBloggerModel.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="FrogBloggerModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Roles">
               <PropertyRef Name="RoleId" />
@@ -433,8 +451,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__aspnet_Us__UserI__49C3F6B7">
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_UsersInRoles" Type="FrogBlogger.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="FrogBloggerModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -444,9 +462,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Author_aspnet_Users">
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Author" Type="FrogBloggerModel.Store.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author_Blog">
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1" />
+          <End Role="Author" Type="FrogBloggerModel.Store.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blog">
+              <PropertyRef Name="BlogId" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BlogPost_aspnet_Users">
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="0..1" />
-          <End Role="BlogPost" Type="FrogBlogger.Store.BlogPost" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -457,8 +499,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogPost_Blog">
-          <End Role="Blog" Type="FrogBlogger.Store.Blog" Multiplicity="0..1" />
-          <End Role="BlogPost" Type="FrogBlogger.Store.BlogPost" Multiplicity="*" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
               <PropertyRef Name="BlogId" />
@@ -469,8 +511,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogPostKeyword_BlogPost">
-          <End Role="BlogPost" Type="FrogBlogger.Store.BlogPost" Multiplicity="1" />
-          <End Role="BlogPostKeyword" Type="FrogBlogger.Store.BlogPostKeyword" Multiplicity="*" />
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="1" />
+          <End Role="BlogPostKeyword" Type="FrogBloggerModel.Store.BlogPostKeyword" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BlogPost">
               <PropertyRef Name="BlogPostId" />
@@ -481,8 +523,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogPostKeyword_Keyword">
-          <End Role="Keyword" Type="FrogBlogger.Store.Keyword" Multiplicity="1" />
-          <End Role="BlogPostKeyword" Type="FrogBlogger.Store.BlogPostKeyword" Multiplicity="*" />
+          <End Role="Keyword" Type="FrogBloggerModel.Store.Keyword" Multiplicity="1" />
+          <End Role="BlogPostKeyword" Type="FrogBloggerModel.Store.BlogPostKeyword" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Keyword">
               <PropertyRef Name="KeywordId" />
@@ -493,8 +535,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogUser_aspnet_Users">
-          <End Role="aspnet_Users" Type="FrogBlogger.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="BlogUser" Type="FrogBlogger.Store.BlogUser" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="BlogUser" Type="FrogBloggerModel.Store.BlogUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
@@ -505,8 +547,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogUser_Blog">
-          <End Role="Blog" Type="FrogBlogger.Store.Blog" Multiplicity="1" />
-          <End Role="BlogUser" Type="FrogBlogger.Store.BlogUser" Multiplicity="*" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1" />
+          <End Role="BlogUser" Type="FrogBloggerModel.Store.BlogUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
               <PropertyRef Name="BlogId" />
@@ -517,8 +559,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Referral_Blog">
-          <End Role="Blog" Type="FrogBlogger.Store.Blog" Multiplicity="1" />
-          <End Role="Referral" Type="FrogBlogger.Store.Referral" Multiplicity="*" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1" />
+          <End Role="Referral" Type="FrogBloggerModel.Store.Referral" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
               <PropertyRef Name="BlogId" />
@@ -529,8 +571,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Referral_BlogPost">
-          <End Role="BlogPost" Type="FrogBlogger.Store.BlogPost" Multiplicity="1" />
-          <End Role="Referral" Type="FrogBlogger.Store.Referral" Multiplicity="*" />
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="1" />
+          <End Role="Referral" Type="FrogBloggerModel.Store.Referral" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BlogPost">
               <PropertyRef Name="BlogPostId" />
@@ -541,8 +583,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserComment_BlogPost">
-          <End Role="BlogPost" Type="FrogBlogger.Store.BlogPost" Multiplicity="0..1" />
-          <End Role="UserComment" Type="FrogBlogger.Store.UserComment" Multiplicity="*" />
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="0..1" />
+          <End Role="UserComment" Type="FrogBloggerModel.Store.UserComment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BlogPost">
               <PropertyRef Name="BlogPostId" />
@@ -555,73 +597,80 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="FrogBlogger" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="FrogBloggerContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="aspnet_Applications" EntityType="FrogBlogger.aspnet_Applications" />
-          <EntitySet Name="aspnet_Membership" EntityType="FrogBlogger.aspnet_Membership" />
-          <EntitySet Name="aspnet_Paths" EntityType="FrogBlogger.aspnet_Paths" />
-          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="FrogBlogger.aspnet_PersonalizationAllUsers" />
-          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="FrogBlogger.aspnet_PersonalizationPerUser" />
-          <EntitySet Name="aspnet_Profile" EntityType="FrogBlogger.aspnet_Profile" />
-          <EntitySet Name="aspnet_Roles" EntityType="FrogBlogger.aspnet_Roles" />
-          <EntitySet Name="aspnet_SchemaVersions" EntityType="FrogBlogger.aspnet_SchemaVersions" />
-          <EntitySet Name="aspnet_Users" EntityType="FrogBlogger.aspnet_Users" />
-          <EntitySet Name="aspnet_WebEvent_Events" EntityType="FrogBlogger.aspnet_WebEvent_Events" />
-          <EntitySet Name="Blogs" EntityType="FrogBlogger.Blog" />
-          <EntitySet Name="BlogPosts" EntityType="FrogBlogger.BlogPost" />
-          <EntitySet Name="Keywords" EntityType="FrogBlogger.Keyword" />
-          <EntitySet Name="Referrals" EntityType="FrogBlogger.Referral" />
-          <EntitySet Name="sysdiagrams" EntityType="FrogBlogger.sysdiagram" />
-          <EntitySet Name="UserComments" EntityType="FrogBlogger.UserComment" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="FrogBlogger.FK__aspnet_Me__Appli__21B6055D">
+      <Schema Namespace="FrogBloggerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FrogBloggerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Applications" EntityType="FrogBloggerModel.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="FrogBloggerModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="FrogBloggerModel.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="FrogBloggerModel.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="FrogBloggerModel.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="FrogBloggerModel.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="FrogBloggerModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="FrogBloggerModel.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="FrogBloggerModel.aspnet_Users" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="FrogBloggerModel.aspnet_WebEvent_Events" />
+          <EntitySet Name="Authors" EntityType="FrogBloggerModel.Author" />
+          <EntitySet Name="Blogs" EntityType="FrogBloggerModel.Blog" />
+          <EntitySet Name="BlogPosts" EntityType="FrogBloggerModel.BlogPost" />
+          <EntitySet Name="Keywords" EntityType="FrogBloggerModel.Keyword" />
+          <EntitySet Name="Referrals" EntityType="FrogBloggerModel.Referral" />
+          <EntitySet Name="sysdiagrams" EntityType="FrogBloggerModel.sysdiagram" />
+          <EntitySet Name="UserComments" EntityType="FrogBloggerModel.UserComment" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9">
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="FrogBlogger.FK__aspnet_Ro__Appli__440B1D61">
+          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0">
+          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="FrogBlogger.FK__aspnet_Me__UserI__22AA2996">
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="FrogBlogger.FK__aspnet_Pe__PathI__628FA481">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="FrogBlogger.FK__aspnet_Pe__PathI__68487DD7">
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7">
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="FrogBlogger.FK__aspnet_Pe__UserI__693CA210">
+          <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" /></AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="FrogBlogger.FK__aspnet_Pr__UserI__38996AB5">
+          <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Profile" EntitySet="aspnet_Profile" /></AssociationSet>
-          <AssociationSet Name="FK_BlogPost_aspnet_Users" Association="FrogBlogger.FK_BlogPost_aspnet_Users">
+          <AssociationSet Name="FK_Author_aspnet_Users" Association="FrogBloggerModel.FK_Author_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Author" EntitySet="Authors" /></AssociationSet>
+          <AssociationSet Name="FK_BlogPost_aspnet_Users" Association="FrogBloggerModel.FK_BlogPost_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="BlogPost" EntitySet="BlogPosts" /></AssociationSet>
-          <AssociationSet Name="FK_BlogPost_Blog" Association="FrogBlogger.FK_BlogPost_Blog">
+          <AssociationSet Name="FK_Author_Blog" Association="FrogBloggerModel.FK_Author_Blog">
+            <End Role="Blog" EntitySet="Blogs" />
+            <End Role="Author" EntitySet="Authors" /></AssociationSet>
+          <AssociationSet Name="FK_BlogPost_Blog" Association="FrogBloggerModel.FK_BlogPost_Blog">
             <End Role="Blog" EntitySet="Blogs" />
             <End Role="BlogPost" EntitySet="BlogPosts" /></AssociationSet>
-          <AssociationSet Name="FK_Referral_Blog" Association="FrogBlogger.FK_Referral_Blog">
+          <AssociationSet Name="FK_Referral_Blog" Association="FrogBloggerModel.FK_Referral_Blog">
             <End Role="Blog" EntitySet="Blogs" />
             <End Role="Referral" EntitySet="Referrals" /></AssociationSet>
-          <AssociationSet Name="FK_Referral_BlogPost" Association="FrogBlogger.FK_Referral_BlogPost">
+          <AssociationSet Name="FK_Referral_BlogPost" Association="FrogBloggerModel.FK_Referral_BlogPost">
             <End Role="BlogPost" EntitySet="BlogPosts" />
             <End Role="Referral" EntitySet="Referrals" /></AssociationSet>
-          <AssociationSet Name="FK_UserComment_BlogPost" Association="FrogBlogger.FK_UserComment_BlogPost">
+          <AssociationSet Name="FK_UserComment_BlogPost" Association="FrogBloggerModel.FK_UserComment_BlogPost">
             <End Role="BlogPost" EntitySet="BlogPosts" />
             <End Role="UserComment" EntitySet="UserComments" /></AssociationSet>
-          <AssociationSet Name="aspnet_UsersInRoles" Association="FrogBlogger.aspnet_UsersInRoles">
+          <AssociationSet Name="aspnet_UsersInRoles" Association="FrogBloggerModel.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" /></AssociationSet>
-          <AssociationSet Name="BlogPostKeyword" Association="FrogBlogger.BlogPostKeyword">
+          <AssociationSet Name="BlogPostKeyword" Association="FrogBloggerModel.BlogPostKeyword">
             <End Role="BlogPost" EntitySet="BlogPosts" />
             <End Role="Keyword" EntitySet="Keywords" /></AssociationSet>
-          <AssociationSet Name="BlogUser" Association="FrogBlogger.BlogUser">
+          <AssociationSet Name="BlogUser" Association="FrogBloggerModel.BlogUser">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Blog" EntitySet="Blogs" /></AssociationSet></EntityContainer>
         <EntityType Name="aspnet_Applications">
@@ -631,10 +680,10 @@
           <Property Type="String" Name="LoweredApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="ApplicationId" Nullable="false" />
           <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="FrogBlogger.FK__aspnet_Me__Appli__21B6055D" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="FrogBlogger.FK__aspnet_Ro__Appli__440B1D61" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0" FromRole="aspnet_Applications" ToRole="aspnet_Users" /></EntityType>
+          <NavigationProperty Name="aspnet_Membership" Relationship="FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0" FromRole="aspnet_Applications" ToRole="aspnet_Users" /></EntityType>
         <EntityType Name="aspnet_Membership">
           <Key>
             <PropertyRef Name="UserId" /></Key>
@@ -659,8 +708,8 @@
           <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
           <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
           <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBlogger.FK__aspnet_Me__Appli__21B6055D" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Membership" ToRole="aspnet_Users" /></EntityType>
+          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Membership" ToRole="aspnet_Users" /></EntityType>
         <EntityType Name="aspnet_Paths">
           <Key>
             <PropertyRef Name="PathId" /></Key>
@@ -668,16 +717,16 @@
           <Property Type="Guid" Name="PathId" Nullable="false" />
           <Property Type="String" Name="Path" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LoweredPath" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="FrogBlogger.FK__aspnet_Pe__PathI__628FA481" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
-          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="FrogBlogger.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" /></EntityType>
+          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" /></EntityType>
         <EntityType Name="aspnet_PersonalizationAllUsers">
           <Key>
             <PropertyRef Name="PathId" /></Key>
           <Property Type="Guid" Name="PathId" Nullable="false" />
           <Property Type="Binary" Name="PageSettings" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="FrogBlogger.FK__aspnet_Pe__PathI__628FA481" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" /></EntityType>
+          <NavigationProperty Name="aspnet_Paths" Relationship="FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" /></EntityType>
         <EntityType Name="aspnet_PersonalizationPerUser">
           <Key>
             <PropertyRef Name="Id" /></Key>
@@ -686,8 +735,8 @@
           <Property Type="Guid" Name="UserId" />
           <Property Type="Binary" Name="PageSettings" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="FrogBlogger.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.FK__aspnet_Pe__UserI__693CA210" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" /></EntityType>
+          <NavigationProperty Name="aspnet_Paths" Relationship="FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" /></EntityType>
         <EntityType Name="aspnet_Profile">
           <Key>
             <PropertyRef Name="UserId" /></Key>
@@ -696,7 +745,7 @@
           <Property Type="String" Name="PropertyValuesString" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Binary" Name="PropertyValuesBinary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Type="DateTime" Name="LastUpdatedDate" Nullable="false" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Profile" ToRole="aspnet_Users" /></EntityType>
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Profile" ToRole="aspnet_Users" /></EntityType>
         <EntityType Name="aspnet_Roles">
           <Key>
             <PropertyRef Name="RoleId" /></Key>
@@ -705,8 +754,8 @@
           <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBlogger.FK__aspnet_Ro__Appli__440B1D61" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" /></EntityType>
+          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" /></EntityType>
         <EntityType Name="aspnet_SchemaVersions">
           <Key>
             <PropertyRef Name="Feature" />
@@ -724,13 +773,14 @@
           <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
           <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="FrogBlogger.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="FrogBlogger.FK__aspnet_Pe__UserI__693CA210" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
-          <NavigationProperty Name="aspnet_Profile" Relationship="FrogBlogger.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
-          <NavigationProperty Name="BlogPosts" Relationship="FrogBlogger.FK_BlogPost_aspnet_Users" FromRole="aspnet_Users" ToRole="BlogPost" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="FrogBlogger.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
-          <NavigationProperty Name="Blogs" Relationship="FrogBlogger.BlogUser" FromRole="aspnet_Users" ToRole="Blog" /></EntityType>
+          <NavigationProperty Name="aspnet_Applications" Relationship="FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+          <NavigationProperty Name="aspnet_Profile" Relationship="FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="Authors" Relationship="FrogBloggerModel.FK_Author_aspnet_Users" FromRole="aspnet_Users" ToRole="Author" />
+          <NavigationProperty Name="BlogPosts" Relationship="FrogBloggerModel.FK_BlogPost_aspnet_Users" FromRole="aspnet_Users" ToRole="BlogPost" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="FrogBloggerModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="Blogs" Relationship="FrogBloggerModel.BlogUser" FromRole="aspnet_Users" ToRole="Blog" /></EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
             <PropertyRef Name="EventId" /></Key>
@@ -749,35 +799,45 @@
           <Property Type="String" Name="RequestUrl" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="ExceptionType" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" /></EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="BlogId" /></Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="BlogId" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.FK_Author_aspnet_Users" FromRole="Author" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Blog" Relationship="FrogBloggerModel.FK_Author_Blog" FromRole="Author" ToRole="Blog" /></EntityType>
         <EntityType Name="Blog">
           <Key>
             <PropertyRef Name="BlogId" /></Key>
           <Property Type="Guid" Name="BlogId" Nullable="false" />
           <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BlogPosts" Relationship="FrogBlogger.FK_BlogPost_Blog" FromRole="Blog" ToRole="BlogPost" />
-          <NavigationProperty Name="Referrals" Relationship="FrogBlogger.FK_Referral_Blog" FromRole="Blog" ToRole="Referral" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.BlogUser" FromRole="Blog" ToRole="aspnet_Users" /></EntityType>
+          <NavigationProperty Name="Authors" Relationship="FrogBloggerModel.FK_Author_Blog" FromRole="Blog" ToRole="Author" />
+          <NavigationProperty Name="BlogPosts" Relationship="FrogBloggerModel.FK_BlogPost_Blog" FromRole="Blog" ToRole="BlogPost" />
+          <NavigationProperty Name="Referrals" Relationship="FrogBloggerModel.FK_Referral_Blog" FromRole="Blog" ToRole="Referral" />
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.BlogUser" FromRole="Blog" ToRole="aspnet_Users" /></EntityType>
         <EntityType Name="BlogPost">
           <Key>
             <PropertyRef Name="BlogPostId" /></Key>
           <Property Type="Guid" Name="BlogPostId" Nullable="false" />
-          <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="75" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Post" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="PostedDate" />
           <Property Type="Boolean" Name="Visible" Nullable="false" />
           <Property Type="Guid" Name="UserId" />
           <Property Type="Guid" Name="BlogId" />
-          <NavigationProperty Name="aspnet_Users" Relationship="FrogBlogger.FK_BlogPost_aspnet_Users" FromRole="BlogPost" ToRole="aspnet_Users" />
-          <NavigationProperty Name="Blog" Relationship="FrogBlogger.FK_BlogPost_Blog" FromRole="BlogPost" ToRole="Blog" />
-          <NavigationProperty Name="Referrals" Relationship="FrogBlogger.FK_Referral_BlogPost" FromRole="BlogPost" ToRole="Referral" />
-          <NavigationProperty Name="UserComments" Relationship="FrogBlogger.FK_UserComment_BlogPost" FromRole="BlogPost" ToRole="UserComment" />
-          <NavigationProperty Name="Keywords" Relationship="FrogBlogger.BlogPostKeyword" FromRole="BlogPost" ToRole="Keyword" /></EntityType>
+          <NavigationProperty Name="aspnet_Users" Relationship="FrogBloggerModel.FK_BlogPost_aspnet_Users" FromRole="BlogPost" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Blog" Relationship="FrogBloggerModel.FK_BlogPost_Blog" FromRole="BlogPost" ToRole="Blog" />
+          <NavigationProperty Name="Referrals" Relationship="FrogBloggerModel.FK_Referral_BlogPost" FromRole="BlogPost" ToRole="Referral" />
+          <NavigationProperty Name="UserComments" Relationship="FrogBloggerModel.FK_UserComment_BlogPost" FromRole="BlogPost" ToRole="UserComment" />
+          <NavigationProperty Name="Keywords" Relationship="FrogBloggerModel.BlogPostKeyword" FromRole="BlogPost" ToRole="Keyword" /></EntityType>
         <EntityType Name="Keyword">
           <Key>
             <PropertyRef Name="KeywordId" /></Key>
           <Property Type="Guid" Name="KeywordId" Nullable="false" />
           <Property Type="String" Name="Keyword1" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BlogPosts" Relationship="FrogBlogger.BlogPostKeyword" FromRole="Keyword" ToRole="BlogPost" /></EntityType>
+          <NavigationProperty Name="BlogPosts" Relationship="FrogBloggerModel.BlogPostKeyword" FromRole="Keyword" ToRole="BlogPost" /></EntityType>
         <EntityType Name="Referral">
           <Key>
             <PropertyRef Name="BlogId" />
@@ -786,8 +846,8 @@
           <Property Type="Guid" Name="BlogPostId" Nullable="false" />
           <Property Type="String" Name="Url" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="LastReferralDate" Nullable="false" />
-          <NavigationProperty Name="Blog" Relationship="FrogBlogger.FK_Referral_Blog" FromRole="Referral" ToRole="Blog" />
-          <NavigationProperty Name="BlogPost" Relationship="FrogBlogger.FK_Referral_BlogPost" FromRole="Referral" ToRole="BlogPost" /></EntityType>
+          <NavigationProperty Name="Blog" Relationship="FrogBloggerModel.FK_Referral_Blog" FromRole="Referral" ToRole="Blog" />
+          <NavigationProperty Name="BlogPost" Relationship="FrogBloggerModel.FK_Referral_BlogPost" FromRole="Referral" ToRole="BlogPost" /></EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" /></Key>
@@ -807,145 +867,159 @@
           <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="PostedDate" />
           <Property Type="Guid" Name="BlogPostId" />
-          <NavigationProperty Name="BlogPost" Relationship="FrogBlogger.FK_UserComment_BlogPost" FromRole="UserComment" ToRole="BlogPost" /></EntityType>
+          <NavigationProperty Name="BlogPost" Relationship="FrogBloggerModel.FK_UserComment_BlogPost" FromRole="UserComment" ToRole="BlogPost" /></EntityType>
         <Association Name="FK__aspnet_Me__Appli__21B6055D">
-          <End Type="FrogBlogger.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_Membership" Role="aspnet_Membership" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" /></Principal>
             <Dependent Role="aspnet_Membership">
               <PropertyRef Name="ApplicationId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
-          <End Type="FrogBlogger.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_Paths" Role="aspnet_Paths" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" /></Principal>
             <Dependent Role="aspnet_Paths">
               <PropertyRef Name="ApplicationId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Ro__Appli__440B1D61">
-          <End Type="FrogBlogger.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" /></Principal>
             <Dependent Role="aspnet_Roles">
               <PropertyRef Name="ApplicationId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
-          <End Type="FrogBlogger.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Applications">
               <PropertyRef Name="ApplicationId" /></Principal>
             <Dependent Role="aspnet_Users">
               <PropertyRef Name="ApplicationId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Me__UserI__22AA2996">
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" /></Principal>
             <Dependent Role="aspnet_Membership">
               <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Pe__PathI__628FA481">
-          <End Type="FrogBlogger.aspnet_Paths" Role="aspnet_Paths" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Paths">
               <PropertyRef Name="PathId" /></Principal>
             <Dependent Role="aspnet_PersonalizationAllUsers">
               <PropertyRef Name="PathId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Pe__PathI__68487DD7">
-          <End Type="FrogBlogger.aspnet_Paths" Role="aspnet_Paths" Multiplicity="0..1" />
-          <End Type="FrogBlogger.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Paths">
               <PropertyRef Name="PathId" /></Principal>
             <Dependent Role="aspnet_PersonalizationPerUser">
               <PropertyRef Name="PathId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Pe__UserI__693CA210">
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
-          <End Type="FrogBlogger.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" /></Principal>
             <Dependent Role="aspnet_PersonalizationPerUser">
               <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK__aspnet_Pr__UserI__38996AB5">
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="FrogBlogger.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="FrogBloggerModel.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" /></Principal>
             <Dependent Role="aspnet_Profile">
               <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_Author_aspnet_Users">
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="FrogBloggerModel.Author" Role="Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" /></Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK_BlogPost_aspnet_Users">
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
-          <End Type="FrogBlogger.BlogPost" Role="BlogPost" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.BlogPost" Role="BlogPost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" /></Principal>
             <Dependent Role="BlogPost">
               <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_Author_Blog">
+          <End Type="FrogBloggerModel.Blog" Role="Blog" Multiplicity="1" />
+          <End Type="FrogBloggerModel.Author" Role="Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blog">
+              <PropertyRef Name="BlogId" /></Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="BlogId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK_BlogPost_Blog">
-          <End Type="FrogBlogger.Blog" Role="Blog" Multiplicity="0..1" />
-          <End Type="FrogBlogger.BlogPost" Role="BlogPost" Multiplicity="*" />
+          <End Type="FrogBloggerModel.Blog" Role="Blog" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.BlogPost" Role="BlogPost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
               <PropertyRef Name="BlogId" /></Principal>
             <Dependent Role="BlogPost">
               <PropertyRef Name="BlogId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK_Referral_Blog">
-          <End Type="FrogBlogger.Blog" Role="Blog" Multiplicity="1" />
-          <End Type="FrogBlogger.Referral" Role="Referral" Multiplicity="*" />
+          <End Type="FrogBloggerModel.Blog" Role="Blog" Multiplicity="1" />
+          <End Type="FrogBloggerModel.Referral" Role="Referral" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
               <PropertyRef Name="BlogId" /></Principal>
             <Dependent Role="Referral">
               <PropertyRef Name="BlogId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK_Referral_BlogPost">
-          <End Type="FrogBlogger.BlogPost" Role="BlogPost" Multiplicity="1" />
-          <End Type="FrogBlogger.Referral" Role="Referral" Multiplicity="*" />
+          <End Type="FrogBloggerModel.BlogPost" Role="BlogPost" Multiplicity="1" />
+          <End Type="FrogBloggerModel.Referral" Role="Referral" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BlogPost">
               <PropertyRef Name="BlogPostId" /></Principal>
             <Dependent Role="Referral">
               <PropertyRef Name="BlogPostId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK_UserComment_BlogPost">
-          <End Type="FrogBlogger.BlogPost" Role="BlogPost" Multiplicity="0..1" />
-          <End Type="FrogBlogger.UserComment" Role="UserComment" Multiplicity="*" />
+          <End Type="FrogBloggerModel.BlogPost" Role="BlogPost" Multiplicity="0..1" />
+          <End Type="FrogBloggerModel.UserComment" Role="UserComment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BlogPost">
               <PropertyRef Name="BlogPostId" /></Principal>
             <Dependent Role="UserComment">
               <PropertyRef Name="BlogPostId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="aspnet_UsersInRoles">
-          <End Type="FrogBlogger.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="*" /></Association>
+          <End Type="FrogBloggerModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" /></Association>
         <Association Name="BlogPostKeyword">
-          <End Type="FrogBlogger.BlogPost" Role="BlogPost" Multiplicity="*" />
-          <End Type="FrogBlogger.Keyword" Role="Keyword" Multiplicity="*" /></Association>
+          <End Type="FrogBloggerModel.BlogPost" Role="BlogPost" Multiplicity="*" />
+          <End Type="FrogBloggerModel.Keyword" Role="Keyword" Multiplicity="*" /></Association>
         <Association Name="BlogUser">
-          <End Type="FrogBlogger.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
-          <End Type="FrogBlogger.Blog" Role="Blog" Multiplicity="*" /></Association>
+          <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+          <End Type="FrogBloggerModel.Blog" Role="Blog" Multiplicity="*" /></Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="FrogBlogger" />
-        <Alias Key="Target" Value="FrogBlogger.Store" />
-        <EntityContainerMapping CdmEntityContainer="FrogBloggerContainer" StorageEntityContainer="FrogBloggerStoreContainer">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FrogBloggerModelStoreContainer" CdmEntityContainer="FrogBloggerEntities">
           <EntitySetMapping Name="aspnet_Applications">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_Applications">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_Applications">
               <MappingFragment StoreEntitySet="aspnet_Applications">
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
                 <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
                 <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_Membership">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_Membership">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_Membership">
               <MappingFragment StoreEntitySet="aspnet_Membership">
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
@@ -969,20 +1043,20 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_Paths">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_Paths">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_Paths">
               <MappingFragment StoreEntitySet="aspnet_Paths">
                 <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
                 <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="PathId" ColumnName="PathId" />
                 <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_PersonalizationAllUsers">
               <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
                 <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
                 <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
                 <ScalarProperty Name="PathId" ColumnName="PathId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_PersonalizationPerUser">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_PersonalizationPerUser">
               <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
                 <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
                 <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
@@ -990,7 +1064,7 @@
                 <ScalarProperty Name="PathId" ColumnName="PathId" />
                 <ScalarProperty Name="Id" ColumnName="Id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_Profile">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_Profile">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_Profile">
               <MappingFragment StoreEntitySet="aspnet_Profile">
                 <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
                 <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
@@ -998,7 +1072,7 @@
                 <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_Roles">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_Roles">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_Roles">
               <MappingFragment StoreEntitySet="aspnet_Roles">
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
@@ -1006,13 +1080,13 @@
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_SchemaVersions">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_SchemaVersions">
               <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
                 <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
                 <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
                 <ScalarProperty Name="Feature" ColumnName="Feature" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_Users">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_Users">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_Users">
               <MappingFragment StoreEntitySet="aspnet_Users">
                 <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
                 <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
@@ -1022,7 +1096,7 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="aspnet_WebEvent_Events">
-            <EntityTypeMapping TypeName="FrogBlogger.aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="FrogBloggerModel.aspnet_WebEvent_Events">
               <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
                 <ScalarProperty Name="Details" ColumnName="Details" />
                 <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
@@ -1039,13 +1113,19 @@
                 <ScalarProperty Name="EventTime" ColumnName="EventTime" />
                 <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
                 <ScalarProperty Name="EventId" ColumnName="EventId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="FrogBloggerModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Blogs">
-            <EntityTypeMapping TypeName="FrogBlogger.Blog">
+            <EntityTypeMapping TypeName="FrogBloggerModel.Blog">
               <MappingFragment StoreEntitySet="Blog">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BlogId" ColumnName="BlogId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="BlogPosts">
-            <EntityTypeMapping TypeName="FrogBlogger.BlogPost">
+            <EntityTypeMapping TypeName="FrogBloggerModel.BlogPost">
               <MappingFragment StoreEntitySet="BlogPost">
                 <ScalarProperty Name="BlogId" ColumnName="BlogId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -1055,19 +1135,19 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="BlogPostId" ColumnName="BlogPostId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Keywords">
-            <EntityTypeMapping TypeName="FrogBlogger.Keyword">
+            <EntityTypeMapping TypeName="FrogBloggerModel.Keyword">
               <MappingFragment StoreEntitySet="Keyword">
                 <ScalarProperty Name="Keyword1" ColumnName="Keyword" />
                 <ScalarProperty Name="KeywordId" ColumnName="KeywordId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Referrals">
-            <EntityTypeMapping TypeName="FrogBlogger.Referral">
+            <EntityTypeMapping TypeName="FrogBloggerModel.Referral">
               <MappingFragment StoreEntitySet="Referral">
                 <ScalarProperty Name="LastReferralDate" ColumnName="LastReferralDate" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="BlogPostId" ColumnName="BlogPostId" />
                 <ScalarProperty Name="BlogId" ColumnName="BlogId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="FrogBlogger.sysdiagram">
+            <EntityTypeMapping TypeName="FrogBloggerModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="definition" ColumnName="definition" />
                 <ScalarProperty Name="version" ColumnName="version" />
@@ -1075,7 +1155,7 @@
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="UserComments">
-            <EntityTypeMapping TypeName="FrogBlogger.UserComment">
+            <EntityTypeMapping TypeName="FrogBloggerModel.UserComment">
               <MappingFragment StoreEntitySet="UserComment">
                 <ScalarProperty Name="BlogPostId" ColumnName="BlogPostId" />
                 <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
@@ -1085,17 +1165,17 @@
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="UserCommentId" ColumnName="UserCommentId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="FrogBlogger.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="FrogBloggerModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
             <EndProperty Name="aspnet_Users">
               <ScalarProperty Name="UserId" ColumnName="UserId" /></EndProperty>
             <EndProperty Name="aspnet_Roles">
               <ScalarProperty Name="RoleId" ColumnName="RoleId" /></EndProperty></AssociationSetMapping>
-          <AssociationSetMapping Name="BlogPostKeyword" TypeName="FrogBlogger.BlogPostKeyword" StoreEntitySet="BlogPostKeyword">
+          <AssociationSetMapping Name="BlogPostKeyword" TypeName="FrogBloggerModel.BlogPostKeyword" StoreEntitySet="BlogPostKeyword">
             <EndProperty Name="Keyword">
               <ScalarProperty Name="KeywordId" ColumnName="KeywordId" /></EndProperty>
             <EndProperty Name="BlogPost">
               <ScalarProperty Name="BlogPostId" ColumnName="BlogPostId" /></EndProperty></AssociationSetMapping>
-          <AssociationSetMapping Name="BlogUser" TypeName="FrogBlogger.BlogUser" StoreEntitySet="BlogUser">
+          <AssociationSetMapping Name="BlogUser" TypeName="FrogBloggerModel.BlogUser" StoreEntitySet="BlogUser">
             <EndProperty Name="Blog">
               <ScalarProperty Name="BlogId" ColumnName="BlogId" /></EndProperty>
             <EndProperty Name="aspnet_Users">
@@ -1104,116 +1184,134 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-    <edmx:Connection>
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
+    </Connection>
+    <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
-    </edmx:Options>
+    </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-      <Diagram Name="FrogBlogger" >
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_Applications" Width="1.5" PointX="0.75" PointY="13.625" Height="2.5571907552083335" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_Membership" Width="1.5" PointX="10.5" PointY="10.5" Height="5.4417122395833317" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_Paths" Width="1.5" PointX="3" PointY="15.25" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="15.5" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_PersonalizationPerUser" Width="1.5" PointX="7.5" PointY="12.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_Profile" Width="1.5" PointX="7.5" PointY="16.375" Height="2.1725878906250031" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_Roles" Width="1.5" PointX="3" PointY="12.125" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_Users" Width="1.5" PointX="5.25" PointY="10.25" Height="3.7109993489583317" />
-        <EntityTypeShape EntityType="FrogBlogger.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812499996" />
-        <EntityTypeShape EntityType="FrogBlogger.Blog" Width="1.5" PointX="7.5" PointY="9.625" Height="1.9802864583333317" />
-        <EntityTypeShape EntityType="FrogBlogger.BlogPost" Width="1.5" PointX="12.75" PointY="10.125" Height="3.3263964843749996" />
-        <EntityTypeShape EntityType="FrogBlogger.Keyword" Width="1.5" PointX="15" PointY="9.25" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="FrogBlogger.Referral" Width="1.5" PointX="18" PointY="10.5" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="FrogBlogger.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333333" />
-        <EntityTypeShape EntityType="FrogBlogger.UserComment" Width="1.5" PointX="15" PointY="14.5" Height="2.7494921874999996" />
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Me__Appli__21B6055D" >
-          <ConnectorPoint PointX="2.25" PointY="14.869944661458334" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="14.869944661458334" />
-          <ConnectorPoint PointX="7.208333333333333" PointY="14.869944661458334" />
-          <ConnectorPoint PointX="7.25" PointY="14.869944661458334" />
-          <ConnectorPoint PointX="7.25" PointY="16.191712239583332" />
-          <ConnectorPoint PointX="11.25" PointY="16.191712239583332" />
-          <ConnectorPoint PointX="11.25" PointY="15.941712239583332" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9" >
-          <ConnectorPoint PointX="2.25" PointY="15.716095377604166" />
-          <ConnectorPoint PointX="3" PointY="15.716095377604166" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Ro__Appli__440B1D61" >
-          <ConnectorPoint PointX="2.25" PointY="14.057444661458334" />
-          <ConnectorPoint PointX="3" PointY="14.057444661458334" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0" >
-          <ConnectorPoint PointX="1.5" PointY="13.625" />
-          <ConnectorPoint PointX="1.5" PointY="11.15625" />
-          <ConnectorPoint PointX="5.25" PointY="11.15625" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Me__UserI__22AA2996" >
-          <ConnectorPoint PointX="6.75" PointY="12.177643229166666" />
-          <ConnectorPoint PointX="10.5" PointY="12.177643229166666" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Pe__PathI__628FA481" >
-          <ConnectorPoint PointX="4.5" PointY="16.393992513020834" />
-          <ConnectorPoint PointX="4.916666666666667" PointY="16.393992513020834" />
-          <ConnectorPoint PointX="5.083333333333333" PointY="16.393992513020834" />
-          <ConnectorPoint PointX="5.25" PointY="16.393992513020834" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Pe__PathI__68487DD7" >
-          <ConnectorPoint PointX="4.5" PointY="17.035692917968753" />
-          <ConnectorPoint PointX="5" PointY="17.035692917968753" />
-          <ConnectorPoint PointX="5" PointY="15.364889322916667" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="15.364889322916666" />
-          <ConnectorPoint PointX="7.333333333333333" PointY="15.364889322916667" />
-          <ConnectorPoint PointX="8.25" PointY="15.364889322916667" />
-          <ConnectorPoint PointX="8.25" PointY="15.114889322916667" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Pe__UserI__693CA210" >
-          <ConnectorPoint PointX="6.75" PointY="13.355499674479166" />
-          <ConnectorPoint PointX="7.5" PointY="13.355499674479166" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK__aspnet_Pr__UserI__38996AB5" >
-          <ConnectorPoint PointX="6.75" PointY="13.960999348958332" />
-          <ConnectorPoint PointX="7.125" PointY="14.335999348958332" />
-          <ConnectorPoint PointX="7.125" PointY="17.4612939453125" />
-          <ConnectorPoint PointX="7.5" PointY="17.4612939453125" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK_BlogPost_aspnet_Users" >
-          <ConnectorPoint PointX="6.75" PointY="11.89146234375" />
-          <ConnectorPoint PointX="10.25" PointY="11.89146234375" />
-          <ConnectorPoint PointX="10.25" PointY="9.875" />
-          <ConnectorPoint PointX="13.5" PointY="9.875" />
-          <ConnectorPoint PointX="13.5" PointY="10.125" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK_BlogPost_Blog" >
-          <ConnectorPoint PointX="9" PointY="10.28125" />
-          <ConnectorPoint PointX="10.166666666666666" PointY="10.28125" />
-          <ConnectorPoint PointX="10.333333333333334" PointY="10.28125" />
-          <ConnectorPoint PointX="12.75" PointY="10.28125" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK_Referral_Blog" >
-          <ConnectorPoint PointX="8.25" PointY="9.625" />
-          <ConnectorPoint PointX="8.25" PointY="9.375" />
-          <ConnectorPoint PointX="14.75" PointY="9.375" />
-          <ConnectorPoint PointX="14.75" PointY="11.7903852421875" />
-          <ConnectorPoint PointX="18" PointY="11.7903852421875" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK_Referral_BlogPost" >
-          <ConnectorPoint PointX="14.25" PointY="11.28678441796875" />
-          <ConnectorPoint PointX="14.666666666666666" PointY="11.28678441796875" />
-          <ConnectorPoint PointX="14.833333333333334" PointY="11.28678441796875" />
-          <ConnectorPoint PointX="18" PointY="11.28678441796875" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.FK_UserComment_BlogPost" >
-          <ConnectorPoint PointX="13.5" PointY="13.451396484375" />
-          <ConnectorPoint PointX="13.5" PointY="15.87474609375" />
-          <ConnectorPoint PointX="15" PointY="15.87474609375" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.aspnet_UsersInRoles" >
-          <ConnectorPoint PointX="4.5" PointY="13.042999674479166" />
-          <ConnectorPoint PointX="5.25" PointY="13.042999674479166" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.BlogPostKeyword" >
-          <ConnectorPoint PointX="14.25" PointY="10.485341796875" />
-          <ConnectorPoint PointX="14.666666666666666" PointY="10.485341796875" />
-          <ConnectorPoint PointX="14.833333333333334" PointY="10.485341796875" />
-          <ConnectorPoint PointX="15" PointY="10.485341796875" /></AssociationConnector>
-        <AssociationConnector Association="FrogBlogger.BlogUser" >
-          <ConnectorPoint PointX="6.75" PointY="10.927643229166666" />
-          <ConnectorPoint PointX="7.5" PointY="10.927643229166666" /></AssociationConnector></Diagram></edmx:Diagrams>
-  </edmx:Designer>
+    <Diagrams>
+      <Diagram Name="FrogBlogger">
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="15.125" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_Membership" Width="1.5" PointX="10.5" PointY="12" Height="5.4417122395833335" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_Paths" Width="1.5" PointX="3" PointY="16.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="17.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="7.5" PointY="14.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="10.875" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_Roles" Width="1.5" PointX="3" PointY="13.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="11.75" Height="3.9033007812499996" />
+        <EntityTypeShape EntityType="FrogBloggerModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812499996" />
+        <EntityTypeShape EntityType="FrogBloggerModel.Author" Width="1.5" PointX="12.75" PointY="14.875" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="FrogBloggerModel.Blog" Width="1.5" PointX="7.5" PointY="17.875" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="FrogBloggerModel.BlogPost" Width="1.5" PointX="9.75" PointY="18.25" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="FrogBloggerModel.Keyword" Width="1.5" PointX="12" PointY="18.375" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="FrogBloggerModel.Referral" Width="1.5" PointX="15" PointY="18.625" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="FrogBloggerModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333333" />
+        <EntityTypeShape EntityType="FrogBloggerModel.UserComment" Width="1.5" PointX="12" PointY="22.625" Height="2.749492187499996" />
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D" >
+          <ConnectorPoint PointX="2.25" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="16.744944661458334" />
+          <ConnectorPoint PointX="10.5" PointY="16.744944661458334" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9" >
+          <ConnectorPoint PointX="2.25" PointY="17.278595377604166" />
+          <ConnectorPoint PointX="3" PointY="17.278595377604166" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61" >
+          <ConnectorPoint PointX="2.25" PointY="15.619944661458334" />
+          <ConnectorPoint PointX="3" PointY="15.619944661458334" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0" >
+          <ConnectorPoint PointX="1.5" PointY="15.125" />
+          <ConnectorPoint PointX="1.5" PointY="12.71875" />
+          <ConnectorPoint PointX="5.25" PointY="12.71875" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996" >
+          <ConnectorPoint PointX="6.75" PointY="13.6487939453125" />
+          <ConnectorPoint PointX="10.5" PointY="13.6487939453125" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481" >
+          <ConnectorPoint PointX="4.5" PointY="18.018992513020834" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="18.018992513020834" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="18.018992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="18.018992513020834" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7" >
+          <ConnectorPoint PointX="4.5" PointY="18.660692917968753" />
+          <ConnectorPoint PointX="5" PointY="18.660692917968753" />
+          <ConnectorPoint PointX="5" PointY="16.875" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="16.875" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="16.875" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="16.875" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="16.875" />
+          <ConnectorPoint PointX="8.25" PointY="16.875" />
+          <ConnectorPoint PointX="8.25" PointY="16.614889322916667" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210" >
+          <ConnectorPoint PointX="6.75" PointY="14.951650390625" />
+          <ConnectorPoint PointX="7.5" PointY="14.951650390625" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5" >
+          <ConnectorPoint PointX="6.75" PointY="12.3987939453125" />
+          <ConnectorPoint PointX="7.5" PointY="12.3987939453125" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_Author_aspnet_Users" >
+          <ConnectorPoint PointX="6" PointY="15.65330078125" />
+          <ConnectorPoint PointX="6" PointY="16.989889322916667" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="16.989889322916667" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="16.989889322916667" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="16.989889322916667" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="16.989889322916667" />
+          <ConnectorPoint PointX="10.25" PointY="16.989889322916667" />
+          <ConnectorPoint PointX="10.25" PointY="17.691712239583332" />
+          <ConnectorPoint PointX="12.375" PointY="17.691712239583332" />
+          <ConnectorPoint PointX="12.375" PointY="15.865143229166666" />
+          <ConnectorPoint PointX="12.75" PointY="15.865143229166666" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_BlogPost_aspnet_Users" >
+          <ConnectorPoint PointX="6.75" PointY="13.94939947265625" />
+          <ConnectorPoint PointX="10" PointY="13.94939947265625" />
+          <ConnectorPoint PointX="10" PointY="17.941712239583332" />
+          <ConnectorPoint PointX="10.749999500000001" PointY="17.941712239583332" />
+          <ConnectorPoint PointX="10.749999500000001" PointY="18.25" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_Author_Blog" >
+          <ConnectorPoint PointX="9" PointY="18.064606119791666" />
+          <ConnectorPoint PointX="10.666666166666667" PointY="18.064606119791666" />
+          <ConnectorPoint PointX="10.833332833333335" PointY="18.064606119791666" />
+          <ConnectorPoint PointX="13.90625" PointY="18.064606119791666" />
+          <ConnectorPoint PointX="13.90625" PointY="16.855286458333335" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_BlogPost_Blog" >
+          <ConnectorPoint PointX="9" PointY="19.1487939453125" />
+          <ConnectorPoint PointX="9.75" PointY="19.1487939453125" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_Referral_Blog" >
+          <ConnectorPoint PointX="9" PointY="17.908356119791666" />
+          <ConnectorPoint PointX="13.822916666666666" PointY="17.908356119791666" />
+          <ConnectorPoint PointX="13.989583333333334" PointY="17.908356119791666" />
+          <ConnectorPoint PointX="15.75" PointY="17.908356119791666" />
+          <ConnectorPoint PointX="15.75" PointY="18.625" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_Referral_BlogPost" >
+          <ConnectorPoint PointX="11.25" PointY="20.415385742187503" />
+          <ConnectorPoint PointX="15" PointY="20.415385742187503" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_UserComment_BlogPost" >
+          <ConnectorPoint PointX="10.5" PointY="21.576396484374996" />
+          <ConnectorPoint PointX="10.5" PointY="23.999746093749998" />
+          <ConnectorPoint PointX="12" PointY="23.999746093749998" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.aspnet_UsersInRoles" >
+          <ConnectorPoint PointX="4.5" PointY="14.701650390625" />
+          <ConnectorPoint PointX="5.25" PointY="14.701650390625" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.BlogPostKeyword" >
+          <ConnectorPoint PointX="11.25" PointY="19.172841796875" />
+          <ConnectorPoint PointX="12" PointY="19.172841796875" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.BlogUser" >
+          <ConnectorPoint PointX="6.75" PointY="15.65330078125" />
+          <ConnectorPoint PointX="7.125" PointY="16.02830078125" />
+          <ConnectorPoint PointX="7.125" PointY="18.9612939453125" />
+          <ConnectorPoint PointX="7.5" PointY="18.9612939453125" /></AssociationConnector></Diagram></Diagrams>
+  </Designer>
 </edmx:Edmx>

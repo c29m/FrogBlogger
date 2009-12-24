@@ -24,14 +24,27 @@ namespace FrogBlogger.Web.Controllers
         public ActionResult Index()
         {
             AdminViewModel model;
+            IList<BlogPost> posts;
+            IList<aspnet_Users> users;
+            FrogBloggerEntities context = DatabaseUtility.GetContext();
 
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
             {
-                model = new AdminViewModel(
-                    (from m in repository.Fetch()
-                     orderby m.PostedDate descending
-                     select m).ToList());
+                posts = (from m in repository.Fetch()
+                         orderby m.PostedDate descending
+                         select m).ToList();
             }
+
+            using (IDataRepository<Author> authorRepository = new DataRepository<Author>(context))
+            using (IDataRepository<aspnet_Users> userRepository = new DataRepository<aspnet_Users>(context))
+            {
+                users = (from a in authorRepository.Fetch()
+                        where a.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C")
+                        join u in userRepository.Fetch() on a.UserId equals u.UserId
+                        select u).ToList();
+            }
+
+            model = new AdminViewModel(posts, users);
 
             return View(model);
         }
@@ -82,18 +95,6 @@ namespace FrogBlogger.Web.Controllers
             }
 
             return RedirectToAction("Index");
-        }
-
-        /// <summary>
-        /// GET: /Admin/ListUsers
-        /// </summary>
-        /// <returns>A list of users that are admins for the current blog</returns>
-        public ActionResult ListUsers()
-        {
-            int totalRecords;
-            MembershipUserCollection users = Membership.Provider.GetAllUsers(0, Int32.MaxValue, out totalRecords);
-
-            return View(users);
         }
     }
 }
