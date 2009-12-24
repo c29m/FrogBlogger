@@ -12,7 +12,7 @@ namespace FrogBlogger.Dal
         /// Gets the default ObjectContext for the project
         /// </summary>
         /// <returns>The default ObjectContext for the project</returns>
-        public static FrogBloggerContainer GetContext()
+        public static FrogBloggerEntities GetContext()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["FrogBloggerContainer"].ConnectionString;
 
@@ -24,9 +24,9 @@ namespace FrogBlogger.Dal
         /// </summary>
         /// <param name="connectionString">Connection string to use for database queries</param>
         /// <returns>The default ObjectContext for the project</returns>
-        public static FrogBloggerContainer GetContext(string connectionString)
+        public static FrogBloggerEntities GetContext(string connectionString)
         {
-            return new FrogBloggerContainer(connectionString);
+            return new FrogBloggerEntities(connectionString);
         }
     }
 }

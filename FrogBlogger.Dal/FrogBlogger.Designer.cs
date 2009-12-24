@@ -14,28 +14,29 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
-using System.CodeDom.Compiler;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Membership), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Paths), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Membership), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_PersonalizationAllUsers), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_PersonalizationPerUser), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pe__UserI__693CA210", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_PersonalizationPerUser), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Profile), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_BlogPost_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Users), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_BlogPost_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.Blog), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_Referral_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.Blog), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_Referral_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "FK_UserComment_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.BlogPost), "UserComment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.UserComment), true)]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users))]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "BlogPostKeyword", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Keyword))]
-[assembly: EdmRelationshipAttribute("FrogBlogger", "BlogUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Blog))]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Paths), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_PersonalizationAllUsers), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Pe__UserI__693CA210", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_PersonalizationPerUser), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Profile), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Author_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.aspnet_Users), "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Author), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_BlogPost_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.aspnet_Users), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Author_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.Blog), "Author", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Author), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_BlogPost_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.Blog), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Referral_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.Blog), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Referral_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_UserComment_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.BlogPost), "UserComment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.UserComment), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users))]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "BlogPostKeyword", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Keyword))]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "BlogUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Blog))]
 
 #endregion
 
@@ -46,33 +47,32 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
-    public partial class FrogBloggerContainer : ObjectContext
+    public partial class FrogBloggerEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new FrogBloggerContainer object using the connection string found in the 'FrogBloggerContainer' section of the application configuration file.
+        /// Initializes a new FrogBloggerEntities object using the connection string found in the 'FrogBloggerEntities' section of the application configuration file.
         /// </summary>
-        public FrogBloggerContainer() : base("name=FrogBloggerContainer", "FrogBloggerContainer")
+        public FrogBloggerEntities() : base("name=FrogBloggerEntities", "FrogBloggerEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new FrogBloggerContainer object.
+        /// Initialize a new FrogBloggerEntities object.
         /// </summary>
-        public FrogBloggerContainer(string connectionString) : base(connectionString, "FrogBloggerContainer")
+        public FrogBloggerEntities(string connectionString) : base(connectionString, "FrogBloggerEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new FrogBloggerContainer object.
+        /// Initialize a new FrogBloggerEntities object.
         /// </summary>
-        public FrogBloggerContainer(EntityConnection connection) : base(connection, "FrogBloggerContainer")
+        public FrogBloggerEntities(EntityConnection connection) : base(connection, "FrogBloggerEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -247,6 +247,22 @@ namespace FrogBlogger.Dal
             }
         }
         private ObjectSet<aspnet_WebEvent_Events> _aspnet_WebEvent_Events;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Author> Authors
+        {
+            get
+            {
+                if ((_Authors == null))
+                {
+                    _Authors = base.CreateObjectSet<Author>("Authors");
+                }
+                return _Authors;
+            }
+        }
+        private ObjectSet<Author> _Authors;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -428,6 +444,14 @@ namespace FrogBlogger.Dal
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Authors EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAuthors(Author author)
+        {
+            base.AddObject("Authors", author);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Blogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToBlogs(Blog blog)
@@ -486,10 +510,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_Applications")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Applications")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Applications : EntityObject
     {
         #region Factory Method
@@ -621,18 +644,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Me__Appli__21B6055D", "aspnet_Membership")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Me__Appli__21B6055D", "aspnet_Membership")]
         public EntityCollection<aspnet_Membership> aspnet_Membership
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Membership>("FrogBlogger.FK__aspnet_Me__Appli__21B6055D", "aspnet_Membership");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Membership>("FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("FrogBlogger.FK__aspnet_Me__Appli__21B6055D", "aspnet_Membership", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D", "aspnet_Membership", value);
                 }
             }
         }
@@ -643,18 +666,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Paths")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Paths")]
         public EntityCollection<aspnet_Paths> aspnet_Paths
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Paths>("FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Paths");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Paths");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Paths>("FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Paths", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Paths", value);
                 }
             }
         }
@@ -665,18 +688,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Ro__Appli__440B1D61", "aspnet_Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Ro__Appli__440B1D61", "aspnet_Roles")]
         public EntityCollection<aspnet_Roles> aspnet_Roles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("FrogBlogger.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("FrogBlogger.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Roles", value);
                 }
             }
         }
@@ -687,18 +710,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Users")]
         public EntityCollection<aspnet_Users> aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Users", value);
                 }
             }
         }
@@ -709,10 +732,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_Membership")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Membership")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Membership : EntityObject
     {
         #region Factory Method
@@ -1276,16 +1298,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -1297,13 +1319,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D", "aspnet_Applications", value);
                 }
             }
         }
@@ -1314,16 +1336,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -1335,13 +1357,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Users", value);
                 }
             }
         }
@@ -1352,10 +1374,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_Paths")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Paths")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Paths : EntityObject
     {
         #region Factory Method
@@ -1489,16 +1510,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -1510,13 +1531,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9", "aspnet_Applications", value);
                 }
             }
         }
@@ -1527,16 +1548,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers")]
         public aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers").Value = value;
             }
         }
         /// <summary>
@@ -1548,13 +1569,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_PersonalizationAllUsers>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_PersonalizationAllUsers>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_PersonalizationAllUsers>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_PersonalizationAllUsers", value);
                 }
             }
         }
@@ -1565,18 +1586,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_PersonalizationPerUser")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_PersonalizationPerUser")]
         public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("FrogBlogger.FK__aspnet_Pe__PathI__68487DD7", "aspnet_PersonalizationPerUser");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7", "aspnet_PersonalizationPerUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("FrogBlogger.FK__aspnet_Pe__PathI__68487DD7", "aspnet_PersonalizationPerUser", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7", "aspnet_PersonalizationPerUser", value);
                 }
             }
         }
@@ -1587,10 +1608,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_PersonalizationAllUsers")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_PersonalizationAllUsers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_PersonalizationAllUsers : EntityObject
     {
         #region Factory Method
@@ -1698,16 +1718,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths")]
         public aspnet_Paths aspnet_Paths
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths").Value = value;
             }
         }
         /// <summary>
@@ -1719,13 +1739,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__628FA481", "aspnet_Paths", value);
                 }
             }
         }
@@ -1736,10 +1756,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_PersonalizationPerUser")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_PersonalizationPerUser")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_PersonalizationPerUser : EntityObject
     {
         #region Factory Method
@@ -1895,16 +1914,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths")]
         public aspnet_Paths aspnet_Paths
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths").Value = value;
             }
         }
         /// <summary>
@@ -1916,13 +1935,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("FrogBlogger.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Paths>("FrogBloggerModel.FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", value);
                 }
             }
         }
@@ -1933,16 +1952,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pe__UserI__693CA210", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pe__UserI__693CA210", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -1954,13 +1973,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210", "aspnet_Users", value);
                 }
             }
         }
@@ -1971,10 +1990,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_Profile")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Profile")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Profile : EntityObject
     {
         #region Factory Method
@@ -2134,16 +2152,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -2155,13 +2173,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users", value);
                 }
             }
         }
@@ -2172,10 +2190,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_Roles")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Roles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Roles : EntityObject
     {
         #region Factory Method
@@ -2333,16 +2350,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -2354,13 +2371,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Ro__Appli__440B1D61", "aspnet_Applications", value);
                 }
             }
         }
@@ -2371,18 +2388,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "aspnet_UsersInRoles", "aspnet_Users")]
         public EntityCollection<aspnet_Users> aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("FrogBloggerModel.aspnet_UsersInRoles", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("FrogBloggerModel.aspnet_UsersInRoles", "aspnet_Users", value);
                 }
             }
         }
@@ -2393,10 +2410,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_SchemaVersions")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_SchemaVersions")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_SchemaVersions : EntityObject
     {
         #region Factory Method
@@ -2504,10 +2520,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_Users")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Users")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Users : EntityObject
     {
         #region Factory Method
@@ -2717,16 +2732,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications")]
         public aspnet_Applications aspnet_Applications
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications").Value = value;
             }
         }
         /// <summary>
@@ -2738,13 +2753,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBlogger.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Applications>("FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0", "aspnet_Applications", value);
                 }
             }
         }
@@ -2755,16 +2770,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership")]
         public aspnet_Membership aspnet_Membership
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -2776,13 +2791,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("FrogBlogger.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996", "aspnet_Membership", value);
                 }
             }
         }
@@ -2793,18 +2808,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pe__UserI__693CA210", "aspnet_PersonalizationPerUser")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pe__UserI__693CA210", "aspnet_PersonalizationPerUser")]
         public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("FrogBlogger.FK__aspnet_Pe__UserI__693CA210", "aspnet_PersonalizationPerUser");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210", "aspnet_PersonalizationPerUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("FrogBlogger.FK__aspnet_Pe__UserI__693CA210", "aspnet_PersonalizationPerUser", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210", "aspnet_PersonalizationPerUser", value);
                 }
             }
         }
@@ -2815,16 +2830,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile")]
         public aspnet_Profile aspnet_Profile
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile").Value = value;
             }
         }
         /// <summary>
@@ -2836,13 +2851,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Profile>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("FrogBlogger.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5", "aspnet_Profile", value);
                 }
             }
         }
@@ -2853,18 +2868,40 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_BlogPost_aspnet_Users", "BlogPost")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Author_aspnet_Users", "Author")]
+        public EntityCollection<Author> Authors
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Author>("FrogBloggerModel.FK_Author_aspnet_Users", "Author");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Author>("FrogBloggerModel.FK_Author_aspnet_Users", "Author", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPost_aspnet_Users", "BlogPost")]
         public EntityCollection<BlogPost> BlogPosts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPost>("FrogBlogger.FK_BlogPost_aspnet_Users", "BlogPost");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPost>("FrogBloggerModel.FK_BlogPost_aspnet_Users", "BlogPost");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBlogger.FK_BlogPost_aspnet_Users", "BlogPost", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBloggerModel.FK_BlogPost_aspnet_Users", "BlogPost", value);
                 }
             }
         }
@@ -2875,18 +2912,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "aspnet_UsersInRoles", "aspnet_Roles")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "aspnet_UsersInRoles", "aspnet_Roles")]
         public EntityCollection<aspnet_Roles> aspnet_Roles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Roles");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("FrogBloggerModel.aspnet_UsersInRoles", "aspnet_Roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("FrogBlogger.aspnet_UsersInRoles", "aspnet_Roles", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("FrogBloggerModel.aspnet_UsersInRoles", "aspnet_Roles", value);
                 }
             }
         }
@@ -2897,18 +2934,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "BlogUser", "Blog")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "BlogUser", "Blog")]
         public EntityCollection<Blog> Blogs
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Blog>("FrogBlogger.BlogUser", "Blog");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Blog>("FrogBloggerModel.BlogUser", "Blog");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Blog>("FrogBlogger.BlogUser", "Blog", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Blog>("FrogBloggerModel.BlogUser", "Blog", value);
                 }
             }
         }
@@ -2919,10 +2956,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="aspnet_WebEvent_Events")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_WebEvent_Events")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_WebEvent_Events : EntityObject
     {
         #region Factory Method
@@ -3327,10 +3363,196 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="Blog")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Author")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
+    public partial class Author : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Author object.
+        /// </summary>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="blogId">Initial value of the BlogId property.</param>
+        public static Author CreateAuthor(global::System.Guid userId, global::System.Guid blogId)
+        {
+            Author author = new Author();
+            author.UserId = userId;
+            author.BlogId = blogId;
+            return author;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid BlogId
+        {
+            get
+            {
+                return _BlogId;
+            }
+            set
+            {
+                if (_BlogId != value)
+                {
+                    OnBlogIdChanging(value);
+                    ReportPropertyChanging("BlogId");
+                    _BlogId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("BlogId");
+                    OnBlogIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _BlogId;
+        partial void OnBlogIdChanging(global::System.Guid value);
+        partial void OnBlogIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Comment
+        {
+            get
+            {
+                return _Comment;
+            }
+            set
+            {
+                OnCommentChanging(value);
+                ReportPropertyChanging("Comment");
+                _Comment = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Comment");
+                OnCommentChanged();
+            }
+        }
+        private global::System.String _Comment;
+        partial void OnCommentChanging(global::System.String value);
+        partial void OnCommentChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Author_aspnet_Users", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK_Author_aspnet_Users", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK_Author_aspnet_Users", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK_Author_aspnet_Users", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBloggerModel.FK_Author_aspnet_Users", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Author_Blog", "Blog")]
+        public Blog Blog
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_Author_Blog", "Blog").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_Author_Blog", "Blog").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Blog> BlogReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_Author_Blog", "Blog");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Blog>("FrogBloggerModel.FK_Author_Blog", "Blog", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Blog")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
     public partial class Blog : EntityObject
     {
         #region Factory Method
@@ -3410,18 +3632,40 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_BlogPost_Blog", "BlogPost")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Author_Blog", "Author")]
+        public EntityCollection<Author> Authors
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Author>("FrogBloggerModel.FK_Author_Blog", "Author");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Author>("FrogBloggerModel.FK_Author_Blog", "Author", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPost_Blog", "BlogPost")]
         public EntityCollection<BlogPost> BlogPosts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPost>("FrogBlogger.FK_BlogPost_Blog", "BlogPost");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPost>("FrogBloggerModel.FK_BlogPost_Blog", "BlogPost");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBlogger.FK_BlogPost_Blog", "BlogPost", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBloggerModel.FK_BlogPost_Blog", "BlogPost", value);
                 }
             }
         }
@@ -3432,18 +3676,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_Blog", "Referral")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Referral_Blog", "Referral")]
         public EntityCollection<Referral> Referrals
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("FrogBlogger.FK_Referral_Blog", "Referral");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("FrogBloggerModel.FK_Referral_Blog", "Referral");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("FrogBlogger.FK_Referral_Blog", "Referral", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("FrogBloggerModel.FK_Referral_Blog", "Referral", value);
                 }
             }
         }
@@ -3454,18 +3698,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "BlogUser", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "BlogUser", "aspnet_Users")]
         public EntityCollection<aspnet_Users> aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("FrogBlogger.BlogUser", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("FrogBloggerModel.BlogUser", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("FrogBlogger.BlogUser", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("FrogBloggerModel.BlogUser", "aspnet_Users", value);
                 }
             }
         }
@@ -3476,10 +3720,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="BlogPost")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="BlogPost")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class BlogPost : EntityObject
     {
         #region Factory Method
@@ -3681,16 +3924,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_BlogPost_aspnet_Users", "aspnet_Users")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPost_aspnet_Users", "aspnet_Users")]
         public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK_BlogPost_aspnet_Users", "aspnet_Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK_BlogPost_aspnet_Users", "aspnet_Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK_BlogPost_aspnet_Users", "aspnet_Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK_BlogPost_aspnet_Users", "aspnet_Users").Value = value;
             }
         }
         /// <summary>
@@ -3702,13 +3945,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBlogger.FK_BlogPost_aspnet_Users", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("FrogBloggerModel.FK_BlogPost_aspnet_Users", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBlogger.FK_BlogPost_aspnet_Users", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("FrogBloggerModel.FK_BlogPost_aspnet_Users", "aspnet_Users", value);
                 }
             }
         }
@@ -3719,16 +3962,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_BlogPost_Blog", "Blog")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPost_Blog", "Blog")]
         public Blog Blog
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_BlogPost_Blog", "Blog").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_BlogPost_Blog", "Blog").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_BlogPost_Blog", "Blog").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_BlogPost_Blog", "Blog").Value = value;
             }
         }
         /// <summary>
@@ -3740,13 +3983,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_BlogPost_Blog", "Blog");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_BlogPost_Blog", "Blog");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Blog>("FrogBlogger.FK_BlogPost_Blog", "Blog", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Blog>("FrogBloggerModel.FK_BlogPost_Blog", "Blog", value);
                 }
             }
         }
@@ -3757,18 +4000,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_BlogPost", "Referral")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Referral_BlogPost", "Referral")]
         public EntityCollection<Referral> Referrals
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("FrogBlogger.FK_Referral_BlogPost", "Referral");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Referral>("FrogBloggerModel.FK_Referral_BlogPost", "Referral");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("FrogBlogger.FK_Referral_BlogPost", "Referral", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Referral>("FrogBloggerModel.FK_Referral_BlogPost", "Referral", value);
                 }
             }
         }
@@ -3779,18 +4022,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_UserComment_BlogPost", "UserComment")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_UserComment_BlogPost", "UserComment")]
         public EntityCollection<UserComment> UserComments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserComment>("FrogBlogger.FK_UserComment_BlogPost", "UserComment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserComment>("FrogBloggerModel.FK_UserComment_BlogPost", "UserComment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserComment>("FrogBlogger.FK_UserComment_BlogPost", "UserComment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserComment>("FrogBloggerModel.FK_UserComment_BlogPost", "UserComment", value);
                 }
             }
         }
@@ -3801,18 +4044,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "BlogPostKeyword", "Keyword")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "BlogPostKeyword", "Keyword")]
         public EntityCollection<Keyword> Keywords
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Keyword>("FrogBlogger.BlogPostKeyword", "Keyword");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Keyword>("FrogBloggerModel.BlogPostKeyword", "Keyword");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Keyword>("FrogBlogger.BlogPostKeyword", "Keyword", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Keyword>("FrogBloggerModel.BlogPostKeyword", "Keyword", value);
                 }
             }
         }
@@ -3823,10 +4066,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="Keyword")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Keyword")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class Keyword : EntityObject
     {
         #region Factory Method
@@ -3906,18 +4148,18 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "BlogPostKeyword", "BlogPost")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "BlogPostKeyword", "BlogPost")]
         public EntityCollection<BlogPost> BlogPosts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPost>("FrogBlogger.BlogPostKeyword", "BlogPost");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPost>("FrogBloggerModel.BlogPostKeyword", "BlogPost");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBlogger.BlogPostKeyword", "BlogPost", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPost>("FrogBloggerModel.BlogPostKeyword", "BlogPost", value);
                 }
             }
         }
@@ -3928,10 +4170,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="Referral")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Referral")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class Referral : EntityObject
     {
         #region Factory Method
@@ -4066,16 +4307,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_Blog", "Blog")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Referral_Blog", "Blog")]
         public Blog Blog
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_Referral_Blog", "Blog").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_Referral_Blog", "Blog").Value = value;
             }
         }
         /// <summary>
@@ -4087,13 +4328,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Blog>("FrogBloggerModel.FK_Referral_Blog", "Blog");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Blog>("FrogBlogger.FK_Referral_Blog", "Blog", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Blog>("FrogBloggerModel.FK_Referral_Blog", "Blog", value);
                 }
             }
         }
@@ -4104,16 +4345,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_Referral_BlogPost", "BlogPost")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Referral_BlogPost", "BlogPost")]
         public BlogPost BlogPost
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_Referral_BlogPost", "BlogPost").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_Referral_BlogPost", "BlogPost").Value = value;
             }
         }
         /// <summary>
@@ -4125,13 +4366,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_Referral_BlogPost", "BlogPost");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BlogPost>("FrogBlogger.FK_Referral_BlogPost", "BlogPost", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BlogPost>("FrogBloggerModel.FK_Referral_BlogPost", "BlogPost", value);
                 }
             }
         }
@@ -4142,10 +4383,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="sysdiagram")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="sysdiagram")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class sysdiagram : EntityObject
     {
         #region Factory Method
@@ -4298,10 +4538,9 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="FrogBlogger", Name="UserComment")]
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="UserComment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class UserComment : EntityObject
     {
         #region Factory Method
@@ -4525,16 +4764,16 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBlogger", "FK_UserComment_BlogPost", "BlogPost")]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_UserComment_BlogPost", "BlogPost")]
         public BlogPost BlogPost
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_UserComment_BlogPost", "BlogPost").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_UserComment_BlogPost", "BlogPost").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_UserComment_BlogPost", "BlogPost").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_UserComment_BlogPost", "BlogPost").Value = value;
             }
         }
         /// <summary>
@@ -4546,13 +4785,13 @@ namespace FrogBlogger.Dal
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBlogger.FK_UserComment_BlogPost", "BlogPost");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_UserComment_BlogPost", "BlogPost");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BlogPost>("FrogBlogger.FK_UserComment_BlogPost", "BlogPost", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BlogPost>("FrogBloggerModel.FK_UserComment_BlogPost", "BlogPost", value);
                 }
             }
         }

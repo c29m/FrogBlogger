@@ -18,7 +18,7 @@
     <div id="container-1">
         <ul>
             <li><a href="#posts"><span>Posts</span></a></li>
-            <li><a href="#fragment-2"><span>Two</span></a></li>
+            <li><a href="#users"><span>Users</span></a></li>
 
             <li><a href="#fragment-3"><span>Three</span></a></li>
         </ul>
@@ -52,10 +52,19 @@
                 <%= Html.ActionLink("Create New", "Create") %>
             </p>
         </div>
-        <div id="fragment-2">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        <div id="users">
+            <table>
+                <tr>
+                    <th>Author</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <% foreach (FrogBlogger.Dal.aspnet_Users user in Model.Authors) { %>
+                    <tr>
+                        <td><%= user.UserName %></td>
+                        <td><%= Html.ActionLink("Delete", "DeleteAuthor", new { id = user.UserId }, new { onclick = "return confirmDelete()" })%></td>
+                    </tr>
+                <% } %>
+            </table>
         </div>
         <div id="fragment-3">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>

@@ -347,7 +347,6 @@
     <Content Include="Scripts\ui\ui.tabs.js" />
     <Content Include="Views\Admin\Create.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
-    <Content Include="Views\Admin\ListUsers.aspx" />
     <Content Include="Views\Blog\Create.aspx" />
     <Content Include="Views\Blog\Index.aspx" />
     <Content Include="Views\Home\Index.aspx" />
