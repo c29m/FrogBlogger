@@ -251,6 +251,12 @@ th
     background-color: #eee;
 }
 
+#leaveComment
+{
+    clear: both;
+    padding-top: 15px;
+}
+
 #leaveComment textarea
 {
     width: 500px;

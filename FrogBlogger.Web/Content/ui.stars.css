@@ -1,0 +1,84 @@
+/*!
+ * jQuery UI Stars v@VERSION@
+ * http://plugins.jquery.com/project/Star_Rating_widget
+ *
+ * Copyright (c) @YEAR@ Orkan (orkans@gmail.com)
+ * Dual licensed under the MIT and GPL licenses.
+ * http://docs.jquery.com/License
+ *
+ * $Rev: 102 $
+ * $Date:: 2009-06-07 #$
+ * $Build: @BUILD@ (@DATE@)
+ *
+ */
+.ui-stars-star,
+.ui-stars-cancel {
+	float: left;
+	display: block;
+	overflow: hidden;
+	text-indent: -999em;
+	cursor: pointer;
+}
+.ui-stars-star a,
+.ui-stars-cancel a {
+	width: 16px;
+	height: 15px;
+	display: block;
+	background: url(/Content/Images/ui.stars.gif) no-repeat 0 0;
+}
+.ui-stars-star a {
+	background-position: 0 -32px;
+}
+.ui-stars-star-on a {
+	background-position: 0 -48px;
+}
+.ui-stars-star-hover a {
+	background-position: 0 -64px;
+}
+.ui-stars-cancel-hover a {
+	background-position: 0 -16px;
+}
+.ui-stars-star-disabled,
+.ui-stars-star-disabled a,
+.ui-stars-cancel-disabled a {
+	cursor: default !important;
+}
+
+.ui-crystal-star,
+.ui-crystal-cancel 
+{
+    float: left;
+    display: block;
+    overflow: hidden;
+    text-indent: -999em;
+    cursor: pointer;
+}
+
+.ui-crystal-star a,
+.ui-crystal-cancel a
+{
+    width: 28px;
+    height: 26px;
+    display: block;
+    background: url(/Content/Images/crystal-stars.png) no-repeat 0 0;
+}
+
+.ui-crystal-star a
+{
+    background-position: 0 -56px;
+}
+
+.ui-crystal-star-on a
+{
+    background-position: 0 -84px;
+}
+
+.ui-crystal-star-hover a
+{
+    background-position: 0 -112px;
+}
+
+.ui-crystal-cancel-hover a
+{
+    background-position: 0 -28px;
+}

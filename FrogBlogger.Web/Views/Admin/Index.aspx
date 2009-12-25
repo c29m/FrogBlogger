@@ -41,7 +41,7 @@
                 }
             }
 
-            $("#dialog").dialog({
+            $("#createUserDialog").dialog({
                 bgiframe: true,
                 autoOpen: false,
                 height: 300,
@@ -82,7 +82,7 @@
             });
 
             $('#create-user').click(function () {
-                $('#dialog').dialog('open');
+                $('#createUserDialog').dialog('open');
             })
 		.hover(
 			function () {
@@ -99,7 +99,30 @@
 		});
 
         });
-        
+
+        $(function () {
+            $("#confirmDelete").dialog({
+                bgiframe: true,
+                resizable: false,
+                height: 140,
+                modal: true,
+                overlay: {
+                    backgroundColor: '#000',
+                    opacity: 0.5
+                },
+                buttons: {
+                    'Are you sure you want to delete?': function () {
+                        $(this).dialog('close');
+                        return 1;
+                    },
+                    Cancel: function () {
+                        $(this).dialog('close');
+                        return 0;
+                    }
+                }
+            });
+        });
+
         function confirmDelete() {
             return confirm("Are you sure you want to delete?");  
         }
@@ -108,6 +131,9 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h2>BlogName Admin</h2>
     <div id="container-1">
+        <div id="confirmDelete" title="Delete Post?">
+        	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This item will be permanently deleted and cannot be recovered. Are you sure?</p>
+        </div
         <ul>
             <li><a href="#posts"><span>Posts</span></a></li>
             <li><a href="#users"><span>Users</span></a></li>
@@ -145,7 +171,7 @@
             </p>
         </div>
         <div id="users">
-            <div id="dialog" title="Create new user">
+            <div id="createUserDialog" title="Create new user">
                 <p id="validateTips">All form fields are required.</p>
                 <form id="createUser" action="/Admin/CreateUser" method="post">
                     <fieldset>
