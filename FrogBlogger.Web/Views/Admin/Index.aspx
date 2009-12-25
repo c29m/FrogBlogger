@@ -155,13 +155,13 @@
                 </tr>
             <% foreach (var item in Model.BlogPosts) { %>
                 <tr>
-                    <td><%= Html.ActionLink(item.Title, "Edit", new { /* id=item.PrimaryKey */ })%></td>
+                    <td><%= Html.ActionLink(item.Title, "Edit", new { id = item.BlogPostId })%></td>
                     <td><%= item.PostedDate.Value.ToShortDateString() %></td>
                     <td><%= item.Visible.ToString() %></td>
                     <td>10</td>
                     <td>10</td>
                     <td><a href="#">Referrals</a></td>
-                    <td><%= Html.ActionLink("View", "View", "Post", new { id = item.BlogPostId  }, null)%></td>
+                    <td><%= Html.ActionLink("View", "Details", "Post", new { id = item.BlogPostId  }, null)%></td>
                     <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId }, new { onclick = "return confirmDelete()" })%></td>
                 </tr>
             <% } %>

@@ -5,7 +5,7 @@
     <script type="text/javascript" src="/Scripts/ui/ui.stars.js"></script>
     <script type="text/javascript">
         $(function () {
-            $stars2 = $("#form_ocv2");
+            $stars2 = $("#rating");
             $stars2.children().not("select").hide();
 
             $stars2.stars({
@@ -53,7 +53,7 @@
            } %>
     </div>
     <div class="rating"><span id="hover_ocv2" class="rating-cap"></span>
-		<form id="form_ocv2" action="#" method="post">
+		<form id="rating" action="#" method="post">
 			<select id="form_2" name="selrate" style="width: 120px">
 				<option value="1">Very poor</option>
 				<option value="2">Not that bad</option>

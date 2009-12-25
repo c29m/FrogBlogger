@@ -179,5 +179,65 @@ namespace FrogBlogger.Web.Controllers
                 }
             }
         }
+
+        /// <summary>
+        /// GET: /Admin/Edit
+        /// </summary>
+        /// <param name="id">ID of the record to edit</param>
+        /// <returns>A page to edit the post</returns>
+        public ActionResult Edit(Guid id)
+        {
+            BlogPost post;
+            IList<Keyword> tags;
+            StringBuilder keywords = new StringBuilder();
+            FrogBloggerEntities context = DatabaseUtility.GetContext();
+
+            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
+            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
+            {
+                post = blogPostRepository.GetSingle(p => p.BlogPostId == id);
+
+                tags = (from t in keywordRepository.Fetch()
+                        where t.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C") // TODO: Replace this
+                        select t).ToList();
+
+                foreach (Keyword keyword in tags)
+                {
+                    keywords.AppendFormat("{0} ", keyword.Keyword1);
+                }
+
+                ViewData["tags"] = keywords.ToString().TrimEnd();
+            }
+
+            return View(post);
+        }
+
+        /// <summary>
+        /// POST: /Admin/Update/
+        /// </summary>
+        /// <param name="blogPost">BlogPost to update</param>
+        /// <param name="tags">Any tags that might be associated with the post</param>
+        /// <returns>redirects to the blog post listing</returns>
+        [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateInput(false)]
+        public ActionResult Update([Bind(Include = "BlogPostId, Title, Post, Visible")] BlogPost blogPost, string tags)
+        {
+            BlogPost tempPost;
+
+            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            {
+                tempPost = repository.GetSingle(p => p.BlogPostId == blogPost.BlogPostId && p.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C")); // TODO: Replace this)
+
+                // Update only specific properties
+                tempPost.Title = blogPost.Title;
+                tempPost.Post = blogPost.Post;
+                tempPost.Visible = blogPost.Visible;
+
+                // Save the changes
+                repository.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
