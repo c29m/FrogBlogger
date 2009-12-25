@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
-using FrogBlogger.Web.Models;
-using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Dal;
-using System.Web.Security;
+using FrogBlogger.Dal.Interfaces;
+using FrogBlogger.Web.Models;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -28,18 +26,16 @@ namespace FrogBlogger.Web.Controllers
             IList<aspnet_Users> users;
             FrogBloggerEntities context = DatabaseUtility.GetContext();
 
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
-            {
-                posts = (from m in repository.Fetch()
-                         orderby m.PostedDate descending
-                         select m).ToList();
-            }
-
+            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
             using (IDataRepository<Author> authorRepository = new DataRepository<Author>(context))
             using (IDataRepository<aspnet_Users> userRepository = new DataRepository<aspnet_Users>(context))
             {
+                posts = (from m in blogPostRepository.Fetch()
+                         orderby m.PostedDate descending
+                         select m).ToList();
+
                 users = (from a in authorRepository.Fetch()
-                        where a.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C")
+                        where a.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C") // TODO: Replace this
                         join u in userRepository.Fetch() on a.UserId equals u.UserId
                         select u).ToList();
             }
@@ -55,6 +51,23 @@ namespace FrogBlogger.Web.Controllers
         /// <returns>Form for creating a blog</returns>
         public ActionResult Create()
         {
+            StringBuilder keywords = new StringBuilder();
+            IList<Keyword> tags;
+
+            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>())
+            {
+                tags = (from t in keywordRepository.Fetch()
+                        where t.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C") // TODO: Replace this
+                        select t).ToList();
+            }
+
+            foreach (Keyword keyword in tags)
+            {
+                keywords.AppendFormat("{0} ", keyword.Keyword1);
+            }
+
+            ViewData["tags"] = keywords.ToString().TrimEnd();
+
             return View();
         }
 
