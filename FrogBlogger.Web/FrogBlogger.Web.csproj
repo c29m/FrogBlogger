@@ -352,8 +352,11 @@
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Blog\Create.aspx" />
     <Content Include="Views\Blog\Index.aspx" />
+    <Content Include="Views\Home\ArchivePostUserControl.ascx" />
     <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\LatestTagsUserControl.ascx" />
     <Content Include="Views\Post\Details.aspx" />
+    <Content Include="Views\Shared\ArchivePostsUserControl.ascx" />
     <Content Include="Views\Shared\FooterUserControl.ascx" />
     <Content Include="Views\Shared\MenuUserControl.ascx" />
     <Content Include="Web.config" />

@@ -29,6 +29,15 @@ namespace FrogBlogger.Web.Models
             private set;
         }
 
+        /// <summary>
+        /// Gets a reference to a collection containing the latest tags
+        /// </summary>
+        public IList<Keyword> LatestTags
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region Constructors
@@ -37,12 +46,14 @@ namespace FrogBlogger.Web.Models
         /// Initializes a new instance of the HomeViewModel class
         /// </summary>
         /// <param name="blogPosts">The blog posts to display on the home page</param>
+        /// <param name="latestTags">The latest tags</param>
         /// <param name="blogPostCommentCount">A dictionary containing the comment count for each blog post</param>
         /// <param name="blogPostCount">The total number of blog posts for the current blog</param>
-        public HomeViewModel(IList<BlogPost> blogPosts, Dictionary<Guid, int> blogPostCommentCount, int blogPostCount)
+        public HomeViewModel(IList<BlogPost> blogPosts, IList<Keyword> latestTags, Dictionary<Guid, int> blogPostCommentCount, int blogPostCount)
             : base(blogPosts)
         {
             BlogPostCommentCount = blogPostCommentCount;
+            LatestTags = latestTags;
             BlogPostCount = blogPostCount;
         }
 
