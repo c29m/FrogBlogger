@@ -92,6 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\crystal-stars.png" />
     <Content Include="Content\Images\img01.jpg" />
     <Content Include="Content\Images\img02.jpg" />
     <Content Include="Content\Images\img03.jpg" />
@@ -365,6 +366,7 @@
     <Content Include="Scripts\ui\ui.stars.js" />
     <Content Include="Scripts\ui\ui.tabs.js" />
     <Content Include="Views\Admin\Create.aspx" />
+    <Content Include="Views\Admin\Edit.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Blog\Create.aspx" />
     <Content Include="Views\Blog\Index.aspx" />
