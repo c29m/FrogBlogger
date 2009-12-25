@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/OneColumn.Master" Inherits="System.Web.Mvc.ViewPage<FrogBlogger.Dal.BlogPost>" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">New Blog Post</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptContent" runat="server">
+    <link rel="stylesheet" href="/Content/jquery.autocomplete.css" type="text/css" />
     <script type="text/javascript" src="/Scripts/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript" src="/Scripts/ui/jquery.autocomplete.js"></script>
     <script type="text/javascript">
         tinyMCE.init({
             // General options
@@ -35,6 +37,12 @@
             }
         });
 </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
+        $("#Tags").autocomplete(data);
+    });
+</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h2>New Blog Post</h2>
@@ -50,8 +58,12 @@
             <%= Html.ValidationMessage("Post", "*") %>
         </p>
         <p>
+            <label for="Tags">Tags:</label>
+            <%= Html.TextBox("Tags") %>
+        </p>
+        <p>
             <label for="Visible">Visible:</label>
-            <%= Html.CheckBox("Visible") %>
+            <%= Html.CheckBox("Visible", true) %>
             <%= Html.ValidationMessage("Visible", "*") %>
         </p>
         <p>
