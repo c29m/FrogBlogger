@@ -355,6 +355,7 @@
     <Content Include="Views\Home\ArchivePostUserControl.ascx" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Home\LatestTagsUserControl.ascx" />
+    <Content Include="Views\Home\Search.aspx" />
     <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Shared\ArchivePostsUserControl.ascx" />
     <Content Include="Views\Shared\FooterUserControl.ascx" />
