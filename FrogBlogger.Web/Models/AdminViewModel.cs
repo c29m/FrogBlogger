@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using FrogBlogger.Dal;
-using System.Web.Security;
 
 namespace FrogBlogger.Web.Models
 {
@@ -28,6 +27,7 @@ namespace FrogBlogger.Web.Models
         /// Initializes a new instance of the HomeViewModel class
         /// </summary>
         /// <param name="blogPosts">The blog posts to display on the admin page</param>
+        /// <param name="authors">A list of authors that are associated with the requested blog</param>
         public AdminViewModel(IList<BlogPost> blogPosts, IList<aspnet_Users> authors)
             : base(blogPosts)
         {

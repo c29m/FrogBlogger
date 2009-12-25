@@ -39,7 +39,7 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
+        var data = "<%= (string)ViewData["tags"] %>".split(" ");
         $("#tags").autocomplete(data);
     });
 </script>
