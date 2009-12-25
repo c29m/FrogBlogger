@@ -100,6 +100,7 @@
     <Content Include="Content\Images\LogoLarge.png" />
     <Content Include="Content\Images\tab.png" />
     <Content Include="Content\Images\xml.gif" />
+    <Content Include="Content\jquery-ui-1.7.2.custom.css" />
     <Content Include="Content\ui.tabs.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\langs\en.js" />
