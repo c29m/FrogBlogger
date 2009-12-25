@@ -40,40 +40,40 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
-        $("#Tags").autocomplete(data);
+        $("#tags").autocomplete(data);
     });
 </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h2>New Blog Post</h2>
-    <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
-    <% using (Html.BeginForm()) {%>
-        <p>
-            <label for="Title">Title:</label>
-            <%= Html.TextBox("Title") %>
-            <%= Html.ValidationMessage("Title", "*") %>
-        </p>
-        <p>
-            <%= Html.TextArea("Post") %>
-            <%= Html.ValidationMessage("Post", "*") %>
-        </p>
-        <p>
-            <label for="Tags">Tags:</label>
-            <%= Html.TextBox("Tags") %>
-        </p>
-        <p>
-            <label for="Visible">Visible:</label>
-            <%= Html.CheckBox("Visible", true) %>
-            <%= Html.ValidationMessage("Visible", "*") %>
-        </p>
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    <% } %>
-
-    <div>
-        <%=Html.ActionLink("Back to List", "Index") %>
-    </div>
-
+    <fieldset>
+        <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
+        <% using (Html.BeginForm()) {%>
+            <p>
+                <label for="Title">Title:</label>
+                <%= Html.TextBox("Title") %>
+                <%= Html.ValidationMessage("Title", "*") %>
+            </p>
+            <p>
+                <%= Html.TextArea("Post") %>
+                <%= Html.ValidationMessage("Post", "*") %>
+            </p>
+            <p>
+                <label for="tags">Tags:</label>
+                <%= Html.TextBox("tags") %>
+            </p>
+            <p>
+                <label for="Visible">Visible:</label>
+                <%= Html.CheckBox("Visible", true) %>
+                <%= Html.ValidationMessage("Visible", "*") %>
+            </p>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        <% } %>
+        <div>
+            <%=Html.ActionLink("Back to List", "Index") %>
+        </div>
+    </fieldset>
 </asp:Content>
 
