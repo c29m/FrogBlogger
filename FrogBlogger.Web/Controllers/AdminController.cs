@@ -62,20 +62,36 @@ namespace FrogBlogger.Web.Controllers
         /// Admin/Create
         /// </summary>
         /// <param name="blogPost">BlogPost record to create</param>
+        /// <param name="tags">Any tags that might be associated with the post</param>
         /// <returns>Redirects to the listing</returns>
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateInput(false)]
-        public ActionResult Create(BlogPost blogPost)
+        public ActionResult Create(BlogPost blogPost, string tags)
         {
+            FrogBloggerEntities context = DatabaseUtility.GetContext();
+
+            // Create the tags
+            CreateTags(tags);
+
             blogPost.BlogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"); // TODO: Replace with current blog ID
             blogPost.UserId = null; // TODO: Replace with current user ID
             blogPost.PostedDate = DateTime.Now;
             blogPost.BlogPostId = Guid.NewGuid();
 
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
+            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
             {
-                repository.Create(blogPost);
-                repository.SaveChanges();
+                // Associate any specified tags
+                foreach (string tag in tags.Split(','))
+                {
+                    blogPost.Keywords.Add(keywordRepository.GetSingle(k => k.Keyword1 == tag.Trim()));
+                }
+
+                // Create the blog post
+                blogPostRepository.Create(blogPost);
+
+                // Save the changes to the database
+                context.SaveChanges();
             }
 
             return RedirectToAction("Index");
@@ -95,6 +111,31 @@ namespace FrogBlogger.Web.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// Creates tags in the database if they don't already exist
+        /// </summary>
+        /// <param name="tags">Tags to create</param>
+        private static void CreateTags(string tags)
+        {
+            using (IDataRepository<Keyword> repository = new DataRepository<Keyword>())
+            {
+                foreach (string tag in tags.Trim().Split(','))
+                {
+                    if (!repository.Fetch(k => k.Keyword1 == tag).Any())
+                    {
+                        repository.Create(new Keyword
+                        {
+                            KeywordId = Guid.NewGuid(),
+                            BlogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"), // TODO: Replace with current blog ID
+                            Keyword1 = tag.Trim()
+                        });
+
+                        repository.SaveChanges();
+                    }
+                }
+            }
         }
     }
 }
