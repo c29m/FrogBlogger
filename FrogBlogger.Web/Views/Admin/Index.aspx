@@ -63,6 +63,12 @@
 							'<td>' + name.val() + '</td>' +
 							'<td>' + email.val() + '</td>' +
 							'</tr>');
+
+                            var f = $("#createUser");
+                            var action = f.attr("action");
+                            var serializedForm = f.serialize();
+
+                            $.post(action, serializedForm, function () { alert("User created!"); });
                             $(this).dialog('close');
                         }
                     },
@@ -141,7 +147,7 @@
         <div id="users">
             <div id="dialog" title="Create new user">
                 <p id="validateTips">All form fields are required.</p>
-                <form>
+                <form id="createUser" action="/Admin/CreateUser" method="post">
                     <fieldset>
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Models;
+using System.Web.Security;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -108,6 +109,34 @@ namespace FrogBlogger.Web.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// Adds a user as an author for the current blog
+        /// </summary>
+        /// <param name="name">Username for which to add</param>
+        /// <returns>The user that was just created, serialized as a JSON result</returns>
+        [AcceptVerbs(HttpVerbs.Post)]
+        public EmptyResult CreateUser(string name)
+        {
+            RoleProvider provider = System.Web.Security.Roles.Provider;
+            Blog blog;
+
+            // Add user to the admin role
+            provider.AddUsersToRoles(new string[] { name }, new string[] { Roles.Admin });
+
+            // Add user as author of current blog
+            using (IDataRepository<Blog> repository = new DataRepository<Blog>())
+            {
+                blog = repository.GetSingle(b => b.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C")); // TODO: Replace this
+                blog.Authors.Add(new Author
+                {
+                    BlogId = blog.BlogId,
+                    UserId = (Guid)Membership.GetUser(name).ProviderUserKey
+                });
+            }
+
+            return new EmptyResult();
         }
 
         /// <summary>
