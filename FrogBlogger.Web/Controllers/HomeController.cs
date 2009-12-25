@@ -72,5 +72,27 @@ namespace FrogBlogger.Web.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// Searches the database for blog posts containing the specified keywords
+        /// </summary>
+        /// <param name="searchTerm">Search term for which to query the model against</param>
+        /// <returns>The search results of the query</returns>
+        public ActionResult Search(string searchTerm)
+        {
+            BlogListBase model;
+            List<BlogPost> posts;
+
+            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            {
+                posts = (from b in repository.Fetch()
+                         where b.Title.Contains(searchTerm) || b.Post.Contains(searchTerm)
+                         select b).ToList();
+            }
+
+            model = new BlogListBase(posts);
+
+            return View(model);
+        }
     }
 }
