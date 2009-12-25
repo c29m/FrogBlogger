@@ -31,14 +31,21 @@ namespace FrogBlogger.Web.Controllers
             int maxRecords = 10; // TODO: Replace the magic number 10 on this line with a user determined value
             HomeViewModel model;
             List<BlogPost> posts;
+            List<Keyword> tags;
+            FrogBloggerEntities context = DatabaseUtility.GetContext();
             Dictionary<Guid, int> blogPostCommentCount = new Dictionary<Guid, int>();
 
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>(context))
+            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
             {
                 posts = (from m in repository.Fetch()
                          where m.BlogId == _blogId
                          orderby m.PostedDate descending
                          select m).Take(maxRecords).ToList();
+
+                tags = (from t in keywordRepository.Fetch()
+                        where t.BlogId == _blogId
+                        select t).Take(maxRecords).ToList();
 
                 // Get the total blog post count
                 count = (from m in repository.Fetch()
@@ -51,7 +58,7 @@ namespace FrogBlogger.Web.Controllers
                     blogPostCommentCount.Add(post.BlogPostId, post.UserComments.Count);
                 }
 
-                model = new HomeViewModel(posts, blogPostCommentCount, count);
+                model = new HomeViewModel(posts, tags, blogPostCommentCount, count);
             }
 
             return View(model);

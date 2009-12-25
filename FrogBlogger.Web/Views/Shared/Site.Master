@@ -41,18 +41,10 @@
     					</form>
     				</li>
                     <li>
-    					<h2>Latest Tags</h2>
-    					<ul>
-    						<li><a href="#">FrogBlogger</a></li>
-    						<li><a href="#">Test</a></li>
-    					</ul>
+    					<% Html.RenderPartial("LatestTagsUserControl"); %>
     				</li>
     				<li>
-    					<h2>Archive</h2>
-    					<ul>
-    						<li><a href="#">Welcome to FrogBlogger!</a></li>
-    						<li><a href="#">Test Post</a></li>
-    					</ul>
+    					<% Html.RenderPartial("ArchivePostUserControl"); %>
     				</li>
     			</ul>
     		</div>
