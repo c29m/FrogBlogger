@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
+using System.Web.Security;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
+using FrogBlogger.Web.Helpers;
 using FrogBlogger.Web.Models;
-using System.Web.Security;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -25,6 +26,7 @@ namespace FrogBlogger.Web.Controllers
             AdminViewModel model;
             IList<BlogPost> posts;
             IList<aspnet_Users> users;
+            Guid blogId = BlogUtility.GetBlogId();
             FrogBloggerEntities context = DatabaseUtility.GetContext();
 
             using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
@@ -36,9 +38,9 @@ namespace FrogBlogger.Web.Controllers
                          select m).ToList();
 
                 users = (from a in authorRepository.Fetch()
-                        where a.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C") // TODO: Replace this
-                        join u in userRepository.Fetch() on a.UserId equals u.UserId
-                        select u).ToList();
+                         where a.BlogId == blogId
+                         join u in userRepository.Fetch() on a.UserId equals u.UserId
+                         select u).ToList();
             }
 
             model = new AdminViewModel(posts, users);
@@ -49,16 +51,17 @@ namespace FrogBlogger.Web.Controllers
         /// <summary>
         /// Admin/Create
         /// </summary>
-        /// <returns>Form for creating a blog</returns>
+        /// <returns>Form for creating a blog post</returns>
         public ActionResult Create()
         {
             StringBuilder keywords = new StringBuilder();
             IList<Keyword> tags;
+            Guid blogId = BlogUtility.GetBlogId();
 
             using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>())
             {
                 tags = (from t in keywordRepository.Fetch()
-                        where t.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C") // TODO: Replace this
+                        where t.BlogId == blogId
                         select t).ToList();
             }
 
@@ -87,7 +90,7 @@ namespace FrogBlogger.Web.Controllers
             // Create the tags
             CreateTags(tags);
 
-            blogPost.BlogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"); // TODO: Replace with current blog ID
+            blogPost.BlogId = BlogUtility.GetBlogId();
             blogPost.UserId = null; // TODO: Replace with current user ID
             blogPost.PostedDate = DateTime.Now;
             blogPost.BlogPostId = Guid.NewGuid();
@@ -121,6 +124,7 @@ namespace FrogBlogger.Web.Controllers
         {
             RoleProvider provider = System.Web.Security.Roles.Provider;
             Blog blog;
+            Guid blogId = BlogUtility.GetBlogId();
 
             // Add user to the admin role
             provider.AddUsersToRoles(new string[] { name }, new string[] { Roles.Admin });
@@ -128,7 +132,7 @@ namespace FrogBlogger.Web.Controllers
             // Add user as author of current blog
             using (IDataRepository<Blog> repository = new DataRepository<Blog>())
             {
-                blog = repository.GetSingle(b => b.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C")); // TODO: Replace this
+                blog = repository.GetSingle(b => b.BlogId == blogId);
                 blog.Authors.Add(new Author
                 {
                     BlogId = blog.BlogId,
@@ -170,7 +174,7 @@ namespace FrogBlogger.Web.Controllers
                         repository.Create(new Keyword
                         {
                             KeywordId = Guid.NewGuid(),
-                            BlogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"), // TODO: Replace with current blog ID
+                            BlogId = BlogUtility.GetBlogId(),
                             Keyword1 = tag.Trim()
                         });
 
@@ -198,7 +202,7 @@ namespace FrogBlogger.Web.Controllers
                 post = blogPostRepository.GetSingle(p => p.BlogPostId == id);
 
                 tags = (from t in keywordRepository.Fetch()
-                        where t.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C") // TODO: Replace this
+                        where t.BlogId == BlogUtility.GetBlogId()
                         select t).ToList();
 
                 foreach (Keyword keyword in tags)
@@ -226,7 +230,7 @@ namespace FrogBlogger.Web.Controllers
 
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
             {
-                tempPost = repository.GetSingle(p => p.BlogPostId == blogPost.BlogPostId && p.BlogId == new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C")); // TODO: Replace this)
+                tempPost = repository.GetSingle(p => p.BlogPostId == blogPost.BlogPostId && p.BlogId == BlogUtility.GetBlogId());
 
                 // Update only specific properties
                 tempPost.Title = blogPost.Title;

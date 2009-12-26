@@ -137,8 +137,6 @@
         <ul>
             <li><a href="#posts"><span>Posts</span></a></li>
             <li><a href="#users"><span>Users</span></a></li>
-
-            <li><a href="#fragment-3"><span>Three</span></a></li>
         </ul>
         <div id="posts">
             <table>
@@ -195,11 +193,6 @@
                 <% } %>
             </table>
             <button id="create-user" class="ui-button ui-state-default ui-corner-all">Create new user</button>
-        </div>
-        <div id="fragment-3">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
         </div>
     </div>
 </asp:Content>

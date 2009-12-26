@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
+using FrogBlogger.Web.Helpers;
 using FrogBlogger.Web.Models;
 
 namespace FrogBlogger.Web.Controllers
@@ -19,7 +20,7 @@ namespace FrogBlogger.Web.Controllers
         /// Stores the unique identifer for the current blog
         /// </summary>
         [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Justification = "I am using it. FxCop is acting crazy.")]
-        private static Guid _blogId = new Guid("7F2C3923-5FC8-4A8C-8ABF-21DD40F16C6C"); // TODO: Place this with the current BlogId
+        private static Guid _blogId = BlogUtility.GetBlogId();
 
         /// <summary>
         /// Gets the home page
