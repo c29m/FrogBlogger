@@ -193,6 +193,7 @@ namespace FrogBlogger.Web.Controllers
         {
             BlogPost post;
             IList<Keyword> tags;
+            Guid blogId = BlogUtility.GetBlogId();
             StringBuilder keywords = new StringBuilder();
             FrogBloggerEntities context = DatabaseUtility.GetContext();
 
@@ -202,7 +203,7 @@ namespace FrogBlogger.Web.Controllers
                 post = blogPostRepository.GetSingle(p => p.BlogPostId == id);
 
                 tags = (from t in keywordRepository.Fetch()
-                        where t.BlogId == BlogUtility.GetBlogId()
+                        where t.BlogId == blogId
                         select t).ToList();
 
                 foreach (Keyword keyword in tags)
