@@ -26,7 +26,7 @@ namespace FrogBlogger.Web.Controllers
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
             {
                 post = repository.GetSingle(x => x.BlogPostId == id);
-                comments = post.UserComments.ToList();
+                comments = post.UserComments.OrderBy(c => c.PostedDate).ToList();
                 model = new ViewPostViewModel(post, comments);
             }
 
@@ -49,7 +49,7 @@ namespace FrogBlogger.Web.Controllers
                 repository.SaveChanges();
             }
 
-            return RedirectToAction("View", new { id = userComment.BlogPostId });
+            return RedirectToAction("Details", new { id = userComment.BlogPostId });
         }
 
         /// <summary>
