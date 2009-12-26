@@ -59,5 +59,22 @@ namespace FrogBlogger.Test.Controllers
                 Assert.Fail("An unknown error occurred");
             }
         }
+
+        /// <summary>
+        /// Verifies that a blog post can be rated
+        /// </summary>
+        [TestMethod]
+        public void RatePost()
+        {
+            HomeController homeController = new HomeController();
+            ViewResult homeViewResult = homeController.Index() as ViewResult;
+            HomeViewModel homeViewModel = homeViewResult.ViewData.Model as HomeViewModel;
+            PostController postController = new PostController();
+            Guid blogPostId = homeViewModel.BlogPosts[0].BlogPostId;
+            Random rnd = new Random();
+            JsonResult result = postController.Rate(blogPostId, rnd.Next(1, 5));
+
+            Assert.AreEqual<string>("Success", result.Data.GetType().ToString());
+        }
     }
 }

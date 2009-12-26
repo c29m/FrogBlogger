@@ -31,6 +31,15 @@ namespace FrogBlogger.Web.Models
             private set;
         }
 
+        /// <summary>
+        /// Gets the average rating for a post
+        /// </summary>
+        public int AverageRating
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region Constructors
@@ -47,10 +56,12 @@ namespace FrogBlogger.Web.Models
         /// </summary>
         /// <param name="blogPost">The BlogPost to view</param>
         /// <param name="comments">Any user comments associated with the blog post</param>
-        public ViewPostViewModel(BlogPost blogPost, IList<UserComment> comments)
+        /// <param name="averageRating">Specifies the average user rating for the post</param>
+        public ViewPostViewModel(BlogPost blogPost, IList<UserComment> comments, int averageRating)
         {
             Post = blogPost;
             Comments = comments;
+            AverageRating = averageRating;
         }
 
         #endregion
