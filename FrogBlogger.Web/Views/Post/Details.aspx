@@ -42,7 +42,7 @@
             // 'data' is the json object returned from the server and Status is
             // the status property for the type created in the action method
             if (data.Status != "Success") {
-                alert('Failed to apply rating');
+                alert('Failed to apply rating. Status - ' + data.Status);
             }
         }
     </script>
@@ -88,7 +88,7 @@
 		</form>
 	</div>
     <div id="leaveComment">
-        <h3>Leave Comment</h2>
+        <h3>Leave Comment</h2>Temp Average = <%= Model.AverageRating %>
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
         <form action="/Post/Comment" method="post">
             <p>

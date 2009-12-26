@@ -19,6 +19,7 @@ namespace FrogBlogger.Web.Controllers
         /// <returns>The requested blog post</returns>
         public ActionResult Details(Guid id)
         {
+            int averageRating = 0;
             ViewPostViewModel model;
             BlogPost post;
             IList<UserComment> comments;
@@ -27,7 +28,8 @@ namespace FrogBlogger.Web.Controllers
             {
                 post = repository.GetSingle(x => x.BlogPostId == id);
                 comments = post.UserComments.OrderBy(c => c.PostedDate).ToList();
-                model = new ViewPostViewModel(post, comments);
+
+                model = new ViewPostViewModel(post, comments, averageRating);
             }
 
             return View(model);
@@ -60,7 +62,28 @@ namespace FrogBlogger.Web.Controllers
         /// <returns>A JSON result containing a status message</returns>
         public JsonResult Rate(Guid id, int rating)
         {
-            return Json(new { Status = "Success" });
+            BlogPostRating postRating = new BlogPostRating
+                {
+                    BlogPostId = id,
+                    IpAddress = Request.ServerVariables["REMOTE_ADDR"],
+                    Rating = rating
+                };
+            var status = new { Status = "Success" };
+
+            using (IDataRepository<BlogPostRating> repository = new DataRepository<BlogPostRating>())
+            {
+                if (!repository.Fetch().Any(r => r.BlogPostId == id && r.IpAddress == postRating.IpAddress))
+                {
+                    repository.Create(postRating);
+                    repository.SaveChanges();
+                }
+                else
+                {
+                    status = new { Status = "Already rated..." };
+                }
+            }
+
+            return Json(status);
         }
     }
 }
