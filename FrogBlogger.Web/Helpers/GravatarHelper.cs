@@ -1,7 +1,6 @@
-﻿using System.Security.Cryptography;
-using System.Web.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography;
 
 // Thanks to Rick Strahl and Rob Conery for this
 namespace System.Web.Mvc
@@ -11,6 +10,8 @@ namespace System.Web.Mvc
     /// </summary>
     public static class GravatarHelper
     {
+        #region Public Methods
+
         /// <summary>
         /// Renders an img tag with a gravatar image as its source
         /// </summary>
@@ -21,11 +22,20 @@ namespace System.Web.Mvc
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "helper", Justification = "This is an extension method.")]
         public static string Gravatar(this HtmlHelper helper, string email, int size)
         {
-            var result = "<img src=\"{0}\" alt=\"Gravatar\" class=\"gravatar\" />";
-            var url = GetGravatarUrl(email, size);
+            if (String.IsNullOrEmpty(email))
+            {
+                throw new InvalidOperationException("email address cannot be null or empty");
+            }
+
+            string result = "<img src=\"{0}\" alt=\"Gravatar\" class=\"gravatar\" />";
+            string url = GetGravatarUrl(email, size);
 
             return string.Format(result, url);
         }
+
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
         /// Gets the image source for a gravatar img
@@ -56,5 +66,7 @@ namespace System.Web.Mvc
 
             return encrypted;
         }
+
+        #endregion
     }
 }

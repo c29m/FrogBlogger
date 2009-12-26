@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using FrogBlogger.Dal;
 
 namespace System.Web.Mvc
 {
@@ -26,6 +27,24 @@ namespace System.Web.Mvc
             }
 
             return String.Format("Average user rating - {0}/{1}", averageRating, maxPossible);
+        }
+
+        /// <summary>
+        /// Returns an author that has been formatted to include a link to his/her blog, if provided
+        /// </summary>
+        /// <param name="helper">Extends the HtmlHelper class</param>
+        /// <param name="comment">UserComment for which to obtain an author from</param>
+        /// <returns>An author that has been formatted to include a link to his/her blog, if provided</returns>
+        public static string FormatAuthor(this HtmlHelper helper, UserComment comment)
+        {
+            if (!String.IsNullOrEmpty(comment.Url) && Uri.IsWellFormedUriString(comment.Url, UriKind.Absolute))
+            {
+                Uri uri = new Uri(comment.Url);
+
+                return String.Format("<a href=\"{0}\">{1}</a>", uri.ToString(), comment.Author);
+            }
+
+            return comment.Author;
         }
     }
 }

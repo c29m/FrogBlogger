@@ -67,9 +67,9 @@
                foreach (FrogBlogger.Dal.UserComment comment in Model.Comments)
                { %>
                     <div class="comment">
-                        <p><strong><%= comment.Subject %></strong> - <%= comment.PostedDate %> by <%= comment.Author %>
+                        <p><strong><%= Html.Encode(comment.Subject) %></strong> - <%= comment.PostedDate %> by <%= Html.FormatAuthor(comment) %>
                         <%= Html.Gravatar(comment.EmailAddress, 25) %></p>
-                        <p><%= comment.Comment %></p>
+                        <p><%= Html.Encode(comment.Comment) %></p>
                     </div> <%
                }
            } %>
