@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
+using System.Linq;
 using FrogBlogger.Dal;
 using FrogBlogger.Web.Controllers;
 using FrogBlogger.Web.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FrogBlogger.Dal.Interfaces;
 
 namespace FrogBlogger.Test.Controllers
 {
@@ -61,20 +63,41 @@ namespace FrogBlogger.Test.Controllers
         }
 
         /// <summary>
-        /// Verifies that a blog post can be rated
+        /// Verifies that a blog post ratings are accurate
         /// </summary>
         [TestMethod]
-        public void RatePost()
+        public void AccurateRatings()
         {
+            int calculatedAverage;
+            bool foundRatings = false;
             HomeController homeController = new HomeController();
             ViewResult homeViewResult = homeController.Index() as ViewResult;
             HomeViewModel homeViewModel = homeViewResult.ViewData.Model as HomeViewModel;
             PostController postController = new PostController();
-            Guid blogPostId = homeViewModel.BlogPosts[0].BlogPostId;
-            Random rnd = new Random();
-            JsonResult result = postController.Rate(blogPostId, rnd.Next(1, 5));
+            ViewResult postViewResult;
+            ViewPostViewModel postViewModel;
 
-            Assert.AreEqual<string>("Success", result.Data.GetType().ToString());
+            foreach (BlogPost post in homeViewModel.BlogPosts)
+            {
+                postViewResult = postController.Details(post.BlogPostId) as ViewResult;
+                postViewModel = postViewResult.ViewData.Model as ViewPostViewModel;
+
+                if (postViewModel.TotalRatings > 0)
+                {
+                    foundRatings = true;
+
+                    using (IDataRepository<BlogPostRating> repository = new DataRepository<BlogPostRating>())
+                    {
+                        calculatedAverage = (int)repository.Fetch(r => r.BlogPostId == post.BlogPostId).Average(p => p.Rating);
+                        Assert.AreEqual(calculatedAverage, postViewModel.AverageRating);
+                    }
+                }
+            }
+
+            if (!foundRatings)
+            {
+                Assert.Inconclusive("No blog posts were found that contain user ratings");
+            }
         }
     }
 }
