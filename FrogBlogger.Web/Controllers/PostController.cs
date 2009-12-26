@@ -51,5 +51,16 @@ namespace FrogBlogger.Web.Controllers
 
             return RedirectToAction("View", new { id = userComment.BlogPostId });
         }
+
+        /// <summary>
+        /// POST: Rate a blog post
+        /// </summary>
+        /// <param name="id">Unique identifier of the blog post for which to rate</param>
+        /// <param name="rating">User rating of a blog post</param>
+        /// <returns>A JSON result containing a status message</returns>
+        public JsonResult Rate(Guid id, int rating)
+        {
+            return Json(new { Status = "Success" });
+        }
     }
 }
