@@ -186,6 +186,10 @@
             <End Role="Keyword" EntitySet="Keyword" />
             <End Role="BlogPostKeyword" EntitySet="BlogPostKeyword" />
           </AssociationSet>
+          <AssociationSet Name="FK_BlogPostRating_BlogPost" Association="FrogBloggerModel.Store.FK_BlogPostRating_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPost" />
+            <End Role="BlogPostRating" EntitySet="BlogPostRating" />
+          </AssociationSet>
           <AssociationSet Name="FK_BlogUser_aspnet_Users" Association="FrogBloggerModel.Store.FK_BlogUser_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="BlogUser" EntitySet="BlogUser" />
@@ -765,7 +769,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogPost_Blog">
-          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="0..1" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
@@ -802,6 +808,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BlogPostRating_BlogPost">
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BlogPostRating" Type="FrogBloggerModel.Store.BlogPostRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostId" />
+            </Principal>
+            <Dependent Role="BlogPostRating">
+              <PropertyRef Name="BlogPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BlogUser_aspnet_Users">
           <End Role="aspnet_Users" Type="FrogBloggerModel.Store.aspnet_Users" Multiplicity="1" />
           <End Role="BlogUser" Type="FrogBloggerModel.Store.BlogUser" Multiplicity="*" />
@@ -815,7 +835,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BlogUser_Blog">
-          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BlogUser" Type="FrogBloggerModel.Store.BlogUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
@@ -827,7 +849,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Keyword_Blog">
-          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="0..1" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Keyword" Type="FrogBloggerModel.Store.Keyword" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
@@ -839,7 +863,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Referral_Blog">
-          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1" />
+          <End Role="Blog" Type="FrogBloggerModel.Store.Blog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Referral" Type="FrogBloggerModel.Store.Referral" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Blog">
@@ -863,7 +889,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserComment_BlogPost">
-          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="0..1" />
+          <End Role="BlogPost" Type="FrogBloggerModel.Store.BlogPost" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="UserComment" Type="FrogBloggerModel.Store.UserComment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BlogPost">
@@ -1327,7 +1355,10 @@
             <End Role="Keyword" EntitySet="Keywords" /></AssociationSet>
           <AssociationSet Name="BlogUser" Association="FrogBloggerModel.BlogUser">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="Blog" EntitySet="Blogs" /></AssociationSet></EntityContainer>
+            <End Role="Blog" EntitySet="Blogs" /></AssociationSet>
+          <AssociationSet Name="FK_BlogPostRating_BlogPost" Association="FrogBloggerModel.FK_BlogPostRating_BlogPost">
+            <End Role="BlogPost" EntitySet="BlogPosts" />
+            <End Role="BlogPostRating" EntitySet="BlogPostRatings" /></AssociationSet></EntityContainer>
         <EntityType Name="aspnet_Applications">
           <Key>
             <PropertyRef Name="ApplicationId" /></Key>
@@ -1489,14 +1520,16 @@
           <NavigationProperty Name="Blog" Relationship="FrogBloggerModel.FK_BlogPost_Blog" FromRole="BlogPost" ToRole="Blog" />
           <NavigationProperty Name="Referrals" Relationship="FrogBloggerModel.FK_Referral_BlogPost" FromRole="BlogPost" ToRole="Referral" />
           <NavigationProperty Name="UserComments" Relationship="FrogBloggerModel.FK_UserComment_BlogPost" FromRole="BlogPost" ToRole="UserComment" />
-          <NavigationProperty Name="Keywords" Relationship="FrogBloggerModel.BlogPostKeyword" FromRole="BlogPost" ToRole="Keyword" /></EntityType>
+          <NavigationProperty Name="Keywords" Relationship="FrogBloggerModel.BlogPostKeyword" FromRole="BlogPost" ToRole="Keyword" />
+          <NavigationProperty Name="BlogPostRatings" Relationship="FrogBloggerModel.FK_BlogPostRating_BlogPost" FromRole="BlogPost" ToRole="BlogPostRating" /></EntityType>
         <EntityType Name="BlogPostRating">
           <Key>
             <PropertyRef Name="BlogPostId" />
             <PropertyRef Name="IpAddress" /></Key>
           <Property Type="Guid" Name="BlogPostId" Nullable="false" />
           <Property Type="String" Name="IpAddress" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Rating" Nullable="false" /></EntityType>
+          <Property Type="Int32" Name="Rating" Nullable="false" />
+          <NavigationProperty Name="BlogPost" Relationship="FrogBloggerModel.FK_BlogPostRating_BlogPost" FromRole="BlogPostRating" ToRole="BlogPost" /></EntityType>
         <EntityType Name="Keyword">
           <Key>
             <PropertyRef Name="KeywordId" /></Key>
@@ -1793,6 +1826,14 @@
         <Association Name="BlogUser">
           <End Type="FrogBloggerModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
           <End Type="FrogBloggerModel.Blog" Role="Blog" Multiplicity="*" /></Association>
+        <Association Name="FK_BlogPostRating_BlogPost">
+          <End Type="FrogBloggerModel.BlogPost" Role="BlogPost" Multiplicity="1" />
+          <End Type="FrogBloggerModel.BlogPostRating" Role="BlogPostRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPost">
+              <PropertyRef Name="BlogPostId" /></Principal>
+            <Dependent Role="BlogPostRating">
+              <PropertyRef Name="BlogPostId" /></Dependent></ReferentialConstraint></Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2108,16 +2149,20 @@
         <EntityTypeShape EntityType="FrogBloggerModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="0.75" PointY="9.75" Height="1.7879850260416674" />
         <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Me__Appli__21B6055D" >
           <ConnectorPoint PointX="2.25" PointY="16.994944661458334" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="16.994944661458334" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="16.994944661458334" />
           <ConnectorPoint PointX="5.916666666666667" PointY="16.994944661458334" />
           <ConnectorPoint PointX="6.083333333333333" PointY="16.994944661458334" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="16.994944661458334" />
-          <ConnectorPoint PointX="7.208333333333333" PointY="16.994944661458334" />
           <ConnectorPoint PointX="7.25" PointY="16.994944661458334" />
           <ConnectorPoint PointX="7.25" PointY="17.489889322916667" />
-          <ConnectorPoint PointX="10.25" PointY="17.489889322916667" />
-          <ConnectorPoint PointX="10.25" PointY="18.316712239583332" />
+          <ConnectorPoint PointX="7.541666666666667" PointY="17.489889322916667" />
+          <ConnectorPoint PointX="7.708333333333333" PointY="17.489889322916667" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="17.489889322916667" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="17.489889322916667" />
+          <ConnectorPoint PointX="10.291666666666666" PointY="17.489889322916667" />
           <ConnectorPoint PointX="10.291666666666666" PointY="18.316712239583332" />
-          <ConnectorPoint PointX="10.458333333333334" PointY="18.316712239583332" />
+          <ConnectorPoint PointX="10.6874995" PointY="18.316712239583332" />
+          <ConnectorPoint PointX="10.854166166666667" PointY="18.316712239583332" />
           <ConnectorPoint PointX="11.25" PointY="18.316712239583332" />
           <ConnectorPoint PointX="11.25" PointY="18.066712239583332" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pa__Appli__5AEE82B9" >
@@ -2129,6 +2174,8 @@
         <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Us__Appli__0DAF0CB0" >
           <ConnectorPoint PointX="1.5" PointY="15.75" />
           <ConnectorPoint PointX="1.5" PointY="13.21875" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="13.21875" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="13.21875" />
           <ConnectorPoint PointX="5.25" PointY="13.21875" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Me__UserI__22AA2996" >
           <ConnectorPoint PointX="6.75" PointY="14.2737939453125" />
@@ -2144,12 +2191,16 @@
           <ConnectorPoint PointX="5" PointY="17.364889322916667" />
           <ConnectorPoint PointX="5.916666666666667" PointY="17.364889322916667" />
           <ConnectorPoint PointX="6.083333333333333" PointY="17.364889322916667" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="17.364889322916667" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="17.364889322916667" />
           <ConnectorPoint PointX="7.333333333333333" PointY="17.364889322916667" />
+          <ConnectorPoint PointX="7.541666666666667" PointY="17.364889322916667" />
+          <ConnectorPoint PointX="7.708333333333333" PointY="17.364889322916667" />
           <ConnectorPoint PointX="8.25" PointY="17.364889322916667" />
           <ConnectorPoint PointX="8.25" PointY="17.239889322916667" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pe__UserI__693CA210" >
           <ConnectorPoint PointX="6.75" PointY="15.514150390624998" />
+          <ConnectorPoint PointX="7.1783038624568993" PointY="15.514150390624998" />
+          <ConnectorPoint PointX="7.3449705291235654" PointY="15.514150390624998" />
           <ConnectorPoint PointX="7.5" PointY="15.514150390624998" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK__aspnet_Pr__UserI__38996AB5" >
           <ConnectorPoint PointX="6.75" PointY="12.9612939453125" />
@@ -2157,40 +2208,52 @@
         <AssociationConnector Association="FrogBloggerModel.FK_Author_aspnet_Users" >
           <ConnectorPoint PointX="6" PointY="16.153300781249996" />
           <ConnectorPoint PointX="6" PointY="17.552389322916667" />
-          <ConnectorPoint PointX="7.041666666666667" PointY="17.552389322916667" />
-          <ConnectorPoint PointX="7.208333333333333" PointY="17.552389322916667" />
+          <ConnectorPoint PointX="7.541666666666667" PointY="17.552389322916667" />
+          <ConnectorPoint PointX="7.708333333333333" PointY="17.552389322916667" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="17.552389322916667" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="17.552389322916667" />
           <ConnectorPoint PointX="10" PointY="17.552389322916667" />
           <ConnectorPoint PointX="10" PointY="18.566712239583332" />
-          <ConnectorPoint PointX="10.666666166666667" PointY="18.566712239583332" />
-          <ConnectorPoint PointX="10.833332833333335" PointY="18.566712239583332" />
+          <ConnectorPoint PointX="10.6874995" PointY="18.566712239583332" />
+          <ConnectorPoint PointX="10.854166166666667" PointY="18.566712239583332" />
           <ConnectorPoint PointX="12.375" PointY="18.566712239583332" />
           <ConnectorPoint PointX="12.375" PointY="16.5862939453125" />
           <ConnectorPoint PointX="12.75" PointY="16.5862939453125" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK_BlogPost_aspnet_Users" >
-          <ConnectorPoint PointX="6.75" PointY="14.57439947265625" />
-          <ConnectorPoint PointX="10.375" PointY="14.57439947265625" />
-          <ConnectorPoint PointX="10.375" PointY="18.441712239583332" />
-          <ConnectorPoint PointX="10.749999500000001" PointY="18.441712239583332" />
-          <ConnectorPoint PointX="10.749999500000001" PointY="19" /></AssociationConnector>
+          <ConnectorPoint PointX="6.75" PointY="14.2737939453125" />
+          <ConnectorPoint PointX="10.25" PointY="14.2737939453125" />
+          <ConnectorPoint PointX="10.25" PointY="18.191712239583332" />
+          <ConnectorPoint PointX="10.770832833333333" PointY="18.191712239583332" />
+          <ConnectorPoint PointX="10.770832833333333" PointY="19" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK_Author_Blog" >
           <ConnectorPoint PointX="9" PointY="18.752106119791666" />
-          <ConnectorPoint PointX="10.666666166666667" PointY="18.752106119791666" />
-          <ConnectorPoint PointX="10.833332833333335" PointY="18.752106119791666" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="18.752106119791666" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="18.752106119791666" />
+          <ConnectorPoint PointX="10.6874995" PointY="18.752106119791666" />
+          <ConnectorPoint PointX="10.854166166666667" PointY="18.752106119791666" />
           <ConnectorPoint PointX="12.854166666666666" PointY="18.752106119791666" />
           <ConnectorPoint PointX="13.020833333333334" PointY="18.752106119791666" />
           <ConnectorPoint PointX="13.90625" PointY="18.752106119791666" />
           <ConnectorPoint PointX="13.90625" PointY="17.672587890625003" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK_BlogPost_Blog" >
           <ConnectorPoint PointX="9" PointY="19.966095377604166" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="19.966095377604166" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="19.966095377604166" />
           <ConnectorPoint PointX="9.75" PointY="19.966095377604166" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK_Keyword_Blog" >
           <ConnectorPoint PointX="9" PointY="18.504212239583332" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="18.504212239583332" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="18.504212239583332" />
+          <ConnectorPoint PointX="10.6874995" PointY="18.504212239583332" />
+          <ConnectorPoint PointX="10.854166166666667" PointY="18.504212239583332" />
           <ConnectorPoint PointX="12.9375" PointY="18.504212239583332" />
           <ConnectorPoint PointX="12.9375" PointY="19.375" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK_Referral_Blog" >
           <ConnectorPoint PointX="9" PointY="18.876055559895832" />
-          <ConnectorPoint PointX="10.666666166666667" PointY="18.876055559895832" />
-          <ConnectorPoint PointX="10.833332833333335" PointY="18.876055559895832" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="18.876055559895832" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="18.876055559895832" />
+          <ConnectorPoint PointX="10.6874995" PointY="18.876055559895832" />
+          <ConnectorPoint PointX="10.854166166666667" PointY="18.876055559895832" />
           <ConnectorPoint PointX="12.854166666666666" PointY="18.876055559895832" />
           <ConnectorPoint PointX="13.020833333333334" PointY="18.876055559895832" />
           <ConnectorPoint PointX="15.75" PointY="18.876055559895832" />
@@ -2201,19 +2264,37 @@
           <ConnectorPoint PointX="13.020833333333334" PointY="19.28125" />
           <ConnectorPoint PointX="15" PointY="19.28125" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.FK_UserComment_BlogPost" >
-          <ConnectorPoint PointX="10.5" PointY="22.326396484375003" />
+          <ConnectorPoint PointX="10.5" PointY="22.518697916666667" />
           <ConnectorPoint PointX="10.5" PointY="26.249746093749998" />
           <ConnectorPoint PointX="12" PointY="26.249746093749998" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.aspnet_UsersInRoles" >
           <ConnectorPoint PointX="4.5" PointY="15.201650390624998" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="15.201650390624998" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="15.201650390624998" />
           <ConnectorPoint PointX="5.25" PointY="15.201650390624998" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.BlogPostKeyword" >
           <ConnectorPoint PointX="11.25" PointY="20.365143229166666" />
           <ConnectorPoint PointX="12" PointY="20.365143229166666" /></AssociationConnector>
         <AssociationConnector Association="FrogBloggerModel.BlogUser" >
-          <ConnectorPoint PointX="6.7500000000000018" PointY="16.153300781249996" />
-          <ConnectorPoint PointX="7.125" PointY="16.528300781249996" />
-          <ConnectorPoint PointX="7.125" PointY="19.653595377604166" />
-          <ConnectorPoint PointX="7.5" PointY="19.653595377604166" /></AssociationConnector></Diagram></Diagrams>
+          <ConnectorPoint PointX="6.75" PointY="14.086164212740382" />
+          <ConnectorPoint PointX="7.625" PointY="16.528300781249996" />
+          <ConnectorPoint PointX="7.625" PointY="19.653595377604166" />
+          <ConnectorPoint PointX="7.5" PointY="19.653595377604166" /></AssociationConnector>
+        <AssociationConnector Association="FrogBloggerModel.FK_BlogPostRating_BlogPost" >
+          <ConnectorPoint PointX="9.75" PointY="21.273648647135417" />
+          <ConnectorPoint PointX="9.25" PointY="21.273648647135417" />
+          <ConnectorPoint PointX="9.25" PointY="17.375" />
+          <ConnectorPoint PointX="7.708333333333333" PointY="17.375" />
+          <ConnectorPoint PointX="7.541666666666667" PointY="17.375" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="17.375" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="17.375" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="17.375" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="17.375" />
+          <ConnectorPoint PointX="4.9375" PointY="17.375" />
+          <ConnectorPoint PointX="4.9375" PointY="9.9802864583333317" />
+          <ConnectorPoint PointX="4.5" PointY="9.9802864583333317" />
+          <ConnectorPoint PointX="4.5" PointY="2.912985026041667" />
+          <ConnectorPoint PointX="5.5" PointY="2.912985026041667" />
+          <ConnectorPoint PointX="5.5" PointY="2.537985026041667" /></AssociationConnector></Diagram></Diagrams>
   </Designer>
 </edmx:Edmx>

@@ -86,9 +86,10 @@
             <%= Html.Hidden("id", Model.Post.BlogPostId) %>
 			<input type="button" value="Rate!">
 		</form>
+        <div id="averageRating" style="clear: both;"><%= Html.AverageRating(Model.TotalRatings, Model.AverageRating, 5) %></div>
 	</div>
     <div id="leaveComment">
-        <h3>Leave Comment</h2>Temp Average = <%= Model.AverageRating %>
+        <h3>Leave Comment</h2>
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
         <form action="/Post/Comment" method="post">
             <p>
