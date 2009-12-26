@@ -30,7 +30,7 @@ namespace FrogBlogger.Web.Controllers
                 post = repository.GetSingle(x => x.BlogPostId == id);
                 comments = post.UserComments.OrderBy(c => c.PostedDate).ToList();
 
-                if (comments.Count > 0)
+                if (post.BlogPostRatings.Count > 0)
                 {
                     averageRating = (int)post.BlogPostRatings.Average(m => m.Rating);
                     totalRatings = post.BlogPostRatings.Count;
