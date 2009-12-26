@@ -51,6 +51,7 @@ namespace FrogBlogger.Web.Controllers
         /// </summary>
         /// <param name="userComment">The user comment</param>
         /// <returns>Redirects back to the blog post</returns>
+        [ValidateInput(false)]
         public ActionResult Comment(UserComment userComment)
         {
             userComment.UserCommentId = Guid.NewGuid();
