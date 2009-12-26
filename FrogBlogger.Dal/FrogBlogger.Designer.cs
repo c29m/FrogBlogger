@@ -300,6 +300,22 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<BlogPostRating> BlogPostRatings
+        {
+            get
+            {
+                if ((_BlogPostRatings == null))
+                {
+                    _BlogPostRatings = base.CreateObjectSet<BlogPostRating>("BlogPostRatings");
+                }
+                return _BlogPostRatings;
+            }
+        }
+        private ObjectSet<BlogPostRating> _BlogPostRatings;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Keyword> Keywords
         {
             get
@@ -610,6 +626,14 @@ namespace FrogBlogger.Dal
         public void AddToBlogPosts(BlogPost blogPost)
         {
             base.AddObject("BlogPosts", blogPost);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BlogPostRatings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBlogPostRatings(BlogPostRating blogPostRating)
+        {
+            base.AddObject("BlogPostRatings", blogPostRating);
         }
     
         /// <summary>
@@ -3864,6 +3888,30 @@ namespace FrogBlogger.Dal
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FriendlyName
+        {
+            get
+            {
+                return _FriendlyName;
+            }
+            set
+            {
+                OnFriendlyNameChanging(value);
+                ReportPropertyChanging("FriendlyName");
+                _FriendlyName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FriendlyName");
+                OnFriendlyNameChanged();
+            }
+        }
+        private global::System.String _FriendlyName;
+        partial void OnFriendlyNameChanging(global::System.String value);
+        partial void OnFriendlyNameChanged();
 
         #endregion
     
@@ -4326,6 +4374,116 @@ namespace FrogBlogger.Dal
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="BlogPostRating")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BlogPostRating : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BlogPostRating object.
+        /// </summary>
+        /// <param name="blogPostId">Initial value of the BlogPostId property.</param>
+        /// <param name="ipAddress">Initial value of the IpAddress property.</param>
+        /// <param name="rating">Initial value of the Rating property.</param>
+        public static BlogPostRating CreateBlogPostRating(global::System.Guid blogPostId, global::System.String ipAddress, global::System.Int32 rating)
+        {
+            BlogPostRating blogPostRating = new BlogPostRating();
+            blogPostRating.BlogPostId = blogPostId;
+            blogPostRating.IpAddress = ipAddress;
+            blogPostRating.Rating = rating;
+            return blogPostRating;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid BlogPostId
+        {
+            get
+            {
+                return _BlogPostId;
+            }
+            set
+            {
+                if (_BlogPostId != value)
+                {
+                    OnBlogPostIdChanging(value);
+                    ReportPropertyChanging("BlogPostId");
+                    _BlogPostId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("BlogPostId");
+                    OnBlogPostIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _BlogPostId;
+        partial void OnBlogPostIdChanging(global::System.Guid value);
+        partial void OnBlogPostIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String IpAddress
+        {
+            get
+            {
+                return _IpAddress;
+            }
+            set
+            {
+                if (_IpAddress != value)
+                {
+                    OnIpAddressChanging(value);
+                    ReportPropertyChanging("IpAddress");
+                    _IpAddress = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("IpAddress");
+                    OnIpAddressChanged();
+                }
+            }
+        }
+        private global::System.String _IpAddress;
+        partial void OnIpAddressChanging(global::System.String value);
+        partial void OnIpAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Rating
+        {
+            get
+            {
+                return _Rating;
+            }
+            set
+            {
+                OnRatingChanging(value);
+                ReportPropertyChanging("Rating");
+                _Rating = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Rating");
+                OnRatingChanged();
+            }
+        }
+        private global::System.Int32 _Rating;
+        partial void OnRatingChanging(global::System.Int32 value);
+        partial void OnRatingChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
