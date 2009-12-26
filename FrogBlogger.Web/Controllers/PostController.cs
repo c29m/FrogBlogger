@@ -19,6 +19,7 @@ namespace FrogBlogger.Web.Controllers
         /// <returns>The requested blog post</returns>
         public ActionResult Details(Guid id)
         {
+            int totalRatings;
             int averageRating = 0;
             ViewPostViewModel model;
             BlogPost post;
@@ -29,7 +30,17 @@ namespace FrogBlogger.Web.Controllers
                 post = repository.GetSingle(x => x.BlogPostId == id);
                 comments = post.UserComments.OrderBy(c => c.PostedDate).ToList();
 
-                model = new ViewPostViewModel(post, comments, averageRating);
+                if (comments.Count > 0)
+                {
+                    averageRating = (int)post.BlogPostRatings.Average(m => m.Rating);
+                    totalRatings = post.BlogPostRatings.Count;
+                }
+                else
+                {
+                    totalRatings = 0;
+                }
+
+                model = new ViewPostViewModel(post, comments, averageRating, totalRatings);
             }
 
             return View(model);

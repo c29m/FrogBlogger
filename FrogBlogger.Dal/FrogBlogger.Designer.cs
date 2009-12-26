@@ -38,6 +38,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users))]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "BlogPostKeyword", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Keyword))]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "BlogUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Blog))]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "BlogPostRating", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPostRating), true)]
 
 #endregion
 
@@ -4372,6 +4373,28 @@ namespace FrogBlogger.Dal
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPostRating")]
+        public EntityCollection<BlogPostRating> BlogPostRatings
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPostRating>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPostRating");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPostRating>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPostRating", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -4484,6 +4507,47 @@ namespace FrogBlogger.Dal
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPost")]
+        public BlogPost BlogPost
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPost").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPost").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BlogPost> BlogPostReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BlogPost>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPost");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BlogPost>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPost", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
