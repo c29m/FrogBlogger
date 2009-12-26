@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Web.Mvc;
 using System.Linq;
+using System.Web.Mvc;
 using FrogBlogger.Dal;
+using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Controllers;
 using FrogBlogger.Web.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FrogBlogger.Dal.Interfaces;
 
 namespace FrogBlogger.Test.Controllers
 {
