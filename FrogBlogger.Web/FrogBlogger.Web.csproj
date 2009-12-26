@@ -84,6 +84,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BlogUtility.cs" />
     <Compile Include="Helpers\GravatarHelper.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\BlogListBase.cs" />
