@@ -363,6 +363,7 @@
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\jscripts\tiny_mce\utils\validate.js" />
     <Content Include="Scripts\ui\jquery.autocomplete.js" />
+    <Content Include="Scripts\ui\jquery.form.js" />
     <Content Include="Scripts\ui\ui.stars.js" />
     <Content Include="Scripts\ui\ui.tabs.js" />
     <Content Include="Views\Admin\Create.aspx" />
