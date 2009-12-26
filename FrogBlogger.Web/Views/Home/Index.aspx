@@ -15,3 +15,22 @@
         </div><!-- end post -->
     <% } %>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="SidebarContent" runat="server">
+    <ul>
+    	<li id="search">
+    		<h2>Search</h2>
+    		<form method="get" action="/Home/Search/">
+    			<fieldset>
+        			<input type="text" id="s" name="searchTerm" value="" />
+        			<input type="submit" id="x" value="Search" />
+    			</fieldset>
+    		</form>
+    	</li>
+        <li>
+    		<% Html.RenderPartial("LatestTagsUserControl"); %>
+    	</li>
+    	<li>
+    		<% Html.RenderPartial("ArchivePostUserControl"); %>
+    	</li>
+    </ul>
+</asp:Content>
