@@ -14,7 +14,7 @@ namespace FrogBlogger.Web.Controllers
     /// <summary>
     /// Contains actions methods for administering the site
     /// </summary>
-    //[Authorize(Roles = Roles.Admin)]
+    [Authorize(Roles = FrogBlogger.Web.Helpers.Roles.Admin)]
     public class AdminController : Controller
     {
         /// <summary>
@@ -139,6 +139,8 @@ namespace FrogBlogger.Web.Controllers
                     BlogId = blog.BlogId,
                     UserId = (Guid)Membership.GetUser(name).ProviderUserKey
                 });
+
+                repository.SaveChanges();
             }
 
             return Json(status);
@@ -154,6 +156,22 @@ namespace FrogBlogger.Web.Controllers
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
             {
                 repository.Delete(x => x.BlogPostId == id);
+                repository.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// Deletes the user specified by the user ID
+        /// </summary>
+        /// <param name="id">Unique ID of the user for which to delete</param>
+        /// <returns>Redirects to the Index view</returns>
+        public ActionResult DeleteAuthor(Guid id)
+        {
+            using (IDataRepository<Author> repository = new DataRepository<Author>())
+            {
+                repository.Delete(a => a.UserId == id && a.BlogId == BlogUtility.GetBlogId());
                 repository.SaveChanges();
             }
 
