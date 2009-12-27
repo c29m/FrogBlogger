@@ -100,29 +100,6 @@
 
         });
 
-        $(function () {
-            $("#confirmDelete").dialog({
-                bgiframe: true,
-                resizable: false,
-                height: 140,
-                modal: true,
-                overlay: {
-                    backgroundColor: '#000',
-                    opacity: 0.5
-                },
-                buttons: {
-                    'Are you sure you want to delete?': function () {
-                        $(this).dialog('close');
-                        return 1;
-                    },
-                    Cancel: function () {
-                        $(this).dialog('close');
-                        return 0;
-                    }
-                }
-            });
-        });
-
         function confirmDelete() {
             return confirm("Are you sure you want to delete?");  
         }
@@ -131,9 +108,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <h2>BlogName Admin</h2>
     <div id="container-1">
-        <div id="confirmDelete" title="Delete Post?">
-        	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This item will be permanently deleted and cannot be recovered. Are you sure?</p>
-        </div
         <ul>
             <li><a href="#posts"><span>Posts</span></a></li>
             <li><a href="#users"><span>Users</span></a></li>
@@ -160,7 +134,7 @@
                     <td>10</td>
                     <td><a href="#">Referrals</a></td>
                     <td><%= Html.ActionLink("View", "Details", "Post", new { id = item.BlogPostId  }, null)%></td>
-                    <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId }, new { onclick = "return confirmDelete()" })%></td>
+                    <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId }, new { onclick = "confirmDelete();" })%></td>
                 </tr>
             <% } %>
             </table>
