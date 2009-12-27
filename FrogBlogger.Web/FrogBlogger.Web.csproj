@@ -80,7 +80,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Controllers\Utility.cs" />
+    <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -88,6 +88,7 @@
     <Compile Include="Helpers\BlogUtility.cs" />
     <Compile Include="Helpers\GravatarHelper.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\AjaxResponseStatus.cs" />
     <Compile Include="Models\BlogListBase.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\ViewPostViewModel.cs" />
@@ -379,6 +380,7 @@
     <Content Include="Views\Home\Search.aspx" />
     <Content Include="Views\Post\Details.aspx" />
     <Content Include="Views\Shared\FooterUserControl.ascx" />
+    <Content Include="Views\Shared\jQueryFormUserControl.ascx" />
     <Content Include="Views\Shared\MenuUserControl.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

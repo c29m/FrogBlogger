@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace FrogBlogger.Web.Controllers
+﻿namespace FrogBlogger.Web.Helpers
 {
     /// <summary>
     /// Contains string constants that represent Roles are used throughout the project
