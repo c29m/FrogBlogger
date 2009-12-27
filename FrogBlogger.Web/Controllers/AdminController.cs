@@ -120,14 +120,15 @@ namespace FrogBlogger.Web.Controllers
         /// <param name="name">Username for which to add</param>
         /// <returns>The user that was just created, serialized as a JSON result</returns>
         [AcceptVerbs(HttpVerbs.Post)]
-        public EmptyResult CreateUser(string name)
+        public JsonResult CreateUser(string name)
         {
             RoleProvider provider = System.Web.Security.Roles.Provider;
             Blog blog;
             Guid blogId = BlogUtility.GetBlogId();
+            AjaxResponseStatus status = new AjaxResponseStatus("Successful");
 
             // Add user to the admin role
-            provider.AddUsersToRoles(new string[] { name }, new string[] { Roles.Admin });
+            provider.AddUsersToRoles(new string[] { name }, new string[] { FrogBlogger.Web.Helpers.Roles.Admin });
 
             // Add user as author of current blog
             using (IDataRepository<Blog> repository = new DataRepository<Blog>())
@@ -140,7 +141,7 @@ namespace FrogBlogger.Web.Controllers
                 });
             }
 
-            return new EmptyResult();
+            return Json(status);
         }
 
         /// <summary>

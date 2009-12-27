@@ -2,20 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server"><%= Model.Post.Title %></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptContent" runat="server">
     <link href="/Content/ui.stars.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/Scripts/ui/jquery.form.js"></script>
     <script type="text/javascript" src="/Scripts/ui/ui.stars.js"></script>
     <script type="text/javascript">
-        $(function () {
-            // Ratings form
-            $("#rating").ajaxForm({ 
-                // dataType identifies the expected content type of the server response 
-                dataType:  'json', 
-         
-                // success identifies the function to invoke when the server response 
-                // has been received 
-                success:   processJson 
-            }); 
-            
+        $(function () {            
             // Ratings
             $rating = $("#rating");
             $rating.children().not("select").hide();
@@ -36,16 +25,8 @@
                 cancelShow: false
             });
         });
-
-        // Processes the JSON result from the server after user provides a rating
-        function processJson(data) {
-            // 'data' is the json object returned from the server and Status is
-            // the status property for the type created in the action method
-            if (data.Status != "Success") {
-                alert('Failed to apply rating. Status - ' + data.Status);
-            }
-        }
     </script>
+    <% Html.RenderPartial("jQueryFormUserControl", "rating"); %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="title"><%= Html.Encode(Model.Post.Title) %></div>

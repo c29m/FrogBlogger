@@ -74,13 +74,13 @@ namespace FrogBlogger.Web.Controllers
         /// <returns>A JSON result containing a status message</returns>
         public JsonResult Rate(Guid id, int rating)
         {
+            AjaxResponseStatus status = new AjaxResponseStatus();
             BlogPostRating postRating = new BlogPostRating
                 {
                     BlogPostId = id,
                     IpAddress = Request.ServerVariables["REMOTE_ADDR"],
                     Rating = rating
                 };
-            var status = new { Status = "Success" };
 
             using (IDataRepository<BlogPostRating> repository = new DataRepository<BlogPostRating>())
             {
@@ -88,10 +88,14 @@ namespace FrogBlogger.Web.Controllers
                 {
                     repository.Create(postRating);
                     repository.SaveChanges();
+
+                    // Acknowledge that the operation was successful
+                    status.Status = "Successful";
                 }
                 else
                 {
-                    status = new { Status = "Already rated..." };
+                    // Acknowledge that the user already rated the post
+                    status.Status = "Already rated";
                 }
             }
 
