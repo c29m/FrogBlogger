@@ -142,7 +142,7 @@ th
 #contentWide
 {
     float: left;
-    width: 870px;
+    width: 900px;
 }
 
 .post 
@@ -242,24 +242,38 @@ th
 }
 
 /* Comments */
-#comments
+#leaveComment
 {
+    background: #eee;
+    border: solid 2px #699c4d;
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 400px;
+}
+
+#leaveComment label
+{
+    float: left;
+    font-weight: bold;
+    text-align: right;
+    width: 75px;
+}
+
+#leaveComment input
+{
+    margin-left: 4px;
+}
+
+#leaveComment textarea
+{
+    height: 100px;
+    margin-left: 4px;
+    width: 386px;
 }
 
 .comment
 {
     background-color: #eee;
-}
-
-#leaveComment
-{
-    clear: both;
-    padding-top: 15px;
-}
-
-#leaveComment textarea
-{
-    width: 500px;
 }
 
 /* Blog Stats */

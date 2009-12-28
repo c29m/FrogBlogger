@@ -75,7 +75,7 @@
         <form action="/Post/Comment" method="post">
             <p>
                 <label for="Subject">Subject:</label>
-                <%= Html.TextBox("Subject")%>
+                <input id="Subject" type="text" class="textbox" />
                 <%= Html.ValidationMessage("Subject", "*")%>
             </p>
             <p>
@@ -97,8 +97,10 @@
                 <%= Html.TextArea("Comment") %>
                 <%= Html.ValidationMessage("Comment", "*")%>
             </p>
-            <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId) %>
-            <input type="submit" value="Submit" />
+            <p>
+                <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId) %>
+                <input type="submit" value="Submit" class="button" />
+            </p>
         </form>
     </div>
 </asp:Content>
