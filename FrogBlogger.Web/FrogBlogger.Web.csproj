@@ -46,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,6 +89,7 @@
     <Compile Include="Helpers\BlogPostHelper.cs" />
     <Compile Include="Helpers\BlogUtility.cs" />
     <Compile Include="Helpers\GravatarHelper.cs" />
+    <Compile Include="Infrastructure\FeedActionResult.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\AjaxResponseStatus.cs" />
     <Compile Include="Models\BlogListBase.cs" />

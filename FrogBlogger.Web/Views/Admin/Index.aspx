@@ -100,8 +100,20 @@
 
         });
 
-        function confirmDelete() {
-            return confirm("Are you sure you want to delete?");  
+        function confirmDelete(action) {
+            if (confirm("Are you sure you want to delete?")) {
+                $.ajax({
+                    callback: deleteCompleted(),
+                    type: "DELETE",
+                    url: action
+                });
+            }
+        }
+        
+        function deleteCompleted()  
+        {  
+            // Reload page  
+            window.location.reload();  
         }
     </script>
 </asp:Content>
@@ -134,7 +146,7 @@
                     <td>10</td>
                     <td><a href="#">Referrals</a></td>
                     <td><%= Html.ActionLink("View", "Details", "Post", new { id = item.BlogPostId  }, null)%></td>
-                    <td><%= Html.ActionLink("Delete", "Delete", new { id = item.BlogPostId }, new { onclick = "confirmDelete();" })%></td>
+                    <td><a onclick="confirmDelete('<%= string.Format("/Admin/Delete/{0}", item.BlogPostId) %>')" href="JavaScript:void(0)">Delete</a></td>
                 </tr>
             <% } %>
             </table>
@@ -162,7 +174,7 @@
                 <% foreach (FrogBlogger.Dal.aspnet_Users user in Model.Authors) { %>
                     <tr>
                         <td><%= user.UserName %></td>
-                        <td><%= Html.ActionLink("Delete", "DeleteAuthor", new { id = user.UserId }, new { onclick = "return confirmDelete()" })%></td>
+                        <td><a onclick="confirmDelete('<%= string.Format("/Admin/DeleteAuthor/{0}", user.UserId) %>')" href="JavaScript:void(0)">Delete</a></td>
                     </tr>
                 <% } %>
             </table>
