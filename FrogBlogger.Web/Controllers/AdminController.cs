@@ -151,6 +151,7 @@ namespace FrogBlogger.Web.Controllers
         /// </summary>
         /// <param name="id">Blog post to delete</param>
         /// <returns>Redirects to the listing page</returns>
+        [AcceptVerbs(HttpVerbs.Delete)]
         public ActionResult Delete(Guid id)
         {
             using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
@@ -167,6 +168,7 @@ namespace FrogBlogger.Web.Controllers
         /// </summary>
         /// <param name="id">Unique ID of the user for which to delete</param>
         /// <returns>Redirects to the Index view</returns>
+        [AcceptVerbs(HttpVerbs.Delete)]
         public ActionResult DeleteAuthor(Guid id)
         {
             using (IDataRepository<Author> repository = new DataRepository<Author>())
