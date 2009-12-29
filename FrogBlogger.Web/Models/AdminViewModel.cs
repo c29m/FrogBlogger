@@ -19,6 +19,15 @@ namespace FrogBlogger.Web.Models
             private set;
         }
 
+        /// <summary>
+        /// Gets a reference to the current blog
+        /// </summary>
+        public Blog CurrentBlog
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region Constructors
@@ -28,10 +37,12 @@ namespace FrogBlogger.Web.Models
         /// </summary>
         /// <param name="blogPosts">The blog posts to display on the admin page</param>
         /// <param name="authors">A list of authors that are associated with the requested blog</param>
-        public AdminViewModel(IList<BlogPost> blogPosts, IList<aspnet_Users> authors)
+        /// <param name="currentBlog">The curent blog</param>
+        public AdminViewModel(IList<BlogPost> blogPosts, IList<aspnet_Users> authors, Blog currentBlog)
             : base(blogPosts)
         {
             Authors = authors;
+            CurrentBlog = currentBlog;
         }
 
         #endregion

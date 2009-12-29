@@ -74,7 +74,7 @@
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
         <form action="/Post/Comment" method="post">
             <label for="Subject">Subject: <em>*</em></label>
-            <input id="Subject" type="text" class="textbox" />
+            <input id="Subject" type="text" />
             <%= Html.ValidationMessage("Subject", "*")%>
             
             <label for="Author">Name: <em>*</em></label>
