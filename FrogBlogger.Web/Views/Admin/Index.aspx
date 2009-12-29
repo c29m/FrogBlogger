@@ -159,9 +159,9 @@
                 <p id="validateTips">All form fields are required.</p>
                 <form id="createUser" action="/Admin/CreateUser" method="post">
                     <fieldset>
-                        <label for="name">Name</label>
+                        <label for="name">Name:</label>
                         <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
-                        <label for="email">Email</label>
+                        <label for="email">Email:</label>
                         <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
                     </fieldset>
                 </form>
