@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 
@@ -9,13 +10,30 @@ namespace FrogBlogger.Web.Helpers
     /// </summary>
     public static class BlogUtility
     {
+        #region Properties
+
+        /// <summary>
+        /// Gets the name of the default blog
+        /// </summary>
+        public static string DefaultBlog
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings[ConfigKeys.DefaultBlog];
+            }
+        }
+
+        #endregion
+
+        #region Public Methods
+
         /// <summary>
         /// Gets the blog ID for the default blog
         /// </summary>
         /// <returns>The unique identifier for the default blog</returns>
         public static Guid GetBlogId()
         {
-            return GetBlogId("FrogBlogger"); // TODO: Make this check for a user configurable default blog
+            return GetBlogId(DefaultBlog);
         }
 
         /// <summary>
@@ -35,10 +53,12 @@ namespace FrogBlogger.Web.Helpers
 
             using (IDataRepository<Blog> repository = new DataRepository<Blog>())
             {
-                blogId = repository.GetSingle(b => b.Name == blogName).BlogId; // TODO: Blog names need to allow spaces
+                blogId = repository.GetSingle(b => b.FriendlyName == blogName).BlogId;
             }
 
             return blogId;
         }
+
+        #endregion
     }
 }

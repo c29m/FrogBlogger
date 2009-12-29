@@ -26,4 +26,15 @@
         /// </summary>
         public const string Admin = "Admin";
     }
+
+    /// <summary>
+    /// Contains string constants that represent configuration key names
+    /// </summary>
+    public static class ConfigKeys
+    {
+        /// <summary>
+        /// The default blog name
+        /// </summary>
+        public const string DefaultBlog = "DefaultBlog";
+    }
 }
