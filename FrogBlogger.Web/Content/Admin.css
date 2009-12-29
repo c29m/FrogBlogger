@@ -1,0 +1,32 @@
+﻿#createUserDialog label
+{
+    float: left;
+    margin: 2px 0px 2px 2px;
+    text-align: left;
+    width: 75px;
+}
+
+#createUserDialog input
+{
+    margin: 2px 0px;
+    width: 165px;
+}
+
+#blogPost label
+{
+    float: left;
+    margin: 3px;
+    text-align: left;
+    width: 890px;
+}
+
+#blogPost .nontext
+{
+    display: block;
+    margin-top: 5px;
+}
+
+#blogPost .nontext input
+{
+    display: block;
+}
