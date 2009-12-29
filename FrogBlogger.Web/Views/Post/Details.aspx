@@ -69,38 +69,31 @@
 		</form>
         <div id="averageRating" style="clear: both;"><%= Html.AverageRating(Model.TotalRatings, Model.AverageRating, 5) %></div>
 	</div>
-    <div id="leaveComment">
-        <h3>Leave Comment</h2>
+    <fieldset id="leaveComment">
+        <legend>Leave Comment</legend>
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
         <form action="/Post/Comment" method="post">
-            <p>
-                <label for="Subject">Subject:</label>
-                <input id="Subject" type="text" class="textbox" />
-                <%= Html.ValidationMessage("Subject", "*")%>
-            </p>
-            <p>
-                <label for="Author">Name:</label>
-                <%= Html.TextBox("Author")%>
-                <%= Html.ValidationMessage("Author", "*")%>
-            </p>
-            <p>
-                <label for="Url">Your URL:</label>
-                <%= Html.TextBox("Url")%>
-            </p>
-            <p>
-                <label for="EmailAddress">Email:</label>
-                <%= Html.TextBox("EmailAddress")%>
-                <%= Html.ValidationMessage("EmailAddress", "*")%>
-            </p>
-            <p>
-                <label for="Comment">Comment:</label>
-                <%= Html.TextArea("Comment") %>
-                <%= Html.ValidationMessage("Comment", "*")%>
-            </p>
-            <p>
-                <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId) %>
-                <input type="submit" value="Submit" class="button" />
-            </p>
+            <label for="Subject">Subject: <em>*</em></label>
+            <input id="Subject" type="text" class="textbox" />
+            <%= Html.ValidationMessage("Subject", "*")%>
+            
+            <label for="Author">Name: <em>*</em></label>
+            <%= Html.TextBox("Author")%>
+            <%= Html.ValidationMessage("Author", "*")%>
+
+            <label for="Url">Your URL:</label>
+            <%= Html.TextBox("Url")%>
+
+            <label for="EmailAddress">Email:</label>
+            <%= Html.TextBox("EmailAddress")%>
+            <%= Html.ValidationMessage("EmailAddress", "*")%>
+
+            <label for="Comment">Comment: <em>*</em></label>
+            <%= Html.TextArea("Comment") %>
+            <%= Html.ValidationMessage("Comment", "*")%>
+
+            <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId) %>
+            <input type="submit" value="Submit" class="button" />
         </form>
-    </div>
+    </fieldset>
 </asp:Content>
