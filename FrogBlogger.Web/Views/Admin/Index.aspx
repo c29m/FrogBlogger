@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/OneColumn.Master" Inherits="System.Web.Mvc.ViewPage<FrogBlogger.Web.Models.AdminViewModel>" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Administer Blog Posts</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ScriptContent" runat="server">
+    <link rel="Stylesheet" href="/Content/Admin.css" type="text/css" />
     <link rel="Stylesheet" href="/Content/ui.tabs.css" type="text/css" />
 	<link rel="stylesheet" href="/Content/jquery-ui-1.7.2.custom.css" type="text/css" media="all" />
     <script type="text/javascript" src="/Scripts/ui/ui.tabs.js"></script>
