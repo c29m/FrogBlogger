@@ -33,12 +33,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_BlogPost_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.Blog), "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), true)]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Keyword_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.Blog), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Keyword), true)]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Referral_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.Blog), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
+[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "BlogPostRating", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPostRating), true)]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_Referral_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "Referral", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Referral), true)]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_UserComment_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(FrogBlogger.Dal.BlogPost), "UserComment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.UserComment), true)]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users))]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "BlogPostKeyword", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPost), "Keyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Keyword))]
 [assembly: EdmRelationshipAttribute("FrogBloggerModel", "BlogUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.aspnet_Users), "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.Blog))]
-[assembly: EdmRelationshipAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(FrogBlogger.Dal.BlogPost), "BlogPostRating", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(FrogBlogger.Dal.BlogPostRating), true)]
 
 #endregion
 
@@ -4314,6 +4314,28 @@ namespace FrogBlogger.Dal
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPostRating")]
+        public EntityCollection<BlogPostRating> BlogPostRatings
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPostRating>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPostRating");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPostRating>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPostRating", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_Referral_BlogPost", "Referral")]
         public EntityCollection<Referral> Referrals
         {
@@ -4370,28 +4392,6 @@ namespace FrogBlogger.Dal
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Keyword>("FrogBloggerModel.BlogPostKeyword", "Keyword", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("FrogBloggerModel", "FK_BlogPostRating_BlogPost", "BlogPostRating")]
-        public EntityCollection<BlogPostRating> BlogPostRatings
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BlogPostRating>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPostRating");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BlogPostRating>("FrogBloggerModel.FK_BlogPostRating_BlogPost", "BlogPostRating", value);
                 }
             }
         }
@@ -5098,10 +5098,12 @@ namespace FrogBlogger.Dal
         /// Create a new UserComment object.
         /// </summary>
         /// <param name="userCommentId">Initial value of the UserCommentId property.</param>
-        public static UserComment CreateUserComment(global::System.Guid userCommentId)
+        /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
+        public static UserComment CreateUserComment(global::System.Guid userCommentId, global::System.String emailAddress)
         {
             UserComment userComment = new UserComment();
             userComment.UserCommentId = userCommentId;
+            userComment.EmailAddress = emailAddress;
             return userComment;
         }
 
@@ -5210,7 +5212,7 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String EmailAddress
         {
@@ -5222,7 +5224,7 @@ namespace FrogBlogger.Dal
             {
                 OnEmailAddressChanging(value);
                 ReportPropertyChanging("EmailAddress");
-                _EmailAddress = StructuralObject.SetValidValue(value, true);
+                _EmailAddress = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("EmailAddress");
                 OnEmailAddressChanged();
             }
