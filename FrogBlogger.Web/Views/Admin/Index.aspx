@@ -124,6 +124,7 @@
         <ul>
             <li><a href="#posts"><span>Posts</span></a></li>
             <li><a href="#users"><span>Users</span></a></li>
+            <li><a href="#settings"><span>Settings</span></a></li>
         </ul>
         <div id="posts">
             <table>
@@ -180,6 +181,21 @@
                 <% } %>
             </table>
             <button id="create-user" class="ui-button ui-state-default ui-corner-all">Create new user</button>
-        </div>
+        </div><!-- end #users-->
+        <div id="settings">
+            <%= Html.ValidationSummary("Update was unsuccessful. Please correct the errors and try again.") %>
+            <fieldset id="leaveComment">
+                <legend>Blog Settings</legend>
+                <form action="/Admin/UpdateBlog" method="post">
+                    <label for="Name">Name: <em>*</em></label>
+                    <%= Html.TextBox("Name", Model.CurrentBlog.Name) %>
+
+                    <label for="FriendlyName">Friendly Name: <em>*</em></label>
+                    <%= Html.TextBox("FriendlyName", Model.CurrentBlog.FriendlyName) %>
+
+                    <input type="submit" value="Submit" class="button" />
+                </form>
+            </fieldset>
+        </div><!-- end settings-->
     </div>
 </asp:Content>

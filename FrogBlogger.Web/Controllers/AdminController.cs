@@ -24,11 +24,13 @@ namespace FrogBlogger.Web.Controllers
         public ActionResult Index()
         {
             AdminViewModel model;
+            Blog blog;
             IList<BlogPost> posts;
             IList<aspnet_Users> users;
             Guid blogId = BlogUtility.GetBlogId();
             FrogBloggerEntities context = DatabaseUtility.GetContext();
 
+            using (IDataRepository<Blog> blogRepository = new DataRepository<Blog>(context))
             using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
             using (IDataRepository<Author> authorRepository = new DataRepository<Author>(context))
             using (IDataRepository<aspnet_Users> userRepository = new DataRepository<aspnet_Users>(context))
@@ -41,9 +43,11 @@ namespace FrogBlogger.Web.Controllers
                          where a.BlogId == blogId
                          join u in userRepository.Fetch() on a.UserId equals u.UserId
                          select u).ToList();
+
+                blog = blogRepository.GetSingle(b => b.BlogId == blogId);
             }
 
-            model = new AdminViewModel(posts, users);
+            model = new AdminViewModel(posts, users, blog);
 
             return View(model);
         }
@@ -260,6 +264,30 @@ namespace FrogBlogger.Web.Controllers
                 tempPost.Visible = blogPost.Visible;
 
                 // Save the changes
+                repository.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// POST: /Admin/UpdateBlog/
+        /// </summary>
+        /// <param name="blog">Blog to update</param>
+        /// <returns>Redirects to the Index page</returns>
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult UpdateBlog([Bind(Include = "BlogId, Name, FriendlyName")]Blog blog)
+        {
+            Guid blogId = BlogUtility.GetBlogId();
+            Blog tempBlog;
+
+            using (IDataRepository<Blog> repository = new DataRepository<Blog>())
+            {
+                tempBlog = repository.GetSingle(b => b.BlogId == blogId);
+                tempBlog.Name = blog.Name;
+                tempBlog.FriendlyName = blog.FriendlyName;
+
+                // Saves the changes to the database
                 repository.SaveChanges();
             }
 

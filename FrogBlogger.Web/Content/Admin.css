@@ -30,3 +30,12 @@
 {
     display: block;
 }
+
+#blogSettings
+{
+    background: #eee;
+    border: solid 2px #699c4d;
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 400px;
+}
