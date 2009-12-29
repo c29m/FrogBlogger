@@ -24,6 +24,15 @@ h3 {
 	font-size: 1.4em;
 }
 
+legend
+{
+    background-color: #eee;
+    border: 1px solid #699c4d;
+    font-size: 1.2em;
+    margin-left: 10px;
+    padding: 2px 5px;
+}
+
 p, ol, ul {
 	margin-bottom: 1.8em;
 	line-height: 160%;
@@ -52,7 +61,7 @@ th
 	width: 900px;
 	height: 130px;
 	margin: 0px auto;
-	background: #699C4D;
+	background: #699c4d;
 }
 
 #header a {
@@ -255,20 +264,35 @@ th
 {
     float: left;
     font-weight: bold;
-    text-align: right;
+    margin: 5px 0px 5px 0px;
+    text-align: left;
     width: 75px;
 }
 
+#leaveComment em
+{
+    color: #f00;
+    font-style: normal;
+    font-weight: bold;
+}
+
+
 #leaveComment input
 {
-    margin-left: 4px;
+    margin: 5px 0px 5px 3px;
+    width: 315px;
+}
+
+#leaveComment .button
+{
+    width: auto;
 }
 
 #leaveComment textarea
 {
     height: 100px;
     margin-left: 4px;
-    width: 386px;
+    width: 388px;
 }
 
 .comment
