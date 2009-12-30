@@ -105,54 +105,13 @@
     <Modules>
      <Module Name="frogblogger.web.dll">
       <Namespaces>
-       <Namespace Name="FrogBlogger.Web">
-        <Types>
-         <Type Name="MvcApplication">
-          <Members>
-           <Member Name="#Application_Start()">
-            <Messages>
-             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'MvcApplication.Application_Start()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-        </Types>
-       </Namespace>
        <Namespace Name="FrogBlogger.Web.Controllers">
         <Types>
-         <Type Name="AccountController">
-          <Members>
-           <Member Name="#ChangePassword(System.String,System.String,System.String)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-12-29 22:27:33Z">
-              <Issue>
-               <Item>'AccountController.ChangePassword(string, string, string)'</Item>
-               <Item>'object'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#LogOn(System.String,System.String,System.Boolean,System.String)">
-            <Messages>
-             <Message Id="3#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Created="2009-12-29 22:27:33Z">
-              <Issue>
-               <Item>'returnUrl'</Item>
-               <Item>'AccountController.LogOn(string, string, bool, string)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
          <Type Name="AdminController">
           <Members>
            <Member Name="#Update(FrogBlogger.Dal.BlogPost,System.String)">
             <Messages>
-             <Message Id="tags" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
+             <Message Id="tags" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-30 04:12:09Z" FixCategory="DependsOnFix">
               <Issue>
                <Item>'tags'</Item>
                <Item>'AdminController.Update(BlogPost, string)'</Item>
@@ -166,66 +125,10 @@
           <Members>
            <Member Name="#Details(System.Int32)">
             <Messages>
-             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
+             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-30 04:12:09Z" FixCategory="DependsOnFix">
               <Issue>
                <Item>'id'</Item>
                <Item>'BlogController.Details(int)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-        </Types>
-       </Namespace>
-       <Namespace Name="System.Web.Mvc">
-        <Types>
-         <Type Name="BlogPostHelper">
-          <Members>
-           <Member Name="#AverageRating(System.Web.Mvc.HtmlHelper,System.Int32,System.Int32,System.Int32)">
-            <Messages>
-             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'helper'</Item>
-               <Item>'BlogPostHelper.AverageRating(this HtmlHelper, int, int, int)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#FormatAuthor(System.Web.Mvc.HtmlHelper,FrogBlogger.Dal.UserComment)">
-            <Messages>
-             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'helper'</Item>
-               <Item>'BlogPostHelper.FormatAuthor(this HtmlHelper, UserComment)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="GravatarHelper">
-          <Members>
-           <Member Name="#Gravatar(System.Web.Mvc.HtmlHelper,System.String,System.Int32)">
-            <Messages>
-             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'helper'</Item>
-               <Item>'GravatarHelper.Gravatar(this HtmlHelper, string, int)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="NavMenuHelper">
-          <Members>
-           <Member Name="#AdminMenuItem(System.Web.Mvc.HtmlHelper,System.Security.Principal.IPrincipal)">
-            <Messages>
-             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'helper'</Item>
-               <Item>'NavMenuHelper.AdminMenuItem(this HtmlHelper, IPrincipal)'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -240,17 +143,8 @@
    </Target>
   </Targets>
   <Rules>
-   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
-    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
-   </Rule>
-   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
-    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
-   </Rule>
    <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
     <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
-   </Rule>
-   <Rule TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054">
-    <Resolution Name="Default">Change the type of parameter {0} of method {1} from string to System.Uri, or provide an overload of {1}, that allows {0} to be passed as a System.Uri object.</Resolution>
    </Rule>
   </Rules>
  </FxCopReport>
