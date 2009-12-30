@@ -13,10 +13,10 @@ namespace FrogBlogger.Test.Helpers
     public class NavMenuHelperTests
     {
         /// <summary>
-        /// Verify that an exception is thrown if the html parameter is null
+        /// Verify that an exception is thrown if the helper parameter is null
         /// </summary>
         [TestMethod]
-        public void NullHtmlParameterShouldThrowException()
+        public void NullHelperParameterShouldThrowException()
         {
             bool exceptionThrown = false;
             MockRepository mocks = new MockRepository();
@@ -28,7 +28,7 @@ namespace FrogBlogger.Test.Helpers
             }
             catch (ArgumentNullException err)
             {
-                exceptionThrown = err.Message.Contains("html");
+                exceptionThrown = err.Message.Contains("helper");
             }
 
             Assert.IsTrue(exceptionThrown);
@@ -41,7 +41,7 @@ namespace FrogBlogger.Test.Helpers
         public void NullUserParameterShouldThrowException()
         {
             bool exceptionThrown = false;
-            HtmlHelper helper = MockRepository.GenerateStrictMock<HtmlHelper>();
+            HtmlHelper helper = Factories.InitializeHtmlHelper();
 
             try
             {
@@ -61,12 +61,29 @@ namespace FrogBlogger.Test.Helpers
         [TestMethod]
         public void AdminMenuHelperShouldReturnEmptyStringIfNotInAdminRole()
         {
-            string returnValue = "GarbageData";
             MockRepository mocks = new MockRepository();
             IPrincipal mockUser = mocks.StrictMock<IPrincipal>();
-            HtmlHelper helper = mocks.StrictMock<HtmlHelper>();
+            HtmlHelper helper = Factories.InitializeHtmlHelper();
+            string returnValue = NavMenuHelper.AdminMenuItem(helper, mockUser);
 
             Assert.IsTrue(String.IsNullOrEmpty(returnValue));
+        }
+
+        /// <summary>
+        /// Verifies that the helper method returns a valid list item for the Admin view if user is a member of the Admin role
+        /// </summary>
+        [TestMethod]
+        public void AdminMenuHelperShouldReturnAdminListItemIfUserIsInAdminRole()
+        {
+            string actualValue;
+            string expectedValue = "<li><a href=\"/Admin\">Admin</a></li>";
+            MockRepository mocks = new MockRepository();
+            IPrincipal mockUser = mocks.StrictMock<IPrincipal>();
+            HtmlHelper helper = Factories.InitializeHtmlHelper();
+
+            actualValue = NavMenuHelper.AdminMenuItem(helper, mockUser);
+
+            Assert.AreEqual<string>(expectedValue, actualValue);
         }
     }
 }
