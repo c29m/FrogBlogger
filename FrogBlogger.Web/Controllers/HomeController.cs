@@ -17,12 +17,6 @@ namespace FrogBlogger.Web.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// Stores the unique identifer for the current blog
-        /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields", Justification = "I am using it. FxCop is acting crazy.")]
-        private static Guid _blogId = BlogUtility.GetBlogId();
-
-        /// <summary>
         /// Gets the home page
         /// </summary>
         /// <returns>The home page</returns>
@@ -30,6 +24,7 @@ namespace FrogBlogger.Web.Controllers
         {
             int count;
             int maxRecords = 10; // TODO: Replace the magic number 10 on this line with a user determined value
+            Guid blogId = BlogUtility.GetBlogId();
             HomeViewModel model;
             List<BlogPost> posts;
             List<Keyword> tags;
@@ -40,17 +35,17 @@ namespace FrogBlogger.Web.Controllers
             using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
             {
                 posts = (from m in repository.Fetch()
-                         where m.BlogId == _blogId
+                         where m.BlogId == blogId
                          orderby m.PostedDate descending
                          select m).Take(maxRecords).ToList();
 
                 tags = (from t in keywordRepository.Fetch()
-                        where t.BlogId == _blogId
+                        where t.BlogId == blogId
                         select t).Take(maxRecords).ToList();
 
                 // Get the total blog post count
                 count = (from m in repository.Fetch()
-                         where m.BlogId == _blogId
+                         where m.BlogId == blogId
                          select m).Count();
 
                 // Determine the comment count for each blog post

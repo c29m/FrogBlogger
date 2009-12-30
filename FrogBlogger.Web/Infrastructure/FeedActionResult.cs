@@ -51,6 +51,9 @@ namespace FrogBlogger.Web.Infrastructure
             SyndicationItem item;
             List<SyndicationItem> items = new List<SyndicationItem>();
 
+            // Specify the type of feed
+            Format = format;
+
             // Initialize the current feed
             Feed = new SyndicationFeed(blogName, description, new Uri(url.RouteUrl("Default")));
 
@@ -72,8 +75,6 @@ namespace FrogBlogger.Web.Infrastructure
                     new Uri(postRelative), post.BlogPostId.ToString(), post.PostedDate.Value);
 
                 items.Add(item);
-
-
             }
 
             Feed.Items = items.OrderByDescending(x => x.LastUpdatedTime);

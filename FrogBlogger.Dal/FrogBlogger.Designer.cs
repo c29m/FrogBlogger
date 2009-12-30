@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -49,6 +50,7 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class FrogBloggerEntities : ObjectContext
     {
         #region Constructors
@@ -755,6 +757,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Applications")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Applications : EntityObject
     {
         #region Factory Method
@@ -977,6 +980,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Membership")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Membership : EntityObject
     {
         #region Factory Method
@@ -1619,6 +1623,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Paths")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Paths : EntityObject
     {
         #region Factory Method
@@ -1853,6 +1858,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_PersonalizationAllUsers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_PersonalizationAllUsers : EntityObject
     {
         #region Factory Method
@@ -2001,6 +2007,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_PersonalizationPerUser")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_PersonalizationPerUser : EntityObject
     {
         #region Factory Method
@@ -2235,6 +2242,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Profile")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Profile : EntityObject
     {
         #region Factory Method
@@ -2435,6 +2443,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Roles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Roles : EntityObject
     {
         #region Factory Method
@@ -2655,6 +2664,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_SchemaVersions")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_SchemaVersions : EntityObject
     {
         #region Factory Method
@@ -2765,6 +2775,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_Users")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_Users : EntityObject
     {
         #region Factory Method
@@ -3201,6 +3212,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="aspnet_WebEvent_Events")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class aspnet_WebEvent_Events : EntityObject
     {
         #region Factory Method
@@ -3608,6 +3620,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Author")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class Author : EntityObject
     {
         #region Factory Method
@@ -3821,6 +3834,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Blog")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class Blog : EntityObject
     {
         #region Factory Method
@@ -3829,10 +3843,18 @@ namespace FrogBlogger.Dal
         /// Create a new Blog object.
         /// </summary>
         /// <param name="blogId">Initial value of the BlogId property.</param>
-        public static Blog CreateBlog(global::System.Guid blogId)
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="friendlyName">Initial value of the FriendlyName property.</param>
+        /// <param name="maxHomePagePosts">Initial value of the MaxHomePagePosts property.</param>
+        /// <param name="showResume">Initial value of the ShowResume property.</param>
+        public static Blog CreateBlog(global::System.Guid blogId, global::System.String name, global::System.String friendlyName, global::System.Int32 maxHomePagePosts, global::System.Boolean showResume)
         {
             Blog blog = new Blog();
             blog.BlogId = blogId;
+            blog.Name = name;
+            blog.FriendlyName = friendlyName;
+            blog.MaxHomePagePosts = maxHomePagePosts;
+            blog.ShowResume = showResume;
             return blog;
         }
 
@@ -3869,7 +3891,7 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -3881,7 +3903,7 @@ namespace FrogBlogger.Dal
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, true);
+                _Name = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -3893,7 +3915,7 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String FriendlyName
         {
@@ -3905,7 +3927,7 @@ namespace FrogBlogger.Dal
             {
                 OnFriendlyNameChanging(value);
                 ReportPropertyChanging("FriendlyName");
-                _FriendlyName = StructuralObject.SetValidValue(value, true);
+                _FriendlyName = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("FriendlyName");
                 OnFriendlyNameChanged();
             }
@@ -3913,6 +3935,54 @@ namespace FrogBlogger.Dal
         private global::System.String _FriendlyName;
         partial void OnFriendlyNameChanging(global::System.String value);
         partial void OnFriendlyNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MaxHomePagePosts
+        {
+            get
+            {
+                return _MaxHomePagePosts;
+            }
+            set
+            {
+                OnMaxHomePagePostsChanging(value);
+                ReportPropertyChanging("MaxHomePagePosts");
+                _MaxHomePagePosts = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaxHomePagePosts");
+                OnMaxHomePagePostsChanged();
+            }
+        }
+        private global::System.Int32 _MaxHomePagePosts;
+        partial void OnMaxHomePagePostsChanging(global::System.Int32 value);
+        partial void OnMaxHomePagePostsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ShowResume
+        {
+            get
+            {
+                return _ShowResume;
+            }
+            set
+            {
+                OnShowResumeChanging(value);
+                ReportPropertyChanging("ShowResume");
+                _ShowResume = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShowResume");
+                OnShowResumeChanged();
+            }
+        }
+        private global::System.Boolean _ShowResume;
+        partial void OnShowResumeChanging(global::System.Boolean value);
+        partial void OnShowResumeChanged();
 
         #endregion
     
@@ -4037,6 +4107,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="BlogPost")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class BlogPost : EntityObject
     {
         #region Factory Method
@@ -4405,6 +4476,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="BlogPostRating")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class BlogPostRating : EntityObject
     {
         #region Factory Method
@@ -4556,6 +4628,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Keyword")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class Keyword : EntityObject
     {
         #region Factory Method
@@ -4722,6 +4795,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="Referral")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class Referral : EntityObject
     {
         #region Factory Method
@@ -4935,6 +5009,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="sysdiagram")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class sysdiagram : EntityObject
     {
         #region Factory Method
@@ -5090,6 +5165,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="UserComment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class UserComment : EntityObject
     {
         #region Factory Method
@@ -5356,6 +5432,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_Applications")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_Applications : EntityObject
     {
         #region Factory Method
@@ -5493,6 +5570,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_MembershipUsers")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_MembershipUsers : EntityObject
     {
         #region Factory Method
@@ -6151,6 +6229,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_Profiles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_Profiles : EntityObject
     {
         #region Factory Method
@@ -6259,6 +6338,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_Roles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_Roles : EntityObject
     {
         #region Factory Method
@@ -6425,6 +6505,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_Users")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_Users : EntityObject
     {
         #region Factory Method
@@ -6649,6 +6730,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_UsersInRoles")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_UsersInRoles : EntityObject
     {
         #region Factory Method
@@ -6733,6 +6815,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_WebPartState_Paths")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_WebPartState_Paths : EntityObject
     {
         #region Factory Method
@@ -6875,6 +6958,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_WebPartState_Shared")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_WebPartState_Shared : EntityObject
     {
         #region Factory Method
@@ -6983,6 +7067,7 @@ namespace FrogBlogger.Dal
     [EdmEntityTypeAttribute(NamespaceName="FrogBloggerModel", Name="vw_aspnet_WebPartState_User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    [GeneratedCode("Entity Framework Designer", "Visual Studio 2010")]
     public partial class vw_aspnet_WebPartState_User : EntityObject
     {
         #region Factory Method

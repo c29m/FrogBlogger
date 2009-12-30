@@ -9,8 +9,24 @@ using FrogBlogger.Dal.Interfaces;
 
 namespace FrogBlogger.Web.Controllers
 {
+    /// <summary>
+    /// Contains action methods for working with the blog view
+    /// </summary>
     public class BlogController : Controller
     {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the BlogController class
+        /// </summary>
+        public BlogController()
+        {
+        }
+
+        #endregion
+
+        #region Action Methods
+
         /// <summary>
         /// GET: /Blog/
         /// </summary>
@@ -66,5 +82,7 @@ namespace FrogBlogger.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        #endregion
     }
 }
