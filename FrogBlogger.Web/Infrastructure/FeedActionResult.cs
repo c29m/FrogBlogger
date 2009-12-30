@@ -37,6 +37,8 @@ namespace FrogBlogger.Web.Infrastructure
 
         #endregion
 
+        #region Constructors
+
         /// <summary>
         /// Prevents an instance of the FeedActionResult class from being insantiated
         /// </summary>
@@ -44,6 +46,14 @@ namespace FrogBlogger.Web.Infrastructure
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the FeedActionResult class
+        /// </summary>
+        /// <param name="blogName">Name of the blog</param>
+        /// <param name="description">Feed description</param>
+        /// <param name="format">Format of the feed</param>
+        /// <param name="url">A URL Helper</param>
+        /// <param name="posts">The posts to include in the feed</param>
         public FeedActionResult(string blogName, string description, FeedFormat format, UrlHelper url, IEnumerable<BlogPost> posts)
         {
             Guid blogPostId;
@@ -55,7 +65,7 @@ namespace FrogBlogger.Web.Infrastructure
             Format = format;
 
             // Initialize the current feed
-            Feed = new SyndicationFeed(blogName, description, new Uri(url.RouteUrl("Default")));
+            Feed = new SyndicationFeed(blogName, description, new Uri(url.RouteUrl("Default"), UriKind.Relative));
 
             //load the posts as items
             foreach (BlogPost post in posts)
@@ -72,13 +82,15 @@ namespace FrogBlogger.Web.Infrastructure
                     });
 
                 item = new SyndicationItem(post.Title, post.Post,
-                    new Uri(postRelative), post.BlogPostId.ToString(), post.PostedDate.Value);
+                    new Uri(postRelative, UriKind.Relative), post.BlogPostId.ToString(), post.PostedDate.Value);
 
                 items.Add(item);
             }
 
             Feed.Items = items.OrderByDescending(x => x.LastUpdatedTime);
         }
+
+        #endregion
 
         #region Public Methods
 

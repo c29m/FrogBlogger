@@ -5,6 +5,8 @@ using System.Web.Mvc;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Models;
+using FrogBlogger.Web.Infrastructure;
+using FrogBlogger.Web.Helpers;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -44,6 +46,25 @@ namespace FrogBlogger.Web.Controllers
             }
 
             return View(model);
+        }
+
+        /// <summary>
+        /// GET: /Post/Feed
+        /// </summary>
+        /// <returns>The feed action result</returns>
+        public ActionResult Feed()
+        {
+            List<BlogPost> posts;
+            Guid blogId = BlogUtility.GetBlogId();
+
+            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            {
+                posts = (from p in repository.Fetch()
+                        where p.BlogId == blogId
+                        select p).Take(10).ToList(); // TODO: Remove the magic number 10 to a user configurable value
+            }
+
+            return new FeedActionResult("FrogBlogger", "Testing", FeedFormat.Atom, Url, posts);
         }
 
         /// <summary>
