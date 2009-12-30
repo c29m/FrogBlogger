@@ -9,7 +9,7 @@ namespace FrogBlogger.Dal
     /// <summary>
     /// Implements IDataRepository to create a data repository
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">An Entity Framework Entity</typeparam>
     public class DataRepository<T> : IDataRepository<T> where T : class
     {
         #region Fields

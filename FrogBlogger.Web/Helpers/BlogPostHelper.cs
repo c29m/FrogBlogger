@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Diagnostics.CodeAnalysis;
 using FrogBlogger.Dal;
 
 namespace System.Web.Mvc
@@ -16,17 +13,18 @@ namespace System.Web.Mvc
         /// </summary>
         /// <param name="helper">Extends the HtmlHelper class</param>
         /// <param name="totalRatings">Total number of ratings</param>
-        /// <param name="averageRating">The average user rating</param>
+        /// <param name="rating">The average user rating</param>
         /// <param name="maxPossible">Maximum possible rating</param>
         /// <returns>A string, which indicates the average rating for a post</returns>
-        public static string AverageRating(this HtmlHelper helper, int totalRatings, int averageRating, int maxPossible)
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "helper")]
+        public static string AverageRating(this HtmlHelper helper, int totalRatings, int rating, int maxPossible)
         {
             if (totalRatings <= 0)
             {
                 return "No ratings...";
             }
 
-            return String.Format("Average user rating - {0}/{1}", averageRating, maxPossible);
+            return String.Format("Average user rating - {0}/{1}", rating, maxPossible);
         }
 
         /// <summary>
@@ -35,6 +33,7 @@ namespace System.Web.Mvc
         /// <param name="helper">Extends the HtmlHelper class</param>
         /// <param name="comment">UserComment for which to obtain an author from</param>
         /// <returns>An author that has been formatted to include a link to his/her blog, if provided</returns>
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "helper")]
         public static string FormatAuthor(this HtmlHelper helper, UserComment comment)
         {
             if (!String.IsNullOrEmpty(comment.Url) && Uri.IsWellFormedUriString(comment.Url, UriKind.Absolute))

@@ -30,7 +30,6 @@
     <Rule Name="AbstractTypesShouldNotHaveConstructors" Enabled="True" />
     <Rule Name="AvoidEmptyInterfaces" Enabled="True" />
     <Rule Name="AvoidExcessiveParametersOnGenericTypes" Enabled="True" />
-    <Rule Name="AvoidNamespacesWithFewTypes" Enabled="True" />
     <Rule Name="AvoidOutParameters" Enabled="True" />
     <Rule Name="CollectionsShouldImplementGenericInterface" Enabled="True" />
     <Rule Name="ConsiderPassingBaseTypesAsParameters" Enabled="True" />
@@ -101,44 +100,6 @@
   <Settings />
  </Rules>
  <FxCopReport Version="1.36">
-  <Namespaces>
-   <Namespace Name="FrogBlogger.Dal.Interfaces">
-    <Messages>
-     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-12-15 18:53:28Z">
-      <Issue>
-       <Item>FrogBlogger.Dal.Interfaces</Item>
-      </Issue>
-     </Message>
-    </Messages>
-   </Namespace>
-   <Namespace Name="FrogBlogger.Web">
-    <Messages>
-     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-12-15 18:53:28Z">
-      <Issue>
-       <Item>FrogBlogger.Web</Item>
-      </Issue>
-     </Message>
-    </Messages>
-   </Namespace>
-   <Namespace Name="FrogBlogger.Web.Models">
-    <Messages>
-     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-12-15 18:53:28Z">
-      <Issue>
-       <Item>FrogBlogger.Web.Models</Item>
-      </Issue>
-     </Message>
-    </Messages>
-   </Namespace>
-   <Namespace Name="System.Web.Mvc">
-    <Messages>
-     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-12-15 18:53:28Z">
-      <Issue>
-       <Item>System.Web.Mvc</Item>
-      </Issue>
-     </Message>
-    </Messages>
-   </Namespace>
-  </Namespaces>
   <Targets>
    <Target Name="$(ProjectDir)/FrogBlogger.Web/bin/FrogBlogger.Web.dll">
     <Modules>
@@ -150,7 +111,7 @@
           <Members>
            <Member Name="#Application_Start()">
             <Messages>
-             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2009-12-15 18:53:28Z" FixCategory="DependsOnFix">
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
               <Issue>
                <Item>'MvcApplication.Application_Start()'</Item>
               </Issue>
@@ -167,7 +128,7 @@
           <Members>
            <Member Name="#ChangePassword(System.String,System.String,System.String)">
             <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-12-15 18:53:28Z">
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-12-29 22:27:33Z">
               <Issue>
                <Item>'AccountController.ChangePassword(string, string, string)'</Item>
                <Item>'object'</Item>
@@ -177,10 +138,24 @@
            </Member>
            <Member Name="#LogOn(System.String,System.String,System.Boolean,System.String)">
             <Messages>
-             <Message Id="3#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Created="2009-12-15 18:53:28Z">
+             <Message Id="3#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Created="2009-12-29 22:27:33Z">
               <Issue>
                <Item>'returnUrl'</Item>
                <Item>'AccountController.LogOn(string, string, bool, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="AdminController">
+          <Members>
+           <Member Name="#Update(FrogBlogger.Dal.BlogPost,System.String)">
+            <Messages>
+             <Message Id="tags" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'tags'</Item>
+               <Item>'AdminController.Update(BlogPost, string)'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -191,55 +166,10 @@
           <Members>
            <Member Name="#Details(System.Int32)">
             <Messages>
-             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-15 18:53:28Z" FixCategory="DependsOnFix">
+             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
               <Issue>
                <Item>'id'</Item>
                <Item>'BlogController.Details(int)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#Edit(System.Int32)">
-            <Messages>
-             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-15 18:53:28Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'id'</Item>
-               <Item>'BlogController.Edit(int)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#Edit(System.Int32,System.Web.Mvc.FormCollection)">
-            <Messages>
-             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-12-15 18:53:28Z">
-              <Issue>
-               <Item>'BlogController.Edit(int, FormCollection)'</Item>
-               <Item>'object'</Item>
-              </Issue>
-             </Message>
-             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-15 18:53:28Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'collection'</Item>
-               <Item>'BlogController.Edit(int, FormCollection)'</Item>
-              </Issue>
-             </Message>
-             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-15 18:53:28Z" FixCategory="DependsOnFix">
-              <Issue>
-               <Item>'id'</Item>
-               <Item>'BlogController.Edit(int, FormCollection)'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="HomeController">
-          <Members>
-           <Member Name="#_blogId">
-            <Messages>
-             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2009-12-15 18:53:28Z">
-              <Issue>
-               <Item>'HomeController._blogId'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -250,14 +180,52 @@
        </Namespace>
        <Namespace Name="System.Web.Mvc">
         <Types>
+         <Type Name="BlogPostHelper">
+          <Members>
+           <Member Name="#AverageRating(System.Web.Mvc.HtmlHelper,System.Int32,System.Int32,System.Int32)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'BlogPostHelper.AverageRating(this HtmlHelper, int, int, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FormatAuthor(System.Web.Mvc.HtmlHelper,FrogBlogger.Dal.UserComment)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'BlogPostHelper.FormatAuthor(this HtmlHelper, UserComment)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
          <Type Name="GravatarHelper">
           <Members>
            <Member Name="#Gravatar(System.Web.Mvc.HtmlHelper,System.String,System.Int32)">
             <Messages>
-             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-15 18:53:28Z" FixCategory="DependsOnFix">
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
               <Issue>
                <Item>'helper'</Item>
                <Item>'GravatarHelper.Gravatar(this HtmlHelper, string, int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NavMenuHelper">
+          <Members>
+           <Member Name="#AdminMenuItem(System.Web.Mvc.HtmlHelper,System.Security.Principal.IPrincipal)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-12-29 22:27:33Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'NavMenuHelper.AdminMenuItem(this HtmlHelper, IPrincipal)'</Item>
               </Issue>
              </Message>
             </Messages>
@@ -272,12 +240,6 @@
    </Target>
   </Targets>
   <Rules>
-   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
-    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
-   </Rule>
-   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
-    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
-   </Rule>
    <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
     <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
    </Rule>
