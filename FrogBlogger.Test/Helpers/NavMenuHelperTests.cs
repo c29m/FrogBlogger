@@ -87,6 +87,7 @@ namespace FrogBlogger.Test.Helpers
             actualValue = NavMenuHelper.AdminMenuItem(helper, mockUser);
 
             Assert.AreEqual<string>(expectedValue, actualValue);
+            mocks.VerifyAll();
         }
     }
 }
