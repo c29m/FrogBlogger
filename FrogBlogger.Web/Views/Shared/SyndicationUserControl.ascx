@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
+<link rel="alternate" type="application/atom+xml" title="<%= FrogBlogger.Web.Helpers.BlogUtility.BlogName %>" href="/Post/Feed/">
