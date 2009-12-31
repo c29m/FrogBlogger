@@ -386,6 +386,7 @@
     <Content Include="Views\Shared\FooterUserControl.ascx" />
     <Content Include="Views\Shared\jQueryFormUserControl.ascx" />
     <Content Include="Views\Shared\MenuUserControl.ascx" />
+    <Content Include="Views\Shared\SyndicationUserControl.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

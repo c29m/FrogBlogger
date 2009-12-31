@@ -64,7 +64,7 @@ namespace FrogBlogger.Web.Controllers
                         select p).Take(10).ToList(); // TODO: Remove the magic number 10 to a user configurable value
             }
 
-            return new FeedActionResult("FrogBlogger", "Testing", FeedFormat.Atom, Url, posts);
+            return new FeedActionResult(BlogUtility.BlogName, String.Format("{0} feed", BlogUtility.BlogName), FeedFormat.Atom, Url, posts);
         }
 
         /// <summary>

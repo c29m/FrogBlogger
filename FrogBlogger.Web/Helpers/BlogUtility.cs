@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 
@@ -11,6 +12,27 @@ namespace FrogBlogger.Web.Helpers
     public static class BlogUtility
     {
         #region Properties
+
+        /// <summary>
+        /// Gets the name of the current blog
+        /// </summary>
+        public static string BlogName
+        {
+            get
+            {
+                string blogName;
+                Guid blogId = GetBlogId();
+
+                using (IDataRepository<Blog> repository = new DataRepository<Blog>())
+                {
+                    blogName = (from b in repository.Fetch()
+                                where b.BlogId == blogId
+                                select b).Single().Name;
+                }
+
+                return blogName;
+            }
+        }
 
         /// <summary>
         /// Gets the name of the default blog
