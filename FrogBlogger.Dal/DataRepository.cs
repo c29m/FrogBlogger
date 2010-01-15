@@ -37,7 +37,7 @@ namespace FrogBlogger.Dal
         }
 
         /// <summary>
-        /// Initializes a new instance of the DataRepository class
+        /// Initializes an ObjectSet that is used to perform create, read, update, and delete operations. 
         /// </summary>
         /// <param name="context">The Entity Framework ObjectContext</param>
         public DataRepository(ObjectContext context)

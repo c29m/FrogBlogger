@@ -52,7 +52,11 @@
       <DependentUpon>FrogBlogger.edmx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IDataRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="IObjectContext.cs" />
+    <Compile Include="ObjectContextAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
