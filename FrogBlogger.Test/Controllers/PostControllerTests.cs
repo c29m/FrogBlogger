@@ -26,7 +26,7 @@ namespace FrogBlogger.Test.Controllers
             Guid blogPostId = Guid.Empty;
             HomeController homeController = new HomeController();
             PostController postController = new PostController();
-            ViewResult homeViewResult = homeController.Index() as ViewResult;
+            ViewResult homeViewResult = homeController.Index(null) as ViewResult;
             HomeViewModel homeViewModel = homeViewResult.ViewData.Model as HomeViewModel;
             ViewResult postViewResult;
             ViewPostViewModel detailsPostViewModel;
@@ -71,7 +71,7 @@ namespace FrogBlogger.Test.Controllers
             int calculatedAverage;
             bool foundRatings = false;
             HomeController homeController = new HomeController();
-            ViewResult homeViewResult = homeController.Index() as ViewResult;
+            ViewResult homeViewResult = homeController.Index(null) as ViewResult;
             HomeViewModel homeViewModel = homeViewResult.ViewData.Model as HomeViewModel;
             PostController postController = new PostController();
             ViewResult postViewResult;

@@ -40,7 +40,7 @@ namespace FrogBlogger.Test.Controllers
         [TestInitialize]
         public void Initialize()
         {
-            _viewResult = _controller.Index() as ViewResult;
+            _viewResult = _controller.Index(null) as ViewResult;
             _viewModel = _viewResult.ViewData.Model as HomeViewModel;
         }
 
