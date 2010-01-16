@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Objects;
 
-namespace FrogBlogger.Dal
+namespace FrogBlogger.Dal.Interfaces
 {
     /// <summary>
     /// Defines the contract for an ObjectContext to be used as an adapter for other ObjectContext types

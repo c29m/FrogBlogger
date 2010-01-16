@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Objects;
+using FrogBlogger.Dal.Interfaces;
 
 namespace FrogBlogger.Dal
 {
