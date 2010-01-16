@@ -67,11 +67,5 @@ namespace FrogBlogger.Dal.Interfaces
         /// Saves changes in the current context
         /// </summary>
         void SaveChanges();
-
-        /// <summary>
-        /// Saves changes in the current context
-        /// </summary>
-        /// <param name="options">Specifies the behavior of the object context</param>
-        void SaveChanges(SaveOptions options);
     }
 }

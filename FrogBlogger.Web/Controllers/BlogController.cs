@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
+using FrogBlogger.Web.Helpers;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -34,11 +33,12 @@ namespace FrogBlogger.Web.Controllers
         public ActionResult Index()
         {
             List<Blog> blogs;
+            Guid blogId = BlogUtility.GetBlogId();
 
             using (IDataRepository<Blog> repository = new DataRepository<Blog>())
             {
                 blogs = (from b in repository.Fetch()
-                         where b.Name == "Sean Test"
+                         where b.BlogId == blogId
                          select b).ToList();
             }
 
