@@ -81,6 +81,37 @@ namespace FrogBlogger.Web.Helpers
             return blogId;
         }
 
+        /// <summary>
+        /// Gets the default page size for a blog
+        /// </summary>
+        /// <returns>The default page size for a blog</returns>
+        public static int GetPageSize()
+        {
+            return GetPageSize(DefaultBlog);
+        }
+
+        /// <summary>
+        /// Gets the default page size for a blog
+        /// </summary>
+        /// <param name="blogName">>Name of the requested blog for which to retrieve the page size for</param>
+        /// <returns>The default page size for a blog</returns>
+        public static int GetPageSize(string blogName)
+        {
+            int pageSize;
+
+            if (String.IsNullOrEmpty(blogName))
+            {
+                throw new InvalidOperationException("blogName cannot be null or empty");
+            }
+
+            using (IDataRepository<Blog> repository = new DataRepository<Blog>())
+            {
+                pageSize = repository.GetSingle(b => b.FriendlyName == blogName).MaxHomePagePosts;
+            }
+
+            return pageSize;
+        }
+
         #endregion
     }
 }

@@ -19,11 +19,13 @@ namespace FrogBlogger.Web.Controllers
         /// <summary>
         /// Gets the home page
         /// </summary>
+        /// <param name="page">Requested page number</param>
         /// <returns>The home page</returns>
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             int count;
-            int maxRecords = 10; // TODO: Replace the magic number 10 on this line with a user determined value
+            int maxRecords = BlogUtility.GetPageSize();
+            int skip = (int)(!page.HasValue ? 0 : (page - 1) * maxRecords);
             Guid blogId = BlogUtility.GetBlogId();
             HomeViewModel model;
             List<BlogPost> posts;
@@ -37,7 +39,7 @@ namespace FrogBlogger.Web.Controllers
                 posts = (from m in repository.Fetch()
                          where m.BlogId == blogId
                          orderby m.PostedDate descending
-                         select m).Take(maxRecords).ToList();
+                         select m).Skip(skip).Take(maxRecords).ToList();
 
                 tags = (from t in keywordRepository.Fetch()
                         where t.BlogId == blogId
