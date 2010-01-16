@@ -84,7 +84,7 @@
             <label for="Url">Your URL:</label>
             <%= Html.TextBox("Url")%>
 
-            <label for="EmailAddress">Email:</label>
+            <label for="EmailAddress">Email: <em>*</em></label>
             <%= Html.TextBox("EmailAddress")%>
             <%= Html.ValidationMessage("EmailAddress", "*")%>
 
