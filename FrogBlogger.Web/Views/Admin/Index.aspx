@@ -193,7 +193,7 @@
                     <label for="FriendlyName">Friendly Name: <em>*</em></label>
                     <%= Html.TextBox("FriendlyName", Model.CurrentBlog.FriendlyName) %>
 
-                    <input type="submit" value="Submit" class="button" />
+                    <button type="submit" class="ui-button ui-state-default ui-corner-all">Submit</button>
                 </form>
             </fieldset>
         </div><!-- end settings-->
