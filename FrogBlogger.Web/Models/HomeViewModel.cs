@@ -38,6 +38,33 @@ namespace FrogBlogger.Web.Models
             private set;
         }
 
+        /// <summary>
+        /// Gets the page number
+        /// </summary>
+        public int Page
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether or not there are more records to display
+        /// </summary>
+        public bool HasNext
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether or not there were any records skipped
+        /// </summary>
+        public bool HasPrevious
+        {
+            get;
+            private set;
+        }
+
         #endregion
 
         #region Constructors
@@ -49,12 +76,18 @@ namespace FrogBlogger.Web.Models
         /// <param name="latestTags">The latest tags</param>
         /// <param name="blogPostCommentCount">A dictionary containing the comment count for each blog post</param>
         /// <param name="blogPostCount">The total number of blog posts for the current blog</param>
-        public HomeViewModel(IList<BlogPost> blogPosts, IList<Keyword> latestTags, Dictionary<Guid, int> blogPostCommentCount, int blogPostCount)
+        /// <param name="page">The current page</param>
+        /// <param name="hasNext">Indicates whether or not there are more records</param>
+        /// <param name="hasPrevious">Indicates whether there are any previous records</param>
+        public HomeViewModel(IList<BlogPost> blogPosts, IList<Keyword> latestTags, Dictionary<Guid, int> blogPostCommentCount, int blogPostCount, int page, bool hasNext, bool hasPrevious)
             : base(blogPosts)
         {
             BlogPostCommentCount = blogPostCommentCount;
             LatestTags = latestTags;
             BlogPostCount = blogPostCount;
+            Page = page;
+            HasNext = hasNext;
+            HasPrevious = hasPrevious;
         }
 
         #endregion
