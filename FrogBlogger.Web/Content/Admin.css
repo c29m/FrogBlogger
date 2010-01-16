@@ -37,5 +37,40 @@
     border: solid 2px #699c4d;
     display: block;
     margin: 10px 0 10px 0;
-    width: 400px;
+    width: 475px;
+}
+
+#blogSettings label
+{
+    float: left;
+    font-weight: bold;
+    margin: 5px 0px 5px 0px;
+    text-align: left;
+    width: 115px;
+}
+
+#blogSettings em
+{
+    color: #f00;
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+#blogSettings input
+{
+    margin: 5px 0px 5px 3px;
+    width: 350px;
+}
+
+#blogSettings .button
+{
+    width: auto;
+}
+
+#blogSettings textarea
+{
+    height: 100px;
+    margin-left: 4px;
+    width: 388px;
 }
