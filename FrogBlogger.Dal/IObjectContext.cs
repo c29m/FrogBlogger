@@ -13,7 +13,7 @@ namespace FrogBlogger.Dal
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
         /// <returns>The ObjectSet to query against</returns>
-        ObjectSet<T> CreateObjectSet<T>() where T : class;
+        IObjectSet<T> CreateObjectSet<T>() where T : class;
 
         /// <summary>
         /// Persists all updates to the data source and resets change tracking in the object context.

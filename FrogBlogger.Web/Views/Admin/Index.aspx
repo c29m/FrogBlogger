@@ -123,7 +123,7 @@
     <div id="container-1">
         <ul>
             <li><a href="#posts"><span>Posts</span></a></li>
-            <li><a href="#users"><span>Users</span></a></li>
+            <li><a href="#authors"><span>Authors</span></a></li>
             <li><a href="#settings"><span>Settings</span></a></li>
         </ul>
         <div id="posts">
@@ -156,7 +156,7 @@
                 <%= Html.ActionLink("Create New", "Create") %>
             </p>
         </div>
-        <div id="users">
+        <div id="authors">
             <div id="createUserDialog" title="Create new user">
                 <p id="validateTips">All form fields are required.</p>
                 <form id="createUser" action="/Admin/CreateUser" method="post">
@@ -197,5 +197,5 @@
                 </form>
             </fieldset>
         </div><!-- end settings-->
-    </div>
+    </div><!-- end container-1-->
 </asp:Content>
