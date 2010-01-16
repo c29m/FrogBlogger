@@ -108,13 +108,10 @@ namespace FrogBlogger.Web.Controllers
             using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
             using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
             {
+                // TODO: There must be a better way to do this
                 posts = (from k in keywordRepository.Fetch()
                             where k.BlogId == blogId && k.Keyword1 == tag
                             select k.BlogPosts).ToList()[0].ToList();
-
-                //posts = (from p in blogPostRepository.Fetch()
-                //         where p.BlogId == blogId && p.Visible == true
-                //         select p).ToList();
             }
 
             model = new BlogListBase(posts);
