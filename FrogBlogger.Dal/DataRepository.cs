@@ -17,7 +17,7 @@ namespace FrogBlogger.Dal
         /// <summary>
         /// Stores the default object context
         /// </summary>
-        private ObjectContext _context;
+        private IObjectContext _context;
 
         /// <summary>
         /// Stores the default object set
@@ -37,10 +37,20 @@ namespace FrogBlogger.Dal
         }
 
         /// <summary>
-        /// Initializes an ObjectSet that is used to perform create, read, update, and delete operations. 
+        /// Initializes a new instance of the DataRepository class
         /// </summary>
         /// <param name="context">The Entity Framework ObjectContext</param>
+        [Obsolete("This constructor is no longer supported. Please use the overload supporting IObjectContext.")]
         public DataRepository(ObjectContext context)
+            : this(new ObjectContextAdapter(context))
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the DataRepository class
+        /// </summary>
+        /// <param name="context">An abstract IObjectContext object</param>
+        public DataRepository(IObjectContext context)
         {
             _context = context;
             _objectSet = _context.CreateObjectSet<T>();
@@ -167,15 +177,6 @@ namespace FrogBlogger.Dal
         public void SaveChanges()
         {
             _context.SaveChanges();
-        }
-
-        /// <summary>
-        /// Saves changes in the current context
-        /// </summary>
-        /// <param name="options">Specifies the behavior of the object context</param>
-        public void SaveChanges(SaveOptions options)
-        {
-            _context.SaveChanges(options);
         }
 
         #endregion
