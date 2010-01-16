@@ -20,9 +20,10 @@ namespace FrogBlogger.Dal
         #region Constructors
 
         /// <summary>
-        /// Prevents the default instance of the ObjectContextAdapter class from being initialized
+        /// Initializes a new instance of the ObjectContextAdapter class
         /// </summary>
-        private ObjectContextAdapter()
+        public ObjectContextAdapter()
+            : this(DatabaseUtility.GetContext())
         {
         }
 
