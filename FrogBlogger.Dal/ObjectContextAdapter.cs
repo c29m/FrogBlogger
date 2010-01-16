@@ -44,8 +44,8 @@ namespace FrogBlogger.Dal
         /// Initializes an ObjectSet that is used to perform create, read, update, and delete operations. 
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
-        /// <returns>The ObjectSet to query against</returns>
-        public ObjectSet<T> CreateObjectSet<T>() where T : class
+        /// <returns>The IObjectSet to query against</returns>
+        public IObjectSet<T> CreateObjectSet<T>() where T : class
         {
             return _context.CreateObjectSet<T>();
         }
