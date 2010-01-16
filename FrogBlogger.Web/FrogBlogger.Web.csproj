@@ -82,6 +82,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Helpers\NavMenuHelper.cs" />
+    <Compile Include="Helpers\PagingHelper.cs" />
     <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

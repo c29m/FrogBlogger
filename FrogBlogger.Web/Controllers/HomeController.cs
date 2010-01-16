@@ -56,7 +56,7 @@ namespace FrogBlogger.Web.Controllers
                     blogPostCommentCount.Add(post.BlogPostId, post.UserComments.Count);
                 }
 
-                model = new HomeViewModel(posts, tags, blogPostCommentCount, count);
+                model = new HomeViewModel(posts, tags, blogPostCommentCount, count, page ?? 1, skip + maxRecords < count, skip - maxRecords >= 0);
             }
 
             return View(model);

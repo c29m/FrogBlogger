@@ -14,6 +14,7 @@
 		    </div><!-- end meta -->
         </div><!-- end post -->
     <% } %>
+    <%= Html.Pager(new Uri("/", UriKind.Relative), "page", Model.Page, Model.HasNext, Model.HasPrevious) %>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="SidebarContent" runat="server">
     <ul>
