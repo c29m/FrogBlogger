@@ -276,7 +276,7 @@ namespace FrogBlogger.Web.Controllers
         /// <param name="blog">Blog to update</param>
         /// <returns>Redirects to the Index page</returns>
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult UpdateBlog([Bind(Include = "BlogId, Name, FriendlyName")]Blog blog)
+        public ActionResult UpdateBlog([Bind(Include = "BlogId, Name, FriendlyName, MaxHomePagePosts, ShowResume")]Blog blog)
         {
             Guid blogId = BlogUtility.GetBlogId();
             Blog tempBlog;
@@ -286,6 +286,8 @@ namespace FrogBlogger.Web.Controllers
                 tempBlog = repository.GetSingle(b => b.BlogId == blogId);
                 tempBlog.Name = blog.Name;
                 tempBlog.FriendlyName = blog.FriendlyName;
+                tempBlog.MaxHomePagePosts = blog.MaxHomePagePosts;
+                tempBlog.ShowResume = blog.ShowResume;
 
                 // Saves the changes to the database
                 repository.SaveChanges();

@@ -184,7 +184,7 @@
         </div><!-- end #users-->
         <div id="settings">
             <%= Html.ValidationSummary("Update was unsuccessful. Please correct the errors and try again.") %>
-            <fieldset id="leaveComment">
+            <fieldset id="blogSettings">
                 <legend>Blog Settings</legend>
                 <form action="/Admin/UpdateBlog" method="post">
                     <label for="Name">Name: <em>*</em></label>
@@ -192,8 +192,16 @@
 
                     <label for="FriendlyName">Friendly Name: <em>*</em></label>
                     <%= Html.TextBox("FriendlyName", Model.CurrentBlog.FriendlyName) %>
+                    
+                    <label for="MaxHomePagePosts">Page Size: <em>*</em></label>
+                    <%= Html.TextBox("MaxHomePagePosts", Model.CurrentBlog.MaxHomePagePosts)%>
+                    
+                    <label for="ShowResume">Show Resume:</label>
+                    <%= Html.CheckBox("ShowResume", Model.CurrentBlog.ShowResume, new { style = "width: auto;" })%>
 
-                    <button type="submit" class="ui-button ui-state-default ui-corner-all">Submit</button>
+                    <p>
+                        <button type="submit" class="ui-button ui-state-default ui-corner-all">Submit</button>
+                    </p>
                 </form>
             </fieldset>
         </div><!-- end settings-->
