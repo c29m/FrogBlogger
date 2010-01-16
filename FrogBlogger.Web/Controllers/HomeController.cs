@@ -92,5 +92,34 @@ namespace FrogBlogger.Web.Controllers
 
             return View(model);
         }
+
+        /// <summary>
+        /// Searches the database for blog posts containing the specified tags
+        /// </summary>
+        /// <param name="tag">Search term for which to query the model against</param>
+        /// <returns>The search results of the query</returns>
+        public ActionResult SearchByTag(string tag)
+        {
+            Guid blogId = BlogUtility.GetBlogId();
+            BlogListBase model;
+            List<BlogPost> posts;
+            IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
+
+            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
+            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
+            {
+                posts = (from k in keywordRepository.Fetch()
+                            where k.BlogId == blogId && k.Keyword1 == tag
+                            select k.BlogPosts).ToList()[0].ToList();
+
+                //posts = (from p in blogPostRepository.Fetch()
+                //         where p.BlogId == blogId && p.Visible == true
+                //         select p).ToList();
+            }
+
+            model = new BlogListBase(posts);
+
+            return View("Search", model);
+        }
     }
 }

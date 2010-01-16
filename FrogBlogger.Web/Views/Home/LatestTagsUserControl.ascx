@@ -2,6 +2,6 @@
 <h2>Latest Tags</h2>
 <ul>
 	<% foreach (FrogBlogger.Dal.Keyword keyword in Model.LatestTags) { %>
-        <li><%= keyword.Keyword1 %></li>
+        <li><%= Html.ActionLink(keyword.Keyword1, "SearchByTag", new { tag = keyword.Keyword1 }) %></li>
     <% } %>
 </ul>
