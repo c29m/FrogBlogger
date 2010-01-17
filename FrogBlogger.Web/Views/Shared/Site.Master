@@ -8,7 +8,7 @@
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
         // Load jQuery
-        google.load("jquery", "1.3.2");
+        google.load("jquery", "1.4");
         google.load("jqueryui", "1.7.2");
         </script>
     <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />
