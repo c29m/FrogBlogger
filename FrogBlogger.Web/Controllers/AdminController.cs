@@ -74,7 +74,7 @@ namespace FrogBlogger.Web.Controllers
                 keywords.AppendFormat("{0} ", keyword.Keyword1);
             }
 
-            ViewData["tags"] = keywords.ToString().TrimEnd();
+            ViewData["tagdata"] = keywords.ToString().TrimEnd();
 
             return View();
         }

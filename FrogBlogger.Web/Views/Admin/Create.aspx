@@ -39,8 +39,11 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        var data = "<%= (string)ViewData["tags"] %>".split(" ");
-        $("#tags").autocomplete(data);
+        var data = "<%= (string)ViewData["tagdata"] %>".split(" ");
+        $("#tags").autocomplete(data, 
+        {
+            multiple: true,
+        });
     });
 </script>
 </asp:Content>
