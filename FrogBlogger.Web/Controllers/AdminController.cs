@@ -8,15 +8,47 @@ using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Helpers;
 using FrogBlogger.Web.Models;
+using MvcContrib;
+using StructureMap;
 
 namespace FrogBlogger.Web.Controllers
 {
     /// <summary>
     /// Contains actions methods for administering the site
     /// </summary>
-    [Authorize(Roles = FrogBlogger.Web.Helpers.Roles.Admin)]
+    [Authorize(Roles = Helpers.Roles.Admin)]
     public class AdminController : Controller
     {
+        #region Fields
+
+        /// <summary>
+        /// The context used for database transactions
+        /// </summary>
+        private IObjectContext _context;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the AdminController class
+        /// </summary>
+        public AdminController()
+        {
+            _context = new ObjectContextAdapter();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the AdminController class
+        /// </summary>
+        /// <param name="context">The context used for database transactions</param>
+        public AdminController(IObjectContext context)
+        {
+            _context = context;
+        }
+
+        #endregion
+
         /// <summary>
         /// GET: /Admin/
         /// </summary>
@@ -28,10 +60,10 @@ namespace FrogBlogger.Web.Controllers
             IList<BlogPost> posts;
             IList<aspnet_Users> users;
             Guid blogId = BlogUtility.GetBlogId();
-            FrogBloggerEntities context = DatabaseUtility.GetContext();
+            IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
 
             using (IDataRepository<Blog> blogRepository = new DataRepository<Blog>(context))
-            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
+            using (IBlogPostRepository blogPostRepository = ObjectFactory.With(context).GetInstance<IBlogPostRepository>())
             using (IDataRepository<Author> authorRepository = new DataRepository<Author>(context))
             using (IDataRepository<aspnet_Users> userRepository = new DataRepository<aspnet_Users>(context))
             {
@@ -89,7 +121,7 @@ namespace FrogBlogger.Web.Controllers
         [ValidateInput(false)]
         public ActionResult Create(BlogPost blogPost, string tags)
         {
-            FrogBloggerEntities context = DatabaseUtility.GetContext();
+            IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
 
             // Create the tags
             CreateTags(tags);
@@ -105,7 +137,8 @@ namespace FrogBlogger.Web.Controllers
                 // Associate any specified tags
                 foreach (string tag in tags.Split(','))
                 {
-                    blogPost.Keywords.Add(keywordRepository.GetSingle(k => k.Keyword1 == tag.Trim()));
+                    string t = tag.Trim();
+                    blogPost.Keywords.Add(keywordRepository.GetSingle(k => k.Keyword1 == t));
                 }
 
                 // Create the blog post
@@ -115,7 +148,7 @@ namespace FrogBlogger.Web.Controllers
                 context.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction(a => a.Index());
         }
 
         /// <summary>
@@ -132,7 +165,7 @@ namespace FrogBlogger.Web.Controllers
             AjaxResponseStatus status = new AjaxResponseStatus("Successful");
 
             // Add user to the admin role
-            provider.AddUsersToRoles(new string[] { name }, new string[] { FrogBlogger.Web.Helpers.Roles.Admin });
+            provider.AddUsersToRoles(new string[] { name }, new string[] { Helpers.Roles.Admin });
 
             // Add user as author of current blog
             using (IDataRepository<Blog> repository = new DataRepository<Blog>())
@@ -158,13 +191,13 @@ namespace FrogBlogger.Web.Controllers
         [AcceptVerbs(HttpVerbs.Delete)]
         public ActionResult Delete(Guid id)
         {
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            using (IBlogPostRepository repository = ObjectFactory.With(_context).GetInstance<IBlogPostRepository>())
             {
                 repository.Delete(x => x.BlogPostId == id);
                 repository.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction(a => a.Index());
         }
 
         /// <summary>
@@ -181,7 +214,7 @@ namespace FrogBlogger.Web.Controllers
                 repository.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction(a => a.Index());
         }
 
         /// <summary>
@@ -220,9 +253,9 @@ namespace FrogBlogger.Web.Controllers
             IList<Keyword> tags;
             Guid blogId = BlogUtility.GetBlogId();
             StringBuilder keywords = new StringBuilder();
-            FrogBloggerEntities context = DatabaseUtility.GetContext();
+            IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
 
-            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
+            using (IBlogPostRepository blogPostRepository = ObjectFactory.With(context).GetInstance<IBlogPostRepository>())
             using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
             {
                 post = blogPostRepository.GetSingle(p => p.BlogPostId == id);
@@ -267,7 +300,7 @@ namespace FrogBlogger.Web.Controllers
                 repository.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction(a => a.Index());
         }
 
         /// <summary>
@@ -293,7 +326,7 @@ namespace FrogBlogger.Web.Controllers
                 repository.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction(a => a.Index());
         }
     }
 }

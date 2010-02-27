@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Web.Mvc;
 using System.Web.Routing;
+using StructureMap;
+using FrogBlogger.Dal.Interfaces;
+using FrogBlogger.Dal;
 
 namespace FrogBlogger.Web
 {
@@ -33,12 +36,18 @@ namespace FrogBlogger.Web
         }
 
         /// <summary>
-        /// The application start event
+        /// The application start event handler
         /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Required to be static because of the way ASP.NET works")]
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Can't be static because of the way ASP.NET works")]
         protected void Application_Start()
         {
             RegisterRoutes(RouteTable.Routes);
+
+            ObjectFactory.Initialize(x =>
+                {
+                    x.ForRequestedType<IObjectContext>().TheDefaultIsConcreteType<ObjectContextAdapter>();
+                    x.ForRequestedType<IBlogPostRepository>().TheDefaultIsConcreteType<BlogPostRepository>();
+                });
         }
     }
 }

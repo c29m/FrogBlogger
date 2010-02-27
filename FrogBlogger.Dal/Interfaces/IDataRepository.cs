@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Data.Objects;
 
 namespace FrogBlogger.Dal.Interfaces
 {
     /// <summary>
     /// Defines a contract for a generic data repository
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The entity type for which to query with</typeparam>
     public interface IDataRepository<T> : IDisposable where T : class
     {
         /// <summary>

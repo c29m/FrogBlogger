@@ -7,6 +7,7 @@ using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Helpers;
 using FrogBlogger.Web.Infrastructure;
 using FrogBlogger.Web.Models;
+using StructureMap;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -15,6 +16,38 @@ namespace FrogBlogger.Web.Controllers
     /// </summary>
     public class PostController : Controller
     {
+        #region Fields
+
+        /// <summary>
+        /// The context used for database transactions
+        /// </summary>
+        private IObjectContext _context;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the PostController class
+        /// </summary>
+        public PostController()
+        {
+            _context = new ObjectContextAdapter();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the PostController class
+        /// </summary>
+        /// <param name="context">The context used for database transactions</param>
+        public PostController(IObjectContext context)
+        {
+            _context = context;
+        }
+
+        #endregion
+
+        #region Action Methods
+
         /// <summary>
         /// GET: /Post/Details/{id}
         /// </summary>
@@ -27,7 +60,7 @@ namespace FrogBlogger.Web.Controllers
             BlogPost post;
             IList<UserComment> comments;
 
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            using (IBlogPostRepository repository = ObjectFactory.With(_context).GetInstance<IBlogPostRepository>())
             {
                 post = repository.GetSingle(x => x.BlogPostId == id);
                 comments = post.UserComments.OrderBy(c => c.PostedDate).ToList();
@@ -73,6 +106,7 @@ namespace FrogBlogger.Web.Controllers
         /// <param name="userComment">The user comment</param>
         /// <returns>Redirects back to the blog post</returns>
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Comment(UserComment userComment)
         {
             userComment.UserCommentId = Guid.NewGuid();
@@ -122,5 +156,7 @@ namespace FrogBlogger.Web.Controllers
 
             return Json(status);
         }
+
+        #endregion
     }
 }

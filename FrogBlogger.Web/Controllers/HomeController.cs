@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Web.Mvc;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Helpers;
 using FrogBlogger.Web.Models;
+using StructureMap;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -30,10 +30,10 @@ namespace FrogBlogger.Web.Controllers
             HomeViewModel model;
             List<BlogPost> posts;
             List<Keyword> tags;
-            FrogBloggerEntities context = DatabaseUtility.GetContext();
+            IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
             Dictionary<Guid, int> blogPostCommentCount = new Dictionary<Guid, int>();
 
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>(context))
+            using (IBlogPostRepository repository = ObjectFactory.With(context).GetInstance<IBlogPostRepository>())
             using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
             {
                 posts = (from m in repository.Fetch()

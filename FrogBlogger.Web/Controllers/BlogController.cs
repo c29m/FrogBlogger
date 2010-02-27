@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using FrogBlogger.Dal;
 using FrogBlogger.Dal.Interfaces;
 using FrogBlogger.Web.Helpers;
+using MvcContrib;
 
 namespace FrogBlogger.Web.Controllers
 {
@@ -80,7 +81,7 @@ namespace FrogBlogger.Web.Controllers
                 repository.SaveChanges();
             }
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction(a => a.Index());
         }
 
         #endregion

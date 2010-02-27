@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogPostRepository.cs" />
     <Compile Include="DatabaseUtility.cs" />
     <Compile Include="DataRepository.cs" />
     <Compile Include="FrogBlogger.Designer.cs">
@@ -51,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FrogBlogger.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBlogPostRepository.cs" />
     <Compile Include="Interfaces\IDataRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IObjectContext.cs" />
