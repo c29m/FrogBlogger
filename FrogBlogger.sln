@@ -6,6 +6,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrogBlogger.Dal", "FrogBlogger.Dal\FrogBlogger.Dal.csproj", "{AF461E63-9283-443C-9D49-5726B7F89079}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{3F69406C-4693-4ECD-8A2F-6B93D7B4CD11}"
+	ProjectSection(SolutionItems) = preProject
+		References\AutoMapper.dll = References\AutoMapper.dll
+		References\MvcContrib.dll = References\MvcContrib.dll
+		References\MvcContrib.TestHelper.dll = References\MvcContrib.TestHelper.dll
+		References\Rhino.Mocks.dll = References\Rhino.Mocks.dll
+		References\StructureMap.dll = References\StructureMap.dll
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{090ADADE-98C6-498D-8D0D-5A0CC0E0B9A7}"
 	ProjectSection(SolutionItems) = preProject

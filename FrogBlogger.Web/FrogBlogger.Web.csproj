@@ -39,6 +39,12 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MvcContrib">
+      <HintPath>..\References\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.TestHelper">
+      <HintPath>..\References\MvcContrib.TestHelper.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\References\StructureMap.dll</HintPath>
     </Reference>

@@ -72,7 +72,8 @@
     <fieldset id="leaveComment">
         <legend>Leave Comment</legend>
         <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
-        <form action="/Post/Comment" method="post">
+        <% using (Html.BeginForm("Comment", "Post", FormMethod.Post)) { %>
+            <%= Html.AntiForgeryToken() %>
             <label for="Subject">Subject: <em>*</em></label>
             <input id="Subject" type="text" />
             <%= Html.ValidationMessage("Subject", "*")%>
@@ -89,11 +90,11 @@
             <%= Html.ValidationMessage("EmailAddress", "*")%>
 
             <label for="Comment">Comment: <em>*</em></label>
-            <%= Html.TextArea("Comment") %>
+            <%= Html.TextArea("Comment")%>
             <%= Html.ValidationMessage("Comment", "*")%>
 
-            <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId) %>
+            <%= Html.Hidden("BlogPostId", Model.Post.BlogPostId)%>
             <input type="submit" value="Submit" class="button" />
-        </form>
+        <% } %>
     </fieldset>
 </asp:Content>

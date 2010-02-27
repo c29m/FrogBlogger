@@ -32,17 +32,7 @@ namespace FrogBlogger.Dal
         /// Initializes a new instance of the DataRepository class
         /// </summary>
         public DataRepository()
-            : this(DatabaseUtility.GetContext())
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the DataRepository class
-        /// </summary>
-        /// <param name="context">The Entity Framework ObjectContext</param>
-        //[Obsolete("This constructor is no longer supported. Please use the overload supporting IObjectContext.")]
-        public DataRepository(ObjectContext context)
-            : this(new ObjectContextAdapter(context))
+            : this(new ObjectContextAdapter(DatabaseUtility.GetContext()))
         {
         }
 
