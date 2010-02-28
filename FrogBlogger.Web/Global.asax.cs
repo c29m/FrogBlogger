@@ -45,8 +45,8 @@ namespace FrogBlogger.Web
 
             ObjectFactory.Initialize(x =>
                 {
-                    x.ForRequestedType<IObjectContext>().TheDefaultIsConcreteType<ObjectContextAdapter>();
-                    x.ForRequestedType<IBlogPostRepository>().TheDefaultIsConcreteType<BlogPostRepository>();
+                    x.For<IObjectContext>().Use<ObjectContextAdapter>();
+                    x.For<IBlogPostRepository>().Use<BlogPostRepository>();
                 });
         }
     }
