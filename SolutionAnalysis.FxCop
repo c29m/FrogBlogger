@@ -101,6 +101,50 @@
  </Rules>
  <FxCopReport Version="1.36">
   <Targets>
+   <Target Name="$(ProjectDir)/FrogBlogger.Dal/bin/Debug/FrogBlogger.Dal.dll">
+    <Modules>
+     <Module Name="frogblogger.dal.dll">
+      <Namespaces>
+       <Namespace Name="FrogBlogger.Dal">
+        <Types>
+         <Type Name="ObjectContextAdapter">
+          <Members>
+           <Member Name="#CreateObjectSet`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Created="2010-02-28 22:36:33Z">
+              <Issue>
+               <Item>'ObjectContextAdapter.CreateObjectSet&lt;T&gt;()'</Item>
+               <Item>'T'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="FrogBlogger.Dal.Interfaces">
+        <Types>
+         <Type Name="IObjectContext">
+          <Members>
+           <Member Name="#CreateObjectSet`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Created="2010-02-28 22:36:33Z">
+              <Issue>
+               <Item>'IObjectContext.CreateObjectSet&lt;T&gt;()'</Item>
+               <Item>'T'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
    <Target Name="$(ProjectDir)/FrogBlogger.Web/bin/FrogBlogger.Web.dll">
     <Modules>
      <Module Name="frogblogger.web.dll">
@@ -143,6 +187,9 @@
    </Target>
   </Targets>
   <Rules>
+   <Rule TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004">
+    <Resolution Name="Default">Consider a design where {0} doesn't require explicit type parameter {1} in any call to it.</Resolution>
+   </Rule>
    <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
     <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
    </Rule>
