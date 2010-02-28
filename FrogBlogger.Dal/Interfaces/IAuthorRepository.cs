@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines the contract for a BlogPost repository
     /// </summary>
-    public interface IBlogPostRepository : IDataRepository<BlogPost>
+    public interface IAuthorRepository : IDataRepository<Author>
     {
     }
 }

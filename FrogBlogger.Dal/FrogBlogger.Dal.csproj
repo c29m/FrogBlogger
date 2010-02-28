@@ -52,6 +52,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FrogBlogger.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IUserCommentRepository.cs" />
+    <Compile Include="Interfaces\IKeywordRepository.cs" />
+    <Compile Include="Interfaces\IReferralRepository.cs" />
+    <Compile Include="Interfaces\IBlogPostRatingRepository.cs" />
+    <Compile Include="Interfaces\IAuthorRepository.cs" />
+    <Compile Include="Interfaces\IBlogRepository.cs" />
     <Compile Include="Interfaces\IBlogPostRepository.cs" />
     <Compile Include="Interfaces\IDataRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
