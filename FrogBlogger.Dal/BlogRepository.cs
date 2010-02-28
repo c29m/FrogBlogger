@@ -3,23 +3,23 @@
 namespace FrogBlogger.Dal
 {
     /// <summary>
-    /// Repository for working with BlogPost records
+    /// Repository for working with Blog records
     /// </summary>
-    public class BlogPostRepository : DataRepository<BlogPost>, IBlogPostRepository
+    public class BlogRepository : DataRepository<Blog>, IBlogRepository
     {
         /// <summary>
-        /// Initializes a new instance of the BlogPostRepository class
+        /// Initializes a new instance of the BlogRepository class
         /// </summary>
-        public BlogPostRepository()
+        public BlogRepository()
             : base()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the BlogPostRepository class
+        /// Initializes a new instance of the BlogRepository class
         /// </summary>
         /// <param name="context">An abstract IObjectContext object</param>
-        public BlogPostRepository(IObjectContext context)
+        public BlogRepository(IObjectContext context)
             : base(context)
         {
         }

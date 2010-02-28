@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogPostRepository.cs" />
+    <Compile Include="AuthorRepository.cs" />
+    <Compile Include="BlogPostRatingRepository.cs" />
+    <Compile Include="BlogRepository.cs" />
+    <Compile Include="UserCommentRepository.cs" />
+    <Compile Include="ReferralRepository.cs" />
+    <Compile Include="KeywordRepository.cs" />
     <Compile Include="DatabaseUtility.cs" />
     <Compile Include="DataRepository.cs" />
     <Compile Include="FrogBlogger.Designer.cs">
