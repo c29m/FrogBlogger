@@ -46,7 +46,13 @@ namespace FrogBlogger.Web
             ObjectFactory.Initialize(x =>
                 {
                     x.For<IObjectContext>().Use<ObjectContextAdapter>();
+                    x.For<IAuthorRepository>().Use<AuthorRepository>();
+                    x.For<IBlogPostRatingRepository>().Use<BlogPostRatingRepository>();
                     x.For<IBlogPostRepository>().Use<BlogPostRepository>();
+                    x.For<IBlogRepository>().Use<BlogRepository>();
+                    x.For<IKeywordRepository>().Use<KeywordRepository>();
+                    x.For<IReferralRepository>().Use<ReferralRepository>();
+                    x.For<IUserCommentRepository>().Use<UserCommentRepository>();
                 });
         }
     }
