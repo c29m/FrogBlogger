@@ -33,10 +33,10 @@ namespace FrogBlogger.Web.Controllers
             IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
             Dictionary<Guid, int> blogPostCommentCount = new Dictionary<Guid, int>();
 
-            using (IBlogPostRepository repository = ObjectFactory.With(context).GetInstance<IBlogPostRepository>())
-            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
+            using (IBlogPostRepository blogPostRepository = ObjectFactory.With(context).GetInstance<IBlogPostRepository>())
+            using (IKeywordRepository keywordRepository = ObjectFactory.With(context).GetInstance<IKeywordRepository>())
             {
-                posts = (from m in repository.Fetch()
+                posts = (from m in blogPostRepository.Fetch()
                          where m.BlogId == blogId
                          orderby m.PostedDate descending
                          select m).Skip(skip).Take(maxRecords).ToList();
@@ -46,7 +46,7 @@ namespace FrogBlogger.Web.Controllers
                         select t).Take(maxRecords).ToList();
 
                 // Get the total blog post count
-                count = (from m in repository.Fetch()
+                count = (from m in blogPostRepository.Fetch()
                          where m.BlogId == blogId
                          select m).Count();
 
@@ -81,7 +81,7 @@ namespace FrogBlogger.Web.Controllers
             BlogListBase model;
             List<BlogPost> posts;
 
-            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>())
+            using (IDataRepository<BlogPost> repository = new DataRepository<BlogPost>()) // TODO: Replace this with StructureMap
             {
                 posts = (from b in repository.Fetch()
                          where b.Title.Contains(searchTerm) || b.Post.Contains(searchTerm)
@@ -105,13 +105,13 @@ namespace FrogBlogger.Web.Controllers
             List<BlogPost> posts;
             IObjectContext context = new ObjectContextAdapter(DatabaseUtility.GetContext());
 
-            using (IDataRepository<BlogPost> blogPostRepository = new DataRepository<BlogPost>(context))
-            using (IDataRepository<Keyword> keywordRepository = new DataRepository<Keyword>(context))
+            using (IBlogPostRepository blogPostRepository = ObjectFactory.With(context).GetInstance<IBlogPostRepository>())
+            using (IKeywordRepository keywordRepository = ObjectFactory.With(context).GetInstance<IKeywordRepository>())
             {
                 // TODO: There must be a better way to do this
                 posts = (from k in keywordRepository.Fetch()
-                            where k.BlogId == blogId && k.Keyword1 == tag
-                            select k.BlogPosts).ToList()[0].ToList();
+                         where k.BlogId == blogId && k.Keyword1 == tag
+                         select k.BlogPosts).ToList()[0].ToList();
             }
 
             model = new BlogListBase(posts);
