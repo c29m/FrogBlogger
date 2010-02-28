@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace System.Web.Mvc
@@ -22,10 +18,11 @@ namespace System.Web.Mvc
         /// <param name="hasNext">Indicates whether or not there are more records</param>
         /// <param name="hasPrevious">Indicates whether there are any previous records</param>
         /// <returns>The HTML for a pagination</returns>
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "helper", Justification = "This is an extension method.")]
         public static string Pager(this HtmlHelper helper, Uri currentUrl, string pageQueryStringParameter, int page, bool hasNext, bool hasPrevious)
         {
-            int previousPage = page - 1;
-            int nextpage = page + 1;
+            int previousPage = page == 0 ? 0 : page - 1;
+            int nextpage = page == Int32.MaxValue ? 0 : page + 1;
             StringBuilder html = new StringBuilder();
             string initialHtml = "<div id=\"pagination\"{0}</div>";
 
